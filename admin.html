@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin HTML</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" id="cpswitch" href="css/orange.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Owl Carousel Stylesheet -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+
+    <!-- Flex Slider Stylesheet -->
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" />
+
+    <!--Date-Picker Stylesheet-->
+    <link rel="stylesheet" href="css/datepicker.css">
+
+    <!-- Magnific Gallery -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <style>
+        #footer {
+            display: flex;
+            margin: 0 0 0 455px;
+            border-top: none;
+        }
+        
+        .col-12.mt-3 {
+            padding: 10px;
+        }
+        
+        #hot {
+            display: none;
+        }
+        
+        #offer {
+            display: none;
+        }
+        
+        #cruise {
+            display: none;
+        }
+        
+        #sports {
+            display: none;
+        }
+        
+        #capital {
+            display: none;
+        }
+        
+        #blogs {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!--============= TOP-BAR ===========-->
+    <div id="top-bar" class="tb-text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div id="info">
+                        <ul class="list-unstyled list-inline">
+                            <li><span><i class="fa fa-map-marker"></i></span>Passerellesnumériques Viet Nam</li>
+                            <li><span><i class="fa fa-phone"></i></span>+03 964 988 91</li>
+                        </ul>
+                    </div>
+                    <!-- end info -->
+                </div>
+                <!-- end columns -->
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div id="links">
+                        <ul class="list-unstyled list-inline">
+                            <li><a href="login.html" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
+                            <li><a href="registration.html" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
+                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="cart.html" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
+                            </li>
+                            <li>
+                                <form>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <div class="form-group currency">
+                                                <span><i class="fa fa-angle-down"></i></span>
+                                                <select class="form-control">
+                                                        <option value="">$</option>
+                                                        <option value="">đ</option>
+                                                        <option value="">£</option>
+                                                    </select>
+                                            </div>
+                                            <!-- end form-group -->
+                                        </li>
+
+                                        <li>
+                                            <div class="form-group language">
+                                                <span><i class="fa fa-angle-down"></i></span>
+                                                <select class="form-control">
+                                                        <option value="">EN</option>
+                                                        <option value="">VI</option>
+                                                        <option value="">FR</option>
+                                                    </select>
+                                            </div>
+                                            <!-- end form-group -->
+                                        </li>
+                                        <li>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span></a>
+                                        </li>
+                                    </ul>
+
+                                </form>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- end links -->
+            </div>
+            <!-- end columns -->
+        </div>
+
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+
+    <!-- end top-bar -->
+
+    <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" id="menu-button">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>                        
+                    </button>
+                <div class="header-search hidden-lg">
+                    <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
+                </div>
+                <a href="index.html" class="navbar-brand"><span><i class="fa fa-plane"></i>START</span>TRAVELS</a>
+            </div>
+            <!-- end navbar-header -->
+
+            <div class="collapse navbar-collapse" id="myNavbar1">
+
+                <ul class="nav navbar-nav navbar-right navbar-search-link">
+                    <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME<span><i class="fa fa-angle-down"></i></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"></li>
+                            <li><a onclick="showHot()">Tour hot</a></li>
+                            <li><a onclick="showOffer()">Tour offer</a></li>
+                            <li><a onclick="showCruise()">Cruise Offers</a></li>
+                            <li><a onclick="showSports()">Harzadous Sports Tour</a></li>
+                            <li><a onclick="showCapital()">Capital Tour</a></li>
+                            <li><a onclick="showBlogs()">Our Latest Blogs</a></li>
+                            <li><a href="">Exit</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a></li>
+                </ul>
+            </div>
+
+            <!-- end navbar collapse -->
+        </div>
+        <!-- end container -->
+
+    </nav>
+    <!-- end navbar -->
+    <!-- end sidenav-content -->
+    <div id="content">
+        <div class="container">
+            <!-- Tour hot -->
+            <div class="modal fade" id="Modal_hot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add tour </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="name_hot" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="img_hot" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="number" class="form-control" id="price_hot" placeholder="Giá">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Chi tiết">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" onclick="saveHot()" class="btn btn-primary">Save</button>
+                            <button type="button" onclick="resetHot()" class="btn btn-warning">Reset</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update hot -->
+            <div class="modal fade" id="update_hot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Product Updates </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="named_hot" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="imgd_hot" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="number" class="form-control" id="priced_hot" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="fromd_hot" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detaild_hot" placeholder="Detail">
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer" id="footer">
+                            <div id="submitHot"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Hot -->
+            <!-- Tour offer -->
+            <div class="modal fade" id="Modal_offer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add tour </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="name_offer" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="img_offer" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="price_offer" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="from_offer" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detail_offer" placeholder="Detail">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" onclick="saveOffer()" class="btn btn-primary">Save</button>
+                            <button type="button" onclick="resetOffer()" class="btn btn-warning">Reset</button>
+                            <button type="button" id="Cancle_offer" data-dismiss="modal" class="btn btn-danger">Cancle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update Offer-->
+            <div class="modal fade" id="update_offer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Product Updates</h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="idd_offer" placeholder="Id">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="named_offer" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="imgd_offer" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="priced_offer" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="fromd_offer" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detaild_offer" placeholder="Detail">
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer" id="footer">
+                            <div id="submitOffer"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Offer -->
+            <!-- Cruise offer -->
+            <div class="modal fade" id="Modal_cruise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add tour </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="name_cruise" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="img_cruise" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="price_cruise" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="from_cruise" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detail_cruise" placeholder="Detail">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" onclick="savecruise()" class="btn btn-primary">Save</button>
+                            <button type="button" onclick="resetcruise()" class="btn btn-warning">Reset</button>
+                            <button type="button" id="Cancle_cruise" data-dismiss="modal" class="btn btn-danger">Cancle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update cruise -->
+            <div class="modal fade" id="update_cruise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Product Updates</h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="named_cruise" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="priced_cruise" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="fromd_cruise" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detaild_cruise" placeholder="Detail">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="imgd_cruise" placeholder="Img">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer" id="footer">
+                            <div id="submitcruise"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Cruise -->
+            <!-- Sport -->
+            <div class="modal fade" id="Modal_Sports" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add tour </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="name_Sports" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="img_Sports" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="price_Sports" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="from_Sports" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detail_Sports" placeholder="Detail">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" onclick="saveSports()" class="btn btn-primary">Save</button>
+                            <button type="button" onclick="resetSports()" class="btn btn-warning">Reset</button>
+                            <button type="button" id="Cancle_Sports" data-dismiss="modal" class="btn btn-danger">Cancle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update sports -->
+            <div class="modal fade" id="update_Sports" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Product Updates</h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="idd_Sports" placeholder="Id">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="named_Sports" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="imgd_Sports" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="priced_Sports" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="fromd_Sports" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detaild_Sports" placeholder="Detail">
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer" id="footer">
+                            <div id="submitSports"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Sports -->
+            <!-- Tour Capital -->
+            <div class="modal fade" id="Modal_Capital" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add tour </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="name_Capital" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="img_Capital" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="price_Capital" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="from_Capital" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detail_Capital" placeholder="Detail">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" onclick="saveCapital()" class="btn btn-primary">Save</button>
+                            <button type="button" onclick="resetCapital()" class="btn btn-warning">Reset</button>
+                            <button type="button" id="Cancle_Capital" data-dismiss="modal" class="btn btn-danger">Cancle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update capital -->
+            <div class="modal fade" id="update_Capital" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Product Updates</h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="idd_Capital" placeholder="Id">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="named_Capital" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="imgd_Capital" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="priced_Capital" placeholder="Price">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="fromd_Capital" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detaild_Capital" placeholder="Detail">
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer" id="footer">
+                            <div id="submitCapital"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Capital -->
+            <!-- Blogs -->
+            <div class="modal fade" id="Modal_Blogs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add tour </h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="name_Blogs" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="file" class="form-control" id="img_Blogs" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="from_Blogs" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detail_Blogs" placeholder="Detail">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" onclick="saveBlogs()" class="btn btn-primary">Save</button>
+                            <button type="button" onclick="resetBlogs()" class="btn btn-warning">Reset</button>
+                            <button type="button" id="Cancle_Blogs" data-dismiss="modal" class="btn btn-danger">Cancle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update blogs -->
+            <div class="modal fade" id="update_Blogs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Product Updates</h5>
+                            <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-row">
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="idd_Blogs" placeholder="Id">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="named_Blogs" placeholder="Name">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="imgd_Blogs" placeholder="Img">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="fromd_Blogs" placeholder="From_to">
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" id="detaild_Blogs" placeholder="Detail">
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer" id="footer">
+                            <div id="submitBlogs"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Blogs -->
+            <!-- Table 2 -->
+            <div class="card shadow mb-4" id="hot">
+                <div class="card-header py-3" data-toggle="modal" data-target="#Modal_hot">
+                    <button id="add_hot" class="btn btn-primary">Add Hot</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name tour</th>
+                                    <th>Img</th>
+                                    <th>Price</th>
+                                    <th>Detail</th>
+                                    <th>From-to</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab2">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end tb2 -->
+            <!-- Table 3 -->
+            <div class="card shadow mb-4" id="offer">
+                <div class="card-header py-3" data-toggle="modal" data-target="#Modal_offer">
+                    <button id="add_offer" class="btn btn-primary">Add Offer</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name tour</th>
+                                    <th>Img</th>
+                                    <th>Price</th>
+                                    <th>Detail</th>
+                                    <th>From-to</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab3">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end tb3 -->
+            <!-- Table 4 -->
+            <div class="card shadow mb-4" id="cruise">
+                <div class="card-header py-3" data-toggle="modal" data-target="#Modal_cruise">
+                    <button id="add_cruise" class="btn btn-primary">Add Cruise</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name tour</th>
+                                    <th>Img</th>
+                                    <th>Price</th>
+                                    <th>Detail</th>
+                                    <th>From-to</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab4">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end tb4 -->
+            <!-- Table 5 -->
+            <div class="card shadow mb-4" id="sports">
+                <div class="card-header py-3" data-toggle="modal" data-target="#Modal_sports">
+                    <button id="add_sports" class="btn btn-primary">Add Harzadous Sports Tour</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name tour</th>
+                                    <th>Img</th>
+                                    <th>Price</th>
+                                    <th>Detail</th>
+                                    <th>From-to</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab5">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end tb5 -->
+            <!-- Table 6 -->
+            <div class="card shadow mb-4" id="capital">
+                <div class="card-header py-3" data-toggle="modal" data-target="#Modal_capital">
+                    <button id="add_capital" class="btn btn-primary">Add Capital Tour</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name tour</th>
+                                    <th>Img</th>
+                                    <th>Price</th>
+                                    <th>Detail</th>
+                                    <th>From-to</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab6">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end tb6 -->
+            <!-- Table 7 -->
+            <div class="card shadow mb-4" id="blogs">
+                <div class="card-header py-3" data-toggle="modal" data-target="#Modal_Blogs">
+                    <button id="add_hot" class="btn btn-primary">Add Blogs</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name blogs</th>
+                                    <th>Img</th>
+                                    <th>Detail</th>
+                                    <th>Author</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab7">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end tb7 -->
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to log out?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
+                    <a class="btn btn-primary" href="login.html">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
