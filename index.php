@@ -859,27 +859,53 @@ function inten() {
     </section>
     <!-- end flexslider-container -->
 
-
     <!--=============== HOTEL OFFERS ===============-->
     <section id="hotel-offers" class="section-padding">
         <div class="container">
-            <div class="modal fade" id="myModalHot" role="dialog">
-                <div class="modal-dialog modal-dialog-centered">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Tour detail</h4>
-                        </div>
-                        <div class="modal-body" id="printf_tour_hot">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php
+             include ("admin_set.php");
+             $tourHot=new tourHot();
+             $sql = "select * from tour_hot";
+                $rows=$tourHot->fetch($sql);
+                    if(!empty($rows)){
+                        foreach($rows as $row){
+                        $id_hot=$row['id_hot'];
+                        $name_hot=$row['name_hot'];
+                        $img_hot=$row['img_hot'];
+                        $price_hot=$row['price_hot'];
+                        $detail_hot=$row['detail_hot'];
+                        $from_to_hot=$row['from_to_hot'];
+                        echo
+                        '<div class="modal fade" id="myModalHot'.$id_hot.'" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <div class="row g-0">
+                                            <div class="col-md-8">
+                                                <img src="images/'.$img_hot.'" alt="" style = "width: 350px; height: 260px;">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card-body">
+                                                <h5 class="card-title">'.$name_hot.'</h5>
+                                                <p class="card-text">'.$detail_hot.'</p>
+                                                <p class="card-text">From: '.$from_to_hot.'</p>
+                                                <p class="card-text"><medium class="text-muted"><b>$'. $price_hot.'</b></medium></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>';
+                        }
+                    }
+                    ?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-heading">
@@ -889,10 +915,47 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-hotel-offers">
-                        <div id="test"></div>
-                        <div id="test"></div>
-                        <div id="test"></div>
-                        <div id="test"></div>
+                    <?php
+                        if(!empty($rows)){
+                            foreach($rows as $row){
+                            $id_hot=$row['id_hot'];
+                            $name_hot=$row['name_hot'];
+                            $img_hot=$row['img_hot'];
+                            $price_hot=$row['price_hot'];
+                            $detail_hot=$row['detail_hot'];
+                            $from_to_hot=$row['from_to_hot'];
+                            echo "<div class='item'>
+                            <div class='main-block hotel-block'>
+                                    <div class='main-img'>
+                                        <a href='#'><img src='images/$img_hot' class='img-responsive' alt='hotel-img'/></a>
+                                        <div class='main-mask'>
+                                            <ul class='list-unstyled list-inline offer-price-1'>
+                                                <li class='price'>$price_hot<span class='divider'>|</span><span class='pkg'>Avg/Week</span></li>
+                                                    <li class='rating'>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star lightgrey'></i></span>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='main-info hotel-info'>
+                                        <div class='arrow'>
+                                            <div data-toggle='modal' data-target='#myModalHot$id_hot'><i class='fa fa-angle-right'></i></div>
+                                        </div>
+                                        <div class='main-title hotel-title'>
+                                            <a href'#'> $name_hot</a>
+                                            <p>From: $from_to_hot</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                " ;
+                            }
+                        }
+                        ?>
                     </div>
                     <!-- end owl-hotel-offers -->
 
@@ -904,9 +967,6 @@ function inten() {
                 <!-- end columns -->
             </div>
             <!-- end row -->
-            <script>
-                listLocal_2()
-            </script>
         </div>
         <!-- end container -->
     </section>
@@ -967,23 +1027,49 @@ function inten() {
     <!--=============== TOUR OFFERS ===============-->
     <section id="tour-offers" class="section-padding">
         <div class="container">
-            <div class="modal fade" id="myModalOffer" role="dialog">
-                <div class="modal-dialog modal-dialog-centered">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Tour details</h4>
+        <?php
+            $tourOffer=new tourOffer();
+            $sql = "select * from tour_offer";
+            $rows=$tourOffer->fetch($sql);
+                if(!empty($rows)){
+                    foreach($rows as $row){
+                    $id_offer=$row['id_offer'];
+                    $name_offer=$row['name_offer'];
+                    $img_offer=$row['img_offer'];
+                    $price_offer=$row['price_offer'];
+                    $detail_offer=$row['detail_offer'];
+                    $from_to_offer=$row['from_to_offer'];
+                    echo
+                    '<div class="modal fade" id="myModalOffer'.$id_offer.'" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <img src="images/'.$img_offer.'" alt="" style = "width: 350px; height: 260px;">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card-body">
+                                            <h5 class="card-title">'.$name_offer.'</h5>
+                                            <p class="card-text">'.$detail_offer.'</p>
+                                            <p class="card-text">From: '.$from_to_offer.'</p>
+                                            <p class="card-text"><medium class="text-muted"><b>$'. $price_offer.'</b></medium></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body" id="printf_tour_offer">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Book tour</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </div>';
+                    }
+                }
+        ?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-heading">
@@ -993,10 +1079,48 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-tour-offers">
-                        <div id="testa"></div>
-                        <div id="testa"></div>
-                        <div id="testa"></div>
-                        <div id="testa"></div>
+                    <?php
+                            $rows=$tourOffer->fetch($sql);
+                                if(!empty($rows)){
+                                    foreach($rows as $row){
+                                    $id_offer=$row['id_offer'];
+                                    $name_offer=$row['name_offer'];
+                                    $img_offer=$row['img_offer'];
+                                    $price_offer=$row['price_offer'];
+                                    $detail_offer=$row['detail_offer'];
+                                    $from_to_offer=$row['from_to_offer'];
+                                    echo "<div class='item'>
+                                    <div class='main-block hotel-block'>
+                                            <div class='main-img'>
+                                                <a href='#'><img src='images/$img_offer' class='img-responsive' alt='hotel-img'/></a>
+                                                <div class='main-mask'>
+                                                    <ul class='list-unstyled list-inline offer-price-1'>
+                                                        <li class='price'>$price_offer<span class='divider'>|</span><span class='pkg'>Avg/Week</span></li>
+                                                            <li class='rating'>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star lightgrey'></i></span>
+                                                            </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class='main-info hotel-info'>
+                                                <div class='arrow'>
+                                                    <div data-toggle='modal' data-target='#myModalOffer$id_offer'><i class='fa fa-angle-right'></i></div>
+                                                </div>
+                                                <div class='main-title hotel-title'>
+                                                    <a href'#'> $name_offer</a>
+                                                    <p>From: $from_to_offer</p>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        " ;
+                                    }
+                                }
+                        ?>
                     </div>
                     <!-- end owl-tour-offers -->
 
@@ -1008,9 +1132,6 @@ function inten() {
                 <!-- end columns -->
             </div>
             <!-- end row -->
-            <script>
-                listLocal_3()
-            </script>
         </div>
         <!-- end container -->
     </section>
@@ -1029,189 +1150,54 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/anh-1-160161747022091907963.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
-                                                </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Qui Nhon Boat Tour</a>
-                                                <p>From: Binh Dinh, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
+                    <?php
+                        $tourCruise=new tourCruise();
+                        $sql = "select * from tour_cruise";
+                        $rows=$tourCruise->fetch($sql);
+                            if(!empty($rows)){
+                                foreach($rows as $row){
+                                $id_cruise=$row['id_cruise'];
+                                $name_cruise=$row['name_cruise'];
+                                $img_cruise=$row['img_cruise'];
+                                $price_cruise=$row['price_cruise'];
+                                $detail_cruise=$row['detail_cruise'];
+                                $from_to_cruise=$row['from_to_cruise'];
+                                echo "<div class='col-sm-6 col-md-6'>
+                                <div class='main-block cruise-block'>
+                                    <div class='row'>
+                                        <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
+                                            <div class='main-img cruise-img'>
+                                                <a href='#'>
+                                                    <img src='images/$img_cruise'class='img-responsive' alt='cruise-img'/>
+                                                    <div class='cruise-mask'>
+                                                        <p>7 Nights, 6 Days</p>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <!-- end cruise-title -->
                                         </div>
-                                        <!-- end cruise-info -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/vịnh lan hạ.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
+                                        <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
+                                            <div class='main-info cruise-info'>
+                                                <div class='main-title cruise-title'>
+                                                    <a href='#'> $name_cruise</a>
+                                                    <p>From: $from_to_cruise</p>
+                                                    <div class='rating'>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star lightgrey'></i></span>
+                                                    </div>
+                                                    <span class='cruise-price'>$price_cruise</span>
                                                 </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Ha Long Bay Tour</a>
-                                                <p>From:Quang Ninh, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
                                             </div>
-                                            <!-- end cruise-title -->
                                         </div>
-                                        <!-- end cruise-info -->
                                     </div>
-                                    <!-- end columns -->
-
                                 </div>
-                                <!-- end row -->
                             </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/tour-nam-du-4-ngay-3-dem-2-800x500.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
-                                                </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Nam Trung Tour</a>
-                                                <p>From: Cat Ba, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
-                                            </div>
-                                            <!-- end cruise-title -->
-                                        </div>
-                                        <!-- end cruise-info -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/du-thuyền.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
-                                                </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Da Nang Boat Tour</a>
-                                                <p>From: Da Nang, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
-                                            </div>
-                                            <!-- end cruise-title -->
-                                        </div>
-                                        <!-- end cruise-info -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
+                                    " ;
+                                }
+                            }
+                        ?>
                     </div>
                     <!-- end row -->
 
@@ -1252,263 +1238,59 @@ function inten() {
     <section id="flight-offers" class="section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-heading">
-                        <h2>Harzadous sports tour</h2>
-                        <hr class="heading-line" />
-                    </div>
-                    <!-- end page-heading -->
-
-                    <div class="row">
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block flight-block">
-                                <a href="#">
-                                    <div class="flight-img">
-                                        <img src="images/trai-nghiem-lan-bien-1024x664.jpg" class="img-responsive" alt="flight-img" />
+            <?php
+                            // include ("admin_set.php");
+                            $tourSport=new tourSport();
+                            $sql = "select * from tour_sport";
+                            $rows=$tourSport->fetch($sql);
+                                if(!empty($rows)){
+                                    foreach($rows as $row){
+                                    $id_sport=$row['id_sport'];
+                                    $name_sport=$row['name_sport'];
+                                    $img_sport=$row['img_sport'];
+                                    $price_sport=$row['price_sport'];
+                                    $detail_sport=$row['detail_sport'];
+                                    $from_to_sport=$row['from_to_sport'];
+                                    echo "<div class='col-sm-6 col-md-4'>
+                                    <div class='main-block flight-block'>
+                                        <a href='#'>
+                                            <div class='flight-img'>
+                                                <img src='images/$img_sport' class='img-responsive' alt='flight-img'/>
+                                            </div>
+                                            <!-- end flight-img -->
+        
+                                            <div class='flight-info'>
+                                                <div class='flight-title'>
+                                                    <h3><span class='flight-destination'>$name_sport</span>|<span class='flight-type'>$name_sport</span></h3>
+                                                </div>
+                                                <!-- end flight-title -->
+        
+                                                <div class='flight-timing'>
+                                                    <ul class='list-unstyled'>
+                                                        <li><span><i class='fa fa-plane'></i></span><span class='date'>Aug, 02-2017 </span>(8:40 PM)</li>
+                                                        <li><span><i class='fa fa-plane'></i></span><span class='date'>Aug, 03-2017 </span>(8:40 PM)</li>
+                                                    </ul>
+                                                </div>
+                                                <!-- end flight-timing -->
+        
+                                                <ul class='list-unstyled list-inline offer-price-1'>
+                                                    <li class='price'>$price_sport<span class='pkg'>Avg/Person</span></li>
+                                                    <li class='rating'>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star lightgrey'></i></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <!-- end flight-img -->
-
-                                    <div class="flight-info">
-                                        <div class="flight-title">
-                                            <h3><span class="flight-destination">Phu Quoc, Viet Nam</span>|<span class="flight-type">OneWay Flight</span></h3>
-                                        </div>
-                                        <!-- end flight-title -->
-
-                                        <div class=" flight-timing">
-                                            <ul class="list-unstyled">
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 02-2017 </span>(8:40 PM)</li>
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 03-2017 </span>(8:40 PM)</li>
-                                            </ul>
-                                        </div>
-                                        <!-- end flight-timing -->
-
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="pkg">Avg/Person</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- end flight-info -->
-                                </a>
-                            </div>
-                            <!-- end flight-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block flight-block">
-                                <a href="#">
-                                    <div class="flight-img">
-                                        <img src="images/7117_tran_tro_de_du_lich_mao_hiem_phat_trien.jpg" class="img-responsive" alt="flight-img" />
-                                    </div>
-                                    <!-- end flight-img -->
-
-                                    <div class="flight-info">
-                                        <div class="flight-title">
-                                            <h3><span class="flight-destination">Nha Trang, Viet Nam</span>|<span class="flight-type">OneWay Flight</span></h3>
-                                        </div>
-                                        <!-- end flight-title -->
-
-                                        <div class=" flight-timing">
-                                            <ul class="list-unstyled">
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 02-2017 </span>(8:40 PM)</li>
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 03-2017 </span>(8:40 PM)</li>
-                                            </ul>
-                                        </div>
-                                        <!-- end flight-timing -->
-
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="pkg">Avg/Person</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- end flight-info -->
-                                </a>
-                            </div>
-                            <!-- end flight-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block flight-block">
-                                <a href="#">
-                                    <div class="flight-img">
-                                        <img src="images/nhay-bungee-o-viet-nam.jpg" class="img-responsive" alt="flight-img" />
-                                    </div>
-                                    <!-- end flight-img -->
-
-                                    <div class="flight-info">
-                                        <div class="flight-title">
-                                            <h3><span class="flight-destination">Nha Trang, Viet Nam</span>|<span class="flight-type">OneWay Flight</span></h3>
-                                        </div>
-                                        <!-- end flight-title -->
-
-                                        <div class=" flight-timing">
-                                            <ul class="list-unstyled">
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 02-2017 </span>(8:40 PM)</li>
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 03-2017 </span>(8:40 PM)</li>
-                                            </ul>
-                                        </div>
-                                        <!-- end flight-timing -->
-
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="pkg">Avg/Person</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- end flight-info -->
-                                </a>
-                            </div>
-                            <!-- end flight-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block flight-block">
-                                <a href="#">
-                                    <div class="flight-img">
-                                        <img src="images/trai-nghiem-Zipline.jpg" class="img-responsive" alt="flight-img" />
-                                    </div>
-                                    <!-- end flight-img -->
-
-                                    <div class="flight-info">
-                                        <div class="flight-title">
-                                            <h3><span class="flight-destination">Qui Nhon, Viet Nam</span>|<span class="flight-type">OneWay Flight</span></h3>
-                                        </div>
-                                        <!-- end flight-title -->
-
-                                        <div class=" flight-timing">
-                                            <ul class="list-unstyled">
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 02-2017 </span>(8:40 PM)</li>
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 03-2017 </span>(8:40 PM)</li>
-                                            </ul>
-                                        </div>
-                                        <!-- end flight-timing -->
-
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="pkg">Avg/Person</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- end flight-info -->
-                                </a>
-                            </div>
-                            <!-- end flight-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block flight-block">
-                                <a href="#">
-                                    <div class="flight-img">
-                                        <img src="images/kham-pha-Du_luon.jpg" class="img-responsive" alt="flight-img" />
-                                    </div>
-                                    <!-- end flight-img -->
-
-                                    <div class="flight-info">
-                                        <div class="flight-title">
-                                            <h3><span class="flight-destination">Nha Trang, Viet Nam</span>|<span class="flight-type">OneWay Flight</span></h3>
-                                        </div>
-                                        <!-- end flight-title -->
-
-                                        <div class=" flight-timing">
-                                            <ul class="list-unstyled">
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 02-2017 </span>(8:40 PM)</li>
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 03-2017 </span>(8:40 PM)</li>
-                                            </ul>
-                                        </div>
-                                        <!-- end flight-timing -->
-
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="pkg">Avg/Person</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- end flight-info -->
-                                </a>
-                            </div>
-                            <!-- end flight-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block flight-block">
-                                <a href="#">
-                                    <div class="flight-img">
-                                        <img src="images/trai-nghiem-flyboard.jpg" class="img-responsive" alt="flight-img" />
-                                    </div>
-                                    <!-- end flight-img -->
-
-                                    <div class="flight-info">
-                                        <div class="flight-title">
-                                            <h3><span class="flight-destination">Ha Noi, Viet Nam</span>|<span class="flight-type">OneWay Flight</span></h3>
-                                        </div>
-                                        <!-- end flight-title -->
-
-                                        <div class=" flight-timing">
-                                            <ul class="list-unstyled">
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 02-2017 </span>(8:40 PM)</li>
-                                                <li><span><i class="fa fa-plane"></i></span><span class="date">Aug, 03-2017 </span>(8:40 PM)</li>
-                                            </ul>
-                                        </div>
-                                        <!-- end flight-timing -->
-
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="pkg">Avg/Person</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- end flight-info -->
-                                </a>
-                            </div>
-                            <!-- end flight-block -->
-                        </div>
-                        <!-- end columns -->
-
-                    </div>
-                    <!-- end row -->
-
-                    <div class="view-all text-center">
-                        <a href="cruise-homepage.html" class="btn btn-orange">View All</a>
-                    </div>
-                    <!-- end view-all -->
-                </div>
+                                </div>
+                                        " ;
+                                    }
+                                }
+                        ?>
                 <!-- end columns -->
             </div>
             <!-- end row -->
@@ -1601,129 +1383,93 @@ function inten() {
                         <hr class="heading-line" />
                     </div>
                     <!-- end page-heading -->
-
+                    <?php
+                        $tourCapital=new tourCapital();
+                        $sql = "select * from tour_capital";
+                        $rows=$tourCapital->fetch($sql);
+                            if(!empty($rows)){
+                                foreach($rows as $row){
+                                $id_capital=$row['id_capital'];
+                                $name_capital=$row['name_capital'];
+                                $img_capital=$row['img_capital'];
+                                $price_capital=$row['price_capital'];
+                                $detail_capital=$row['detail_capital'];
+                                $from_to_capital=$row['from_to_capital'];
+                                echo
+                                '<div class="modal fade" id="myModalCapital'.$id_capital.'" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <div class="row g-0">
+                                                    <div class="col-md-8">
+                                                        <img src="images/'.$img_capital.'" alt="" style = "width: 350px; height: 260px;">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title">'.$name_capital.'</h5>
+                                                        <p class="card-text">'.$detail_capital.'</p>
+                                                        <p class="card-text">From: '.$from_to_capital.'</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$'. $price_capital.'</b></medium></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
+                                }
+                            }
+                    ?>
                     <div class="row">
+                    <?php
+                            if(!empty($rows)){
+                                foreach($rows as $row){
+                                $id_capital=$row['id_capital'];
+                                $name_capital=$row['name_capital'];
+                                $img_capital=$row['img_capital'];
+                                $price_capital=$row['price_capital'];
+                                $detail_capital=$row['detail_capital'];
+                                $from_to_capital=$row['from_to_capital'];
+                                echo "<div class='col-sm-6 col-md-4'>
+                                        <div class='main-block vehicle-block'>
 
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block vehicle-block">
-                                <div class="main-img vehicle-img">
-                                    <a href="#">
-                                        <img src="images/kinh-nghiem-du-lich-ha-noi-tu-a-den-z-10.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="vehicle-time">
-                                        <p><span><i class="fa fa-clock-o"></i></span>22/h</p>
-                                    </div>
-                                    <!-- end vehicle-time -->
-                                </div>
-                                <!-- end vehicle-img -->
+                                            <div class='main-img vehicle-img'>
+                                                <a href='#'><img src='images/$img_capital' class='img-responsive' alt='tour-img'/></a>
+                                                <div class='vehicle-time'><p><span><i class='fa fa-clock-o'></i></span>22/h</p></div>
+                                            </div>
 
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">$89<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div>
-                                <!-- end offer-price-2 -->
+                                            <div class='offer-price-2'>
+                                                <ul class='list-unstyled'>
+                                                    <li class='price'>$price_capital<a data-toggle='modal' data-target='#myModalCapital$id_capital'><span class='arrow' ><i class='fa fa-angle-right'></i></span></a></li>
+                                                    
+                                                </ul>
+                                            </div>
 
-                                <div class="main-info vehicle-info">
-                                    <div class="main-title vehicle-title">
-                                        <a href="#">Quoc Tu Giam</a>
-                                        <p>Ha Noi</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star lightgrey"></i></span>
+                                            <div class='main-info vehicle-info'>
+                                                <div class='main-title vehicle-title'>
+                                                    <a href='#'> $name_capital</a>
+                                                    <p>Ha Noi</p>
+                                                    <div class='rating'>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star orange'></i></span>
+                                                        <span><i class='fa fa-star lightgrey'></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- end vehicle-title -->
-                                </div>
-                                <!-- end vehicle-info -->
-                            </div>
-                            <!-- end vehicle-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block vehicle-block">
-                                <div class="main-img vehicle-img">
-                                    <a href="#">
-                                        <img src="images/chua-mot-cot.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="vehicle-time">
-                                        <p><span><i class="fa fa-clock-o"></i></span>22/h</p>
-                                    </div>
-                                    <!-- end vehicle-time -->
-                                </div>
-                                <!-- end vehicle-img -->
-
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">$99<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div>
-                                <!-- end offer-price-2 -->
-
-                                <div class="main-info vehicle-info">
-                                    <div class="main-title vehicle-title">
-                                        <a href="#">Mot Cot Pagoda</a>
-                                        <p>Ha Noi</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star lightgrey"></i></span>
-                                        </div>
-                                    </div>
-                                    <!-- end vehicle-title -->
-                                </div>
-                                <!-- end vehicle-info -->
-                            </div>
-                            <!-- end vehicle-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block vehicle-block">
-                                <div class="main-img vehicle-img">
-                                    <a href="#">
-                                        <img src="images/cam-nang-du-lich-ha-noi-mytour-1.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="vehicle-time">
-                                        <p><span><i class="fa fa-clock-o"></i></span>22/h</p>
-                                    </div>
-                                    <!-- end vehicle-time -->
-                                </div>
-                                <!-- end vehicle-img -->
-
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">$79<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div>
-                                <!-- end offer-price-2 -->
-
-                                <div class="main-info vehicle-info">
-                                    <div class="main-title vehicle-title">
-                                        <a href="#">Hoan Kiem Lake</a>
-                                        <p>Ha Noi</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star lightgrey"></i></span>
-                                        </div>
-                                    </div>
-                                    <!-- end vehicle-title -->
-                                </div>
-                                <!-- end vehicle-info -->
-                            </div>
-                            <!-- end vehicle-block -->
-                        </div>
-                        <!-- end columns -->
-
+                                    " ;
+                                }
+                            }
+                        ?>
                     </div>
                     <!-- end row -->
 
@@ -1837,109 +1583,50 @@ function inten() {
                     </div>
 
                     <div class="row">
+                    <?php
+                        $tourCapital=new blog();
+                        $sql = "select * from blog";
+                        $rows=$tourCapital->fetch($sql);
+                            if(!empty($rows)){
+                                foreach($rows as $row){
+                                $id_blog=$row['id_blog'];
+                                $img_blog=$row['img_blog'];
+                                $author_blog=$row['author_blog'];
+                                $time_blog=$row['time_blog'];
+                                $title_blog=$row['title_blog'];
+                                $content_blog=$row['content_blog'];
+                                echo "<div class='col-sm-6 col-md-4'>
+                                        <div class='main-block latest-block'>
 
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block latest-block">
-                                <div class="main-img latest-img">
-                                    <a href="blog-detail-right-sidebar.html">
-                                        <img src="images/vietnamIGHC.jpg" class="img-responsive" alt="blog-img" />
-                                    </a>
-                                </div>
-                                <!-- end latest-img -->
+                                            <div class='main-img latest-img'>
+                                                <a href='blog-detail-right-sidebar.html'>
+                                                    <img src='images/$img_blog' class='img-responsive' alt='blog-img'/>
+                                                </a>
+                                            </div>
 
-                                <div class="latest-info">
-                                    <ul class="list-unstyled">
-                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>29 April,2020<span class="author">by: <a href="blog-detail-right-sidebar.html">Khang Ha</a></span></li>
-                                    </ul>
-                                </div>
-                                <!-- end latest-info -->
-
-                                <div class="main-info latest-desc">
-                                    <div class="row">
-                                        <div class="col-xs-10 col-sm-10 main-title">
-                                            <a href="blog-detail-right-sidebar.html">Travel Insuranve Benefits</a>
-                                            <p>Travel Insurance is the kind of insuarance pays the expenses and damages that concern the travels.</p>
-                                        </div>
-                                        <!-- end columns -->
+                                            <div class='latest-info'>
+                                                <ul class='list-unstyled'>
+                                                    <li><span><i class='fa fa-calendar-minus-o'></i></span>$time_blog<span class='author'>by: <a href='blog-detail-right-sidebar.html'>$author_blog</a></span></li>
+                                                </ul>
+                                            </div>
+                                            <div class='main-info latest-desc'>
+                                                <div class='row'>
+                                                    <div class='col-xs-10 col-sm-10 main-title'>
+                                                        <a href='blog-detail-right-sidebar.html'>$title_blog</a>
+                                                        <p>$content_blog</p>
+                                                    </div>
+                                                </div>
+                                                <span class='arrow'><a href='blog-detail-right-sidebar.html'><i class='fa fa-angle-right'></i></a></span>
+                                            </div>
+                                        
                                     </div>
-                                    <!-- end row -->
-
-                                    <span class="arrow"><a href="blog-detail-right-sidebar.html"><i class="fa fa-angle-right"></i></a></span>
+                                    
                                 </div>
-                                <!-- end latest-desc -->
-                            </div>
-                            <!-- end latest-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block latest-block">
-                                <div class="main-img latest-img">
-                                    <a href="blog-detail-right-sidebar.html">
-                                        <img src="images/at_nhung-hinh-anh-du-lich-dep-me-hon-cua-vung-dat-tay-bac_019194d3614616680f8a580c1f6a964e.jpg" class="img-responsive" alt="blog-img" />
-                                    </a>
-                                </div>
-                                <!-- end latest-img -->
-
-                                <div class="latest-info">
-                                    <ul class="list-unstyled">
-                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>11 April,2020<span class="author">by: <a href="blog-detail-right-sidebar.html">Huan Nguyen</a></span></li>
-                                    </ul>
-                                </div>
-                                <!-- end latest-info -->
-
-                                <div class="main-info latest-desc">
-                                    <div class="row">
-                                        <div class="col-xs-10 col-sm-10 main-title">
-                                            <a href="#">Travel Guideline Agents</a>
-                                            <p>Please contact us for the most enjoyable experience. We will always stand by you on your journey.</p>
-                                        </div>
-                                        <!-- end columns -->
-                                    </div>
-                                    <!-- end row -->
-
-                                    <span class="arrow"><a href="blog-detail-right-sidebar.html"><i class="fa fa-angle-right"></i></a></span>
-                                </div>
-                                <!-- end latest-desc -->
-                            </div>
-                            <!-- end latest-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-4">
-                            <div class="main-block latest-block">
-                                <div class="main-img latest-img">
-                                    <a href="blog-detail-right-sidebar.html">
-                                        <img src="images/99-thuyen_hoa.jpg" class="img-responsive" alt="blog-img" />
-                                    </a>
-                                </div>
-                                <!-- end latest-img -->
-
-                                <div class="latest-info">
-                                    <ul class="list-unstyled">
-                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>09 April,2020<span class="author">by: <a href="blog-detail-right-sidebar.html">Hang Ho</a></span></li>
-                                    </ul>
-                                </div>
-                                <!-- end latest-info -->
-
-                                <div class="main-info latest-desc">
-                                    <div class="row">
-                                        <div class="col-xs-10 col-sm-10 main-title">
-                                            <a href="blog-detail-right-sidebar.html">Secure Travel Tips</a>
-                                            <p>Traveling is a great hobby for life, but you can't always travel safely. Stay tuned with us for more tips for your travel.</p>
-                                        </div>
-                                        <!-- end columns -->
-                                    </div>
-                                    <!-- end row -->
-
-                                    <span class="arrow"><a href="blog-detail-right-sidebar.html"><i class="fa fa-angle-right"></i></a></span>
-                                </div>
-                                <!-- end latest-desc -->
-                            </div>
-                            <!-- end latest-block -->
-                        </div>
-                        <!-- end columns -->
-
+                                            
+                                    " ;
+                                }
+                            }
+                    ?>
                     </div>
                     <!-- end row -->
 
