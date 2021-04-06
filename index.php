@@ -1151,9 +1151,64 @@ function inten() {
 
                     <div class="row">
                     <?php
-                        $tourCruise=new tourCruise();
-                        $sql = "select * from tour_cruise";
-                        $rows=$tourCruise->fetch($sql);
+                            // include ("admin_set.php");
+                            $tourCruise=new tourCruise();
+                            $sql = "select * from tour_cruise";
+                            $rows=$tourCruise->fetch($sql);
+                                if(!empty($rows)){
+                                    foreach($rows as $row){
+                                    $id_cruise=$row['id_cruise'];
+                                    $name_cruise=$row['name_cruise'];
+                                    $img_cruise=$row['img_cruise'];
+                                    $price_cruise=$row['price_cruise'];
+                                    $detail_cruise=$row['detail_cruise'];
+                                    $from_to_cruise=$row['from_to_cruise'];
+                                    echo "<div class='col-sm-6 col-md-6'>
+                                    <div class='main-block cruise-block'>
+                                        <div class='row'>
+                                            <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
+                                                <div class='main-img cruise-img'>
+                                                    <a>
+                                                    <div data-toggle='modal' data-target='#myModalCruise$id_cruise'><img src='images/$img_cruise'class='img-responsive' alt='cruise-img'/></div>
+                                                        <div class='cruise-mask'>
+                                                            <p>7 Nights, 6 Days</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+    
+                                            <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
+                                                <div class='main-info cruise-info'>
+                                                    <div class='main-title cruise-title'>
+                                                        <a href='#'> $name_cruise</a>
+                                                        <p>From: $from_to_cruise</p>
+                                                        <div class='rating'>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star lightgrey'></i></span>
+                                                        </div>
+                                                        <span class='cruise-price'>$price_cruise</span>
+                                                    </div>
+                                                    
+                                                </div>
+                                               
+                                            </div>
+        
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                
+                                        " ;
+                                    }
+                                }
+                        ?>
+                    </div>
+                    <!-- end row -->
+                    <?php
                             if(!empty($rows)){
                                 foreach($rows as $row){
                                 $id_cruise=$row['id_cruise'];
@@ -1162,47 +1217,40 @@ function inten() {
                                 $price_cruise=$row['price_cruise'];
                                 $detail_cruise=$row['detail_cruise'];
                                 $from_to_cruise=$row['from_to_cruise'];
-                                echo "<div class='col-sm-6 col-md-6'>
-                                <div class='main-block cruise-block'>
-                                    <div class='row'>
-                                        <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
-                                            <div class='main-img cruise-img'>
-                                                <a href='#'>
-                                                    <img src='images/$img_cruise'class='img-responsive' alt='cruise-img'/>
-                                                    <div class='cruise-mask'>
-                                                        <p>7 Nights, 6 Days</p>
+                                echo
+                                '<div class="modal fade" id="myModalCruise'.$id_cruise.'" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <div class="row g-0">
+                                                    <div class="col-md-8">
+                                                        <img src="images/'.$img_cruise.'" alt="" style = "width: 350px; height: 260px;">
                                                     </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
-                                            <div class='main-info cruise-info'>
-                                                <div class='main-title cruise-title'>
-                                                    <a href='#'> $name_cruise</a>
-                                                    <p>From: $from_to_cruise</p>
-                                                    <div class='rating'>
-                                                        <span><i class='fa fa-star orange'></i></span>
-                                                        <span><i class='fa fa-star orange'></i></span>
-                                                        <span><i class='fa fa-star orange'></i></span>
-                                                        <span><i class='fa fa-star orange'></i></span>
-                                                        <span><i class='fa fa-star lightgrey'></i></span>
+                                                    <div class="col-md-4">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title">'.$name_cruise.'</h5>
+                                                        <p class="card-text">'.$detail_cruise.'</p>
+                                                        <p class="card-text">From: '.$from_to_cruise.'</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$'. $price_cruise.'</b></medium></p>
+                                                        </div>
                                                     </div>
-                                                    <span class='cruise-price'>$price_cruise</span>
                                                 </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                                    " ;
+                                </div>';
                                 }
                             }
-                        ?>
-                    </div>
-                    <!-- end row -->
+                    ?>
 
                     <div class="view-all text-center">
-                        <a href="cruise-homepage.php" class="btn btn-orange">View All</a>
+                        <a href="cruise-homepage.html" class="btn btn-orange">View All</a>
                     </div>
                     <!-- end view-all -->
                 </div>
@@ -1238,7 +1286,15 @@ function inten() {
     <section id="flight-offers" class="section-padding">
         <div class="container">
             <div class="row">
-            <?php
+                <div class="col-sm-12">
+                    <div class="page-heading">
+                        <h2>Harzadous sports tour</h2>
+                        <hr class="heading-line" />
+                    </div>
+                    <!-- end page-heading -->
+
+                    <div class="row">
+                    <?php
                             // include ("admin_set.php");
                             $tourSport=new tourSport();
                             $sql = "select * from tour_sport";
@@ -1253,9 +1309,9 @@ function inten() {
                                     $from_to_sport=$row['from_to_sport'];
                                     echo "<div class='col-sm-6 col-md-4'>
                                     <div class='main-block flight-block'>
-                                        <a href='#'>
+                                        <a>
                                             <div class='flight-img'>
-                                                <img src='images/$img_sport' class='img-responsive' alt='flight-img'/>
+                                            <div data-toggle='modal' data-target='#myModalSport$id_sport'><img src='images/$img_sport' class='img-responsive' alt='flight-img'/></div>
                                             </div>
                                             <!-- end flight-img -->
         
@@ -1284,13 +1340,65 @@ function inten() {
                                                     </li>
                                                 </ul>
                                             </div>
+                                            
                                         </a>
                                     </div>
+                                   
                                 </div>
                                         " ;
                                     }
                                 }
                         ?>
+
+                    </div>
+                    <!-- end row -->
+                    <?php
+                            if(!empty($rows)){
+                                foreach($rows as $row){
+                                $id_sport=$row['id_sport'];
+                                $name_sport=$row['name_sport'];
+                                $img_sport=$row['img_sport'];
+                                $price_sport=$row['price_sport'];
+                                $detail_sport=$row['detail_sport'];
+                                $from_to_sport=$row['from_to_sport'];
+                                echo
+                                '<div class="modal fade" id="myModalSport'.$id_sport.'" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <div class="row g-0">
+                                                    <div class="col-md-8">
+                                                        <img src="images/'.$img_sport.'" alt="" style = "width: 350px; height: 260px;">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title">'.$name_sport.'</h5>
+                                                        <p class="card-text">'.$detail_sport.'</p>
+                                                        <p class="card-text">From: '.$from_to_sport.'</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$'. $price_sport.'</b></medium></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
+                                }
+                            }
+                    ?>
+
+
+                    <div class="view-all text-center">
+                        <a href="cruise-homepage.html" class="btn btn-orange">View All</a>
+                    </div>
+                    <!-- end view-all -->
+                </div>
                 <!-- end columns -->
             </div>
             <!-- end row -->
@@ -1298,7 +1406,6 @@ function inten() {
         <!-- end container -->
     </section>
     <!-- end flight-offers -->
-
 
     <!--==================== HIGHLIGHTS ====================-->
     <section id="highlights" class="section-padding back-size">

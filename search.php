@@ -12,9 +12,7 @@
     UNION ALL
     SELECT * FROM tour_capital WHERE (name_capital LIKE '%$str%') OR (price_capital LIKE '%$str%') OR (from_to_capital LIKE '%$str%')
     UNION ALL
-    SELECT * FROM tour_sport WHERE (name_sport LIKE '%$str%') OR (price_sport LIKE '%$str%') OR (from_to_sport LIKE '%$str%')
-    UNION ALL
-    SELECT * FROM blog WHERE (author_blog LIKE '%$str%') OR (time_blog LIKE '%$str%') OR (title_blog LIKE '%$str%')";
+    SELECT * FROM tour_sport WHERE (name_sport LIKE '%$str%') OR (price_sport LIKE '%$str%') OR (from_to_sport LIKE '%$str%')";
     
     $rows = $tour->fetch($query);
     if (!empty($rows)){
