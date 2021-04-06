@@ -1651,11 +1651,11 @@ function inten() {
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                     <h2>Subscribe Our Newsletter</h2>
                     <p>Subscibe to receive our interesting updates</p>
-                    <form>
+                    <form action="email.php" method="post">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" class="form-control input-lg" placeholder="Enter your email address" required/>
-                                <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
+                                <input type="email" name ="email" class="form-control input-lg" placeholder="Enter your email address" required/>
+                                <span class="input-group-btn"><button type="submit" class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
                             </div>
                         </div>
                     </form>
@@ -1666,7 +1666,6 @@ function inten() {
         </div>
         <!-- end container -->
     </section>
-    <!-- end newsletter-1 -->
 
 
     <!--======================= FOOTER =======================-->
