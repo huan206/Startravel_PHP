@@ -17,6 +17,11 @@ public function login(){
     $user=$_POST['user'];
     $pass=$_POST['pass'];
     $kt=0;
+    if(($user=="admin")&&($pass=="khanghuanhang")){
+        echo "<script>alert('WELLCOME TO ADMIN !!!')</script>";
+        echo "<script>window.location.replace('admin.php')</script>";
+    }
+    else{
     $query1="select * from account";
     if ($sql=$this->link->query($query1)){
           while ($data=mysqli_fetch_assoc($sql)){
@@ -33,7 +38,7 @@ public function login(){
     }
  }else{
     echo "<script>alert('YOU ENTERED THE WRONG USERNAME OR PASSWORD !!!')</script>";
-}
+}}
  } 
 
  public function fetch(){

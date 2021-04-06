@@ -35,155 +35,158 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-    #footer {
-        display: flex;
-        margin: 0 0 0 455px;
-        border-top: none;
-    }
+        #footer {
+            display: flex;
+            margin: 0 0 0 455px;
+            border-top: none;
+        }
 
-    .col-12.mt-3 {
-        padding: 10px;
-    }
+        .col-12.mt-3 {
+            padding: 10px;
+        }
 
-    #hot {
-        display: none;
-    }
+        #hot {
+            display: none;
+        }
 
-    #offer {
-        display: none;
-    }
+        #offer {
+            display: none;
+        }
 
-    #cruise {
-        display: none;
-    }
+        #cruise {
+            display: none;
+        }
 
-    #sport {
-        display: none;
-    }
+        #sport {
+            display: none;
+        }
 
-    #capital {
-        display: none;
-    }
+        #capital {
+            display: none;
+        }
 
-    #blog {
-        display: none;
-    }
-        #account{
-            display:none;
+        #blog {
+            display: none;
+        }
+
+        #account {
+            display: none;
         }
     </style>
     <script type="text/javascript">
-    function showAll() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "block";
-        document.getElementById("offer").style.display = "block";
-        document.getElementById("cruise").style.display = "block";
-        document.getElementById("sport").style.display = "block";
-        document.getElementById("capital").style.display = "block";
-        document.getElementById("blog").style.display = "block";
-        document.getElementById("account").style.display = "none";
-    }
-    function showHot() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "block";
-        document.getElementById("offer").style.display = "none";
-        document.getElementById("account").style.display = "none";
-        document.getElementById("cruise").style.display = "none";
-        document.getElementById("sport").style.display = "none";
-        document.getElementById("capital").style.display = "none";
-        document.getElementById("blog").style.display = "none";
-    }
+        function showAll() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "block";
+            document.getElementById("offer").style.display = "block";
+            document.getElementById("cruise").style.display = "block";
+            document.getElementById("sport").style.display = "block";
+            document.getElementById("capital").style.display = "block";
+            document.getElementById("blog").style.display = "block";
+            document.getElementById("account").style.display = "none";
+        }
 
-    function showOffer() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "none";
-        document.getElementById("offer").style.display = "block";
-        document.getElementById("cruise").style.display = "none";
-        document.getElementById("sport").style.display = "none";
-        document.getElementById("capital").style.display = "none";
-        document.getElementById("blog").style.display = "none";
-        document.getElementById("account").style.display = "none";
-    }
+        function showHot() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "block";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("account").style.display = "none";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "none";
+        }
 
-    function showCruise() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "none";
-        document.getElementById("offer").style.display = "none";
-        document.getElementById("cruise").style.display = "block";
-        document.getElementById("sport").style.display = "none";
-        document.getElementById("capital").style.display = "none";
-        document.getElementById("blog").style.display = "none";
-        document.getElementById("account").style.display = "none";
-    }
+        function showOffer() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "block";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "none";
+            document.getElementById("account").style.display = "none";
+        }
 
-    function showSport() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "none";
-        document.getElementById("offer").style.display = "none";
-        document.getElementById("cruise").style.display = "none";
-        document.getElementById("sport").style.display = "block";
-        document.getElementById("capital").style.display = "none";
-        document.getElementById("blog").style.display = "none";
-        document.getElementById("account").style.display = "none";
-    }
+        function showCruise() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("cruise").style.display = "block";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "none";
+            document.getElementById("account").style.display = "none";
+        }
 
-    function showCapital() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "none";
-        document.getElementById("offer").style.display = "none";
-        document.getElementById("cruise").style.display = "none";
-        document.getElementById("sport").style.display = "none";
-        document.getElementById("capital").style.display = "block";
-        document.getElementById("blog").style.display = "none";
-        document.getElementById("account").style.display = "none";
-    }
+        function showSport() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "block";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "none";
+            document.getElementById("account").style.display = "none";
+        }
 
-    function showBlog() {
-        document.getElementById("all").style.display = "none";
-        document.getElementById("hot").style.display = "none";
-        document.getElementById("offer").style.display = "none";
-        document.getElementById("cruise").style.display = "none";
-        document.getElementById("sport").style.display = "none";
-        document.getElementById("capital").style.display = "none";
-        document.getElementById("blog").style.display = "Block";
-    document.getElementById("account").style.display = "none";
-}
-function showAccount() {
-    document.getElementById("all").style.display = "none";
-    document.getElementById("hot").style.display = "none";
-    document.getElementById("offer").style.display = "none";
-    document.getElementById("cruise").style.display = "none";
-    document.getElementById("sport").style.display = "none";
-    document.getElementById("capital").style.display = "none";
-    document.getElementById("blog").style.display = "none";
-    document.getElementById("account").style.display = "block";
-    }
-    
-    $(document).ready(function() {
-        // Send Search Text to the server
-        $("#search").keyup(function() {
-            let searchText = $(this).val();
-            if (searchText != "") {
-                $.ajax({
-                    url: "search.php",
-                    method: "post",
-                    data: {
-                        query: searchText,
-                    },
-                    success: function(response) {
-                        $("#show-list").html(response);
-                    },
-                });
-            } 
-            
+        function showCapital() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "block";
+            document.getElementById("blog").style.display = "none";
+            document.getElementById("account").style.display = "none";
+        }
+
+        function showBlog() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "Block";
+            document.getElementById("account").style.display = "none";
+        }
+
+        function showAccount() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "none";
+            document.getElementById("account").style.display = "block";
+        }
+
+        $(document).ready(function() {
+            // Send Search Text to the server
+            $("#search").keyup(function() {
+                let searchText = $(this).val();
+                if (searchText != "") {
+                    $.ajax({
+                        url: "search.php",
+                        method: "post",
+                        data: {
+                            query: searchText,
+                        },
+                        success: function(response) {
+                            $("#show-list").html(response);
+                        },
+                    });
+                }
+
+            });
         });
-    });
     </script>
 </head>
 
 <body>
     <?php
-    include ("admin_set.php");
+    include("admin_set.php");
     $tourHot = new tourHot();
     $tourHot->create();
     $tourOffer = new tourOffer();
@@ -208,8 +211,8 @@ function showAccount() {
                 <form>
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" id= "search" class="form-control" placeholder="Search..." required />
-                            <span class="input-group-btn"><button type="submit" class="btn" ><span><i class="fa fa-search"></i></span></button>
+                            <input type="text" id="search" class="form-control" placeholder="Search..." required />
+                            <span class="input-group-btn"><button type="submit" class="btn"><span><i class="fa fa-search"></i></span></button>
                             </span>
                         </div>
                         <!-- end input-group -->
@@ -240,12 +243,12 @@ function showAccount() {
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div id="links">
                         <ul class="list-unstyled list-inline">
-                            <li><a href="login.html" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
-                            <li><a href="registration.html" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign
+                            <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
+                            <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign
                                     up</a></li>
                             <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a>
                             </li>
-                            <li><a href="cart.html" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
+                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             </li>
                             <li>
                                 <form>
@@ -305,24 +308,23 @@ function showAccount() {
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
-                <a href="index.html" class="navbar-brand"><span><i class="fa fa-plane"></i>START</span>TRAVELS</a>
+                <a href="index.php" class="navbar-brand"><span><i class="fa fa-plane"></i>START</span>TRAVELS</a>
             </div>
             <!-- end navbar-header -->
 
             <div class="collapse navbar-collapse" id="myNavbar1">
 
                 <ul class="nav navbar-nav navbar-right navbar-search-link">
-                    <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME<span><i
-                                    class="fa fa-angle-down"></i></span></a>
+                    <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
                             <li><a onclick="<?php echo 'showAll();'; ?>">All tour</a></li>
                             <li><a onclick="<?php echo 'showHot();'; ?>">Tour hot</a></li>
-                            <li><a onclick="<?php echo 'showOffer();';?>">Tour offer</a></li>
-                            <li><a onclick="<?php echo 'showCruise();';?>">Cruise Offers</a></li>
-                            <li><a onclick="<?php echo 'showSport();';?>">Harzadous Sports Tour</a></li>
-                            <li><a onclick="<?php echo 'showCapital();';?>">Capital Tour</a></li>
-                            <li><a onclick="<?php echo 'showBlog();';?>">Our Latest Blogs</a></li>
-                            <li><a onclick="<?php echo 'showAccount();';?>">Account</a></li>
+                            <li><a onclick="<?php echo 'showOffer();'; ?>">Tour offer</a></li>
+                            <li><a onclick="<?php echo 'showCruise();'; ?>">Cruise Offers</a></li>
+                            <li><a onclick="<?php echo 'showSport();'; ?>">Harzadous Sports Tour</a></li>
+                            <li><a onclick="<?php echo 'showCapital();'; ?>">Capital Tour</a></li>
+                            <li><a onclick="<?php echo 'showBlog();'; ?>">Our Latest Blogs</a></li>
+                            <li><a onclick="<?php echo 'showAccount();'; ?>">Account</a></li>
                             <li><a href="">Exit</a></li>
                         </ul>
                     </li>
@@ -346,18 +348,16 @@ function showAccount() {
                 </div>
                 <!-- end close-btn -->
                 <div class="list-group panel">
-                    <a href="#hotels-links" class="list-group-item" data-toggle="collapse"
-                        data-parent="#main-menu"><span><i class="fa fa-home link-icon"></i></span>Home<span><i
-                                class="fa fa-chevron-down arrow"></i></span></a>
+                    <a href="#hotels-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-home link-icon"></i></span>Home<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
                         <a class="list-group-item" onclick="<?php echo 'showAll();'; ?>">All tour</a>
                         <a class="list-group-item" onclick="<?php echo 'showHot();'; ?>">Tour hot</a>
-                        <a class="list-group-item" onclick="<?php echo 'showOffer();';?>">Tour offer</a>
-                        <a class="list-group-item" onclick="<?php echo 'showCruise();';?>">Cruise Offers</a>
-                        <a class="list-group-item" onclick="<?php echo 'showSport();';?>">Harzadous Sports Tour</a>
-                        <a class="list-group-item" onclick="<?php echo 'showCapital();';?>">Capital Tour</a>
-                        <a class="list-group-item" onclick="<?php echo 'showBlog();';?>">Our Latest Blogs</a>
-                        <a class="list-group-item" onclick="<?php echo 'showAccount();';?>">Account</a>
+                        <a class="list-group-item" onclick="<?php echo 'showOffer();'; ?>">Tour offer</a>
+                        <a class="list-group-item" onclick="<?php echo 'showCruise();'; ?>">Cruise Offers</a>
+                        <a class="list-group-item" onclick="<?php echo 'showSport();'; ?>">Harzadous Sports Tour</a>
+                        <a class="list-group-item" onclick="<?php echo 'showCapital();'; ?>">Capital Tour</a>
+                        <a class="list-group-item" onclick="<?php echo 'showBlog();'; ?>">Our Latest Blogs</a>
+                        <a class="list-group-item" onclick="<?php echo 'showAccount();'; ?>">Account</a>
                         <a class="list-group-item" href="">Exit</a>
                     </div>
                 </div>
@@ -373,8 +373,7 @@ function showAccount() {
     <div id="content">
         <div class="container">
             <!-- Tour hot -->
-            <div class="modal fade" id="Modal_hot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="Modal_hot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -386,36 +385,30 @@ function showAccount() {
                         <div class="modal-body">
                             <form action="" class="form-row" method="post" enctype="multipart/form-data">
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="name_hot" placeholder="Name"
-                                        name="name_hot">
+                                    <input type="text" class="form-control" id="name_hot" placeholder="Name" name="name_hot">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="file" class="form-control" id="img_hot" placeholder="Img"
-                                        name="img_hot">
+                                    <input type="file" class="form-control" id="img_hot" placeholder="Img" name="img_hot">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="number" class="form-control" id="price_hot" placeholder="Price"
-                                        name="price_hot">
+                                    <input type="number" class="form-control" id="price_hot" placeholder="Price" name="price_hot">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to"
-                                        name="fromto_hot">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to" name="fromto_hot">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail"
-                                        name="detail_hot">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail" name="detail_hot">
                                 </div>
 
 
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="save_hot" class="btn btn-primary" name="save_hot">Save</button>
-                            <button type="button" id="Cancle_hot" data-dismiss="modal"
-                                class="btn btn-danger">Cancle</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
                         </div>
                         </form>
                     </div>
@@ -424,8 +417,7 @@ function showAccount() {
 
             <!-- end Hot -->
             <!-- Tour offer -->
-            <div class="modal fade" id="Modal_offer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="Modal_offer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -437,44 +429,37 @@ function showAccount() {
                         <div class="modal-body">
                             <form action="" class="form-row" method="post" enctype="multipart/form-data">
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="name_hot" placeholder="Name"
-                                        name="name_offer">
+                                    <input type="text" class="form-control" id="name_hot" placeholder="Name" name="name_offer">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="file" class="form-control" id="img_hot" placeholder="Img"
-                                        name="img_offer">
+                                    <input type="file" class="form-control" id="img_hot" placeholder="Img" name="img_offer">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="number" class="form-control" id="price_hot" placeholder="Price"
-                                        name="price_offer">
+                                    <input type="number" class="form-control" id="price_hot" placeholder="Price" name="price_offer">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to"
-                                        name="fromto_offer">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to" name="fromto_offer">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail"
-                                        name="detail_offer">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail" name="detail_offer">
                                 </div>
 
 
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="save_hot" class="btn btn-primary" name="save_hot">Save</button>
-                            <button type="button" id="Cancle_hot" data-dismiss="modal"
-                                class="btn btn-danger">Cancle</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
                         </div>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- Cruise offer -->
-            <div class="modal fade" id="Modal_cruise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="Modal_cruise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -486,34 +471,28 @@ function showAccount() {
                         <div class="modal-body">
                             <form action="" class="form-row" method="post" enctype="multipart/form-data">
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="name_hot" placeholder="Name"
-                                        name="name_cruise">
+                                    <input type="text" class="form-control" id="name_hot" placeholder="Name" name="name_cruise">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="file" class="form-control" id="img_hot" placeholder="Img"
-                                        name="img_cruise">
+                                    <input type="file" class="form-control" id="img_hot" placeholder="Img" name="img_cruise">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="number" class="form-control" id="price_hot" placeholder="Price"
-                                        name="price_cruise">
+                                    <input type="number" class="form-control" id="price_hot" placeholder="Price" name="price_cruise">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to"
-                                        name="fromto_cruise">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to" name="fromto_cruise">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail"
-                                        name="detail_cruise">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail" name="detail_cruise">
                                 </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="save_hot" class="btn btn-primary" name="save_hot">Save</button>
-                            <button type="button" id="Cancle_hot" data-dismiss="modal"
-                                class="btn btn-danger">Cancle</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
                         </div>
                         </form>
                     </div>
@@ -522,8 +501,7 @@ function showAccount() {
             <!-- Modal update cruise -->
             <!-- end Cruise -->
             <!-- Sport -->
-            <div class="modal fade" id="Modal_sport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="Modal_sport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -535,42 +513,35 @@ function showAccount() {
                         <div class="modal-body">
                             <form action="" class="form-row" method="post" enctype="multipart/form-data">
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="name_hot" placeholder="Name"
-                                        name="name_sport">
+                                    <input type="text" class="form-control" id="name_hot" placeholder="Name" name="name_sport">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="file" class="form-control" id="img_hot" placeholder="Img"
-                                        name="img_sport">
+                                    <input type="file" class="form-control" id="img_hot" placeholder="Img" name="img_sport">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="number" class="form-control" id="price_hot" placeholder="Price"
-                                        name="price_sport">
+                                    <input type="number" class="form-control" id="price_hot" placeholder="Price" name="price_sport">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to"
-                                        name="fromto_sport">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to" name="fromto_sport">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail"
-                                        name="detail_sport">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail" name="detail_sport">
                                 </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="save_hot" class="btn btn-primary" name="save_hot">Save</button>
-                            <button type="button" id="Cancle_hot" data-dismiss="modal"
-                                class="btn btn-danger">Cancle</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
                         </div>
                         </form>
                     </div>
                 </div>
             </div>
             <!-- Tour Capital -->
-            <div class="modal fade" id="Modal_capital" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="Modal_capital" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -582,36 +553,30 @@ function showAccount() {
                         <div class="modal-body">
                             <form action="" class="form-row" method="post" enctype="multipart/form-data">
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="name_hot" placeholder="Name"
-                                        name="name_capital">
+                                    <input type="text" class="form-control" id="name_hot" placeholder="Name" name="name_capital">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="file" class="form-control" id="img_hot" placeholder="Img"
-                                        name="img_capital">
+                                    <input type="file" class="form-control" id="img_hot" placeholder="Img" name="img_capital">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="number" class="form-control" id="price_hot" placeholder="Price"
-                                        name="price_capital">
+                                    <input type="number" class="form-control" id="price_hot" placeholder="Price" name="price_capital">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to"
-                                        name="fromto_capital">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="From_to" name="fromto_capital">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail"
-                                        name="detail_capital">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Detail" name="detail_capital">
                                 </div>
 
 
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="save_hot" class="btn btn-primary" name="save_hot">Save</button>
-                            <button type="button" id="Cancle_hot" data-dismiss="modal"
-                                class="btn btn-danger">Cancle</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
                         </div>
                         </form>
                     </div>
@@ -620,8 +585,7 @@ function showAccount() {
             <!-- Modal update capital -->
             <!-- end Capital -->
             <!-- Blogs -->
-            <div class="modal fade" id="Modal_blog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="Modal_blog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -633,36 +597,30 @@ function showAccount() {
                         <div class="modal-body">
                             <form action="" class="form-row" method="post" enctype="multipart/form-data">
                                 <div class="col-12 mt-3">
-                                    <input type="file" class="form-control" id="name_hot" placeholder="Image"
-                                        name="img_blog">
+                                    <input type="file" class="form-control" id="name_hot" placeholder="Image" name="img_blog">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="img_hot" placeholder="Author"
-                                        name="author_blog">
+                                    <input type="text" class="form-control" id="img_hot" placeholder="Author" name="author_blog">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="price_hot" placeholder="Time"
-                                        name="time_blog">
+                                    <input type="text" class="form-control" id="price_hot" placeholder="Time" name="time_blog">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="from_hot" placeholder="Title"
-                                        name="title_blog">
+                                    <input type="text" class="form-control" id="from_hot" placeholder="Title" name="title_blog">
                                 </div>
 
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" id="detail_hot" placeholder="Content"
-                                        name="content_blog">
+                                    <input type="text" class="form-control" id="detail_hot" placeholder="Content" name="content_blog">
                                 </div>
 
 
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="save_blog" class="btn btn-primary" name="save_blog">Save</button>
-                            <button type="button" id="Cancle_hot" data-dismiss="modal"
-                                class="btn btn-danger">Cancle</button>
+                            <button type="button" id="Cancle_hot" data-dismiss="modal" class="btn btn-danger">Cancle</button>
                         </div>
                         </form>
                     </div>
@@ -1205,7 +1163,7 @@ function showAccount() {
                                                 <td><a href='delete_blog.php?id=$id_blog'><button type='button' class='btn btn-success bt'>DELETE</button></a></td>
                                             </tr>
                                             ";
-                                            echo $modal = " 
+                                        echo $modal = " 
                                             </div> <div class='modal fade' id='update_blog$id_blog' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                                                 <div class='modal-dialog'>
                                                     <div class='modal-content'>
@@ -1255,9 +1213,56 @@ function showAccount() {
                     </div>
                 </div>
             </div>
+            <div class="card shadow mb-4" id="account">
+                <div class="card-header py-3" data-toggle="modal">
+                    <button id="add_offer" class="btn btn-primary">Accounts</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User_Name</th>
+                                    <th>User_Password</th>
+                                    <th>User_Email</th>
+                                    <th>Status</th>
+                                    <th>Set</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+
+                                <?php
+                                include("sign_up.php");
+                                $account = new account();
+                                $rows = $account->fetch();
+                                if (!empty($rows)) {
+                                    foreach ($rows as $row) {
+                                        $id_account = $row['account_id'];
+                                        $name_account = $row['account_name'];
+                                        $pass_account = $row['account_pass'];
+                                        $email_account = $row['account_email'];
+                                        $status_account = $row['account_status'];
+                                        echo $table = "
+                                        <tr><td>$id_account</td>
+                                            <td>$name_account</td>
+                                            <td>$pass_account</td>
+                                            <td>$email_account</td>
+                                            <td>$status_account</td>
+                                            <td><a href='block.php?id=$id_account' id='block' class='btn btn-success'  onclick='add()'>BLOCK</a>
+                                                <a href='add.php?id=$id_account&email=$email_account' id='add' name='add' class='btn btn-success '   onclick='block()'>ADD</a></td>
+                                        </tr>
+                                        ";
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1267,7 +1272,7 @@ function showAccount() {
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
-                            <a class="btn btn-primary" href="login.html">Log out</a>
+                            <a class="btn btn-primary" href="login.php">Log out</a>
                         </div>
                     </div>
                 </div>
