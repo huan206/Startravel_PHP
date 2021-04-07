@@ -9,28 +9,25 @@
         <meta name="author" content="">
         <title>Tạo mới đơn hàng</title>
         <!-- Bootstrap core CSS -->
-        <link href="/vnpay_php/assets/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/Startravel_php/vnpay_php/assets/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="/vnpay_php/assets/jumbotron-narrow.css" rel="stylesheet">  
-        <script src="/vnpay_php/assets/jquery-1.11.3.min.js"></script>
+        <link href="/Startravel_php/vnpay_php/assets/jumbotron-narrow.css" rel="stylesheet">  
+        <script src="/Startravel_php/vnpay_php/assets/jquery-1.11.3.min.js"></script>
     </head>
 
     <body>
-
         <div class="container">
             <div class="header clearfix">
                 <h3 class="text-muted">VNPAY DEMO</h3>
             </div>
             <h3>Tạo mới đơn hàng</h3>
             <div class="table-responsive">
-                <form action="/vnpay_php/vnpay_create_payment.php" id="create_form" method="post">       
+                <form action="/Startravel_php/vnpay_php/vnpay_create_payment.php" id="create_form" method="post">       
 
                     <div class="form-group">
                         <label for="language">Loại hàng hóa </label>
                         <select name="order_type" id="order_type" class="form-control">
-                            <option value="topup">Nạp tiền điện thoại</option>
                             <option value="billpayment">Thanh toán hóa đơn</option>
-                            <option value="fashion">Thời trang</option>
                             <option value="other">Khác - Xem thêm tại VNPAY</option>
                         </select>
                     </div>

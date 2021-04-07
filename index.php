@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Index HTML</title>
+    <title>STARTTRAVEL</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -214,7 +214,7 @@
                             <li><a href="blog-listing-right-sidebar.php">Blog Homepage</a></li>
                             <li><a href="about-us.php">About Us</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                            <li><a href="#">Coming Soon</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours<span><i class="fa fa-angle-down"></i></span></a>
@@ -261,11 +261,11 @@
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Special <span>Pages</span></li>
-                                            <li><a onclick="logout()">Login</a></li>
+                                            <li><a href="logout.php">Login</a></li>
                                             <li><a href="registration.php">Registration</a></li>
                                             <li><a href="forgot-password.php">Forgot Password</a></li>
                                             <li><a href="error-page.php">404 Page</a></li>
-                                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                                            <li><a href="#">Coming Soon</a></li>
                                         </ul>
                                     </div>
 
@@ -316,7 +316,7 @@
                     <!-- end sub-menu -->
                     <a href="#hotels-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-building link-icon"></i></span>Account<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
-                        <a onclick="logout()" class="list-group-item">Login Homepage</a>
+                        <a href="logout.php" class="list-group-item">Login Homepage</a>
                         <a href="registration.php" class="list-group-item">Registration Homepage</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password Homepage</a>
                     </div>
@@ -327,7 +327,7 @@
                         <a href="blog-listing-right-sidebar.php" class="list-group-item">Blog Homepage</a>
                         <a href="about-us.php" class="list-group-item">About Us</a>
                         <a href="contact-us.php" class="list-group-item">Contact Us</a>
-                        <a href="coming-soon.php" class="list-group-item">Comingsoon</a>
+                        <a href="#" class="list-group-item">Comingsoon</a>
                     </div>
                     <!-- end sub-menu -->
 
@@ -364,11 +364,11 @@
                         <a href="error-page.php" class="list-group-item">Cards</a>
 
                         <div class="list-group-heading list-group-item">Special <span>Pages</span></div>
-                        <a onclick="logout()" class="list-group-item">Login</a>
+                        <a href="logout.php" class="list-group-item">Login</a>
                         <a href="registration.php" class="list-group-item">Registration</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password</a>
                         <a href="error-page.php" class="list-group-item">404 Page</a>
-                        <a href="coming-soon.php" class="list-group-item">Coming Soon</a>
+                        <a href="#" class="list-group-item">Coming Soon</a>
                         <div class="list-group-heading list-group-item">Extra <span>Pages</span></div>
                         <a href="before-you-fly.php" class="list-group-item">Before Fly</a>
                         <a href="travel-insurance.php" class="list-group-item">Travel Insurance</a>
@@ -898,7 +898,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <a href="booking_hot.php?id=' . $id_hot . '"><button type="button" class="btn btn-primary" onclick="">Book tour</button></a>
+                                        <a href="booking_hot.php?id=' . $id_hot . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -1062,7 +1062,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                    <a href="booking_offer.php?id=' . $id_offer . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
                                 </div>
                             </div>
                         </div>
@@ -1240,7 +1240,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                                <a href="booking_cruise.php?id=' . $id_cruise . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1250,7 +1250,7 @@
                     ?>
 
                     <div class="view-all text-center">
-                        <a href="cruise-homepage.html" class="btn btn-orange">View All</a>
+                        <a href="cruise-homepage.php" class="btn btn-orange">View All</a>
                     </div>
                     <!-- end view-all -->
                 </div>
@@ -1384,7 +1384,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                                <a href="booking_sport.php?id=' . $id_sport . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1395,7 +1395,7 @@
 
 
                     <div class="view-all text-center">
-                        <a href="cruise-homepage.html" class="btn btn-orange">View All</a>
+                        <a href="cruise-homepage.php" class="btn btn-orange">View All</a>
                     </div>
                     <!-- end view-all -->
                 </div>
@@ -1527,7 +1527,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                                <a href="booking_capital.php?id=' . $id_capital . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1798,11 +1798,11 @@
                         <h3 class="footer-heading">COMPANY</h3>
                         <ul class="list-unstyled">
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="flight-homepage.php">Flight</a></li>
-                            <li><a href="hotel-homepage.php">Hotel</a></li>
-                            <li><a href="tour-homepage.php">Tours</a></li>
+                            <li><a href="cruise-homepage.php">Flight</a></li>
+                            <li><a href="cruise-homepage.php">Hotel</a></li>
+                            <li><a href="cruise-homepage.php">Tours</a></li>
                             <li><a href="cruise-homepage.php">Cruise</a></li>
-                            <li><a href="car-homepage.php">Cars</a></li>
+                            <li><a href="cruise-homepage.php">Cars</a></li>
                         </ul>
                     </div>
                     <!-- end columns -->
@@ -1812,7 +1812,7 @@
                         <ul class="list-unstyled">
                             <li><a href="blog-listing-right-sidebar.php">Blogs</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a onclick="logout()">Login</a></li>
+                            <li><a href="logout.php">Login</a></li>
                             <li><a href="registration.php">Register</a></li>
                             <li><a href="index.php">Site Map</a></li>
                         </ul>

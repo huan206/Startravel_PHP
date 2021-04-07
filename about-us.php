@@ -182,7 +182,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.php">Login Homepage</a></li>
+                            <li><a href="logout.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -192,7 +192,7 @@
                             <li><a href="blog-listing-right-sidebar.php">Blog Homepage</a></li>
                             <li><a href="about-us.php">About Us</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                            <li><a href="#">Coming Soon</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours<span><i class="fa fa-angle-down"></i></span></a>
@@ -239,11 +239,11 @@
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Special <span>Pages</span></li>
-                                            <li><a onclick="logout()">Login</a></li>
+                                            <li><a href="logout.php">Login</a></li>
                                             <li><a href="registration.php">Registration</a></li>
                                             <li><a href="forgot-password.php">Forgot Password</a></li>
                                             <li><a href="error-page.php">404 Page</a></li>
-                                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                                            <li><a href="#">Coming Soon</a></li>
                                         </ul>
                                     </div>
 
@@ -292,7 +292,7 @@
                     <!-- end sub-menu -->
                     <a href="#hotels-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-building link-icon"></i></span>Account<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
-                        <a onclick="logout()" class="list-group-item">Login Homepage</a>
+                        <a href="logout.php" class="list-group-item">Login Homepage</a>
                         <a href="registration.php" class="list-group-item">Registration Homepage</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password Homepage</a>
                     </div>
@@ -303,7 +303,7 @@
                         <a href="blog-listing-right-sidebar.php" class="list-group-item">Blog Homepage</a>
                         <a href="about-us.php" class="list-group-item">About Us</a>
                         <a href="contact-us.php" class="list-group-item">Contact Us</a>
-                        <a href="coming-soon.php" class="list-group-item">Comingsoon</a>
+                        <a href="#" class="list-group-item">Comingsoon</a>
                     </div>
                     <!-- end sub-menu -->
 
@@ -340,11 +340,11 @@
                         <a href="error-page.php" class="list-group-item">Cards</a>
 
                         <div class="list-group-heading list-group-item">Special <span>Pages</span></div>
-                        <a onclick="logout()" class="list-group-item">Login</a>
+                        <a href="logout.php" class="list-group-item">Login</a>
                         <a href="registration.php" class="list-group-item">Registration</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password</a>
                         <a href="error-page.php" class="list-group-item">404 Page</a>
-                        <a href="coming-soon.php" class="list-group-item">Coming Soon</a>
+                        <a href="#" class="list-group-item">Coming Soon</a>
                         <div class="list-group-heading list-group-item">Extra <span>Pages</span></div>
                         <a href="before-you-fly.php" class="list-group-item">Before Fly</a>
                         <a href="travel-insurance.php" class="list-group-item">Travel Insurance</a>
@@ -679,11 +679,11 @@
                         <h3 class="footer-heading">COMPANY</h3>
                         <ul class="list-unstyled">
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="flight-homepage.php">Flight</a></li>
-                            <li><a href="hotel-homepage.php">Hotel</a></li>
-                            <li><a href="tour-homepage.php">Tours</a></li>
+                            <li><a href="cruise-homepage.php">Flight</a></li>
+                            <li><a href="cruise-homepage.php">Hotel</a></li>
+                            <li><a href="cruise-homepage.php">Tours</a></li>
                             <li><a href="cruise-homepage.php">Cruise</a></li>
-                            <li><a href="car-homepage.php">Cars</a></li>
+                            <li><a href="cruise-homepage.php">Cars</a></li>
                         </ul>
                     </div>
                     <!-- end columns -->
@@ -693,7 +693,7 @@
                         <ul class="list-unstyled">
                             <li><a href="blog-listing-right-sidebar.php">Blogs</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a onclick="logout()">Login</a></li>
+                            <li><a href="logout.php">Login</a></li>
                             <li><a href="registration.php">Register</a></li>
                             <li><a href="index.php">Site Map</a></li>
                         </ul>

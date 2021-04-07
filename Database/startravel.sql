@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2021 at 02:26 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Generation Time: Apr 07, 2021 at 03:04 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,10 +40,9 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`account_id`, `account_name`, `account_pass`, `account_email`, `account_status`) VALUES
-(25, 'khang', '1', 'khang.ha22@student.passerellesnumeriques.org', 'Being active'),
-(26, 'huan', '123', 'hamongkhang@gmail.com', 'Being active'),
-(27, 'Hang', 'hangcute', 'hamongkhang@gmail.com', 'Being active'),
-(28, 'Hang2', '1', 'hamongkhang@gmail.com', 'Block');
+(29, 'Ha Mong Khang', 'khangcute', 'hamongkhang@gmail.com', 'Being active'),
+(30, 'Nguyen Hoang Huan', 'huancute', 'hamongkhang@gmail.com', 'Being active'),
+(31, 'Ho Thi Hang', 'hangcute', 'hamongkhang@gmail.com', 'Being active');
 
 -- --------------------------------------------------------
 
@@ -56,6 +55,13 @@ CREATE TABLE `activity` (
   `activity_name` text COLLATE utf8_unicode_ci NOT NULL,
   `activity_password` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `activity`
+--
+
+INSERT INTO `activity` (`activity_id`, `activity_name`, `activity_password`) VALUES
+(91, 'Ho Thi Hang', 'hangcute');
 
 -- --------------------------------------------------------
 
@@ -119,12 +125,13 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id_cart`, `id_account`, `id_tour`, `image_tour`, `name_tour`, `price_tour`, `from_to`) VALUES
-(2, 26, 19, 'Vuon Thuong Uyen Bay Da Lat.jpg', 'Winter tour 2021', '99999', 'Tay Son-Binh Dinh'),
-(3, 26, 17, 'du-lich-phu-quoc-17.jpg', 'Fall tour 2021', '99999', 'Tay Son-Binh Dinh'),
-(7, 26, 18, 'DSCF7483-8260-1593164119.jpg', 'Spring', '99999', 'Tay Son-Binh Dinh'),
-(8, 26, 19, 'Vuon Thuong Uyen Bay Da Lat.jpg', 'Winter tour 2021', '99999', 'Tay Son-Binh Dinh'),
-(9, 27, 16, 'sapa.jpg', 'Summer tour 2021', '99999', 'Tay Son-Binh Dinh'),
-(10, 27, 18, 'DSCF7483-8260-1593164119.jpg', 'Spring', '99999', 'Tay Son-Binh Dinh');
+(12, 29, 1, 'cam-nang-du-lich-ha-noi-mytour-1.jpg', 'Thuan Ninh', '12', 'Quang Tri'),
+(20, 30, 16, 'sapa.jpg', 'Summer tour 2021', '99999', 'Tay Son-Binh Dinh'),
+(21, 30, 3, 'hoiann.jpg', 'Hoi An  tour 2021', '99999', 'Da Nang- Viet Nam'),
+(22, 30, 2, 'anh-1-160161747022091907963.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam'),
+(23, 30, 4, 'tour-nam-du-4-ngay-3-dem-2-800x500.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam'),
+(24, 29, 4, 'tour-nam-du-4-ngay-3-dem-2-800x500.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam'),
+(25, 31, 2, 'chua-mot-cot.jpg', 'Mot Cot Pagoda', '99999', 'Ha Noi- Viet Nam');
 
 -- --------------------------------------------------------
 
@@ -318,13 +325,13 @@ ALTER TABLE `tour_sport`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `blog`
@@ -336,7 +343,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tour_capital`
@@ -354,7 +361,7 @@ ALTER TABLE `tour_cruise`
 -- AUTO_INCREMENT for table `tour_hot`
 --
 ALTER TABLE `tour_hot`
-  MODIFY `id_hot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_hot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tour_offer`

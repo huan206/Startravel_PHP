@@ -243,12 +243,8 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div id="links">
                         <ul class="list-unstyled list-inline">
-                            <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
-                            <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
-                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
-                            <li>
-                                <form>
+                            <li><a href="login.php" id="thanh"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                             <li><form>
                                     <ul class="list-inline">
                                         <li>
                                             <div class="form-group currency">
@@ -279,17 +275,18 @@
                                                 include('login_set.php');
                                                 $ten = new user();
                                                 $rows = $ten->fetch();
-                                                if (!empty($rows)) {
-                                                    foreach ($rows as $row) {
-                                                        $name = $row['activity_name'];
-                                                    }
-                                                    echo $name;
-                                                }
+                                                // if (!empty($rows)) {
+                                                //     foreach ($rows as $row) {
+                                                //         $name = $row['activity_name'];
+                                                //     }
+                                                    echo "ADMIN";
+                                              //  }
                                                 ?></a>
                                         </li>
                                     </ul>
 
                                 </form>
+                                </li>
                             </li>
 
                         </ul>
@@ -307,7 +304,6 @@
         function inten() {
             document.getElementById("ten").style.display = "block";
             document.getElementById("thanh3").style.display = "block";
-            document.getElementById("thanh4").style.display = "block";
             document.getElementById("thanh1").style.display = "none";
             document.getElementById("thanh2").style.display = "none";
         }

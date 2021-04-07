@@ -29,8 +29,8 @@ $alert = '';
     $mail->addAddress($email);
 
     $mail->isHTML(true);
-    $mail->Subject = "STARTTRAVELS'S CODES";
-    $mail->Body = "PLEASE CHECK CODES: $code</h3>";
+    $mail->Subject = "STARTTRAVELS'S CONFIRMATION";
+    $mail->Body = "YOUR ACCOUNT HAS BEEN CONFIRMED</h3>";
 
     $mail->send();
     $alert = '<div class="alert-success"> 

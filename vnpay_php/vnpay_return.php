@@ -20,7 +20,7 @@
     </head>
     <body>
         <?php
-        require_once("./config.php");
+        require_once ("./config.php");
         $vnp_SecureHash = $_GET['vnp_SecureHash'];
         $inputData = array();
         foreach ($_GET as $key => $value) {
@@ -121,7 +121,7 @@
 
                     </label>
                     <br>
-                    <a href="../code/hocvien_thanhtoan.php">
+                    <a href="">
                         <button>Quay lại</button>
                     </a>
                 </div> 
@@ -130,7 +130,6 @@
                 &nbsp;
             </p>
             <footer class="footer">
-                <p>&copy; Quản lý Tiếng Anh 2020</p>
             </footer>
         </div>  
     </body>

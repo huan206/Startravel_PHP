@@ -176,7 +176,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.php">Login Homepage</a></li>
+                            <li><a href="logout.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -186,7 +186,7 @@
                             <li><a href="blog-listing-right-sidebar.php">Blog Homepage</a></li>
                             <li><a href="about-us.php">About Us</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                            <li><a href="#">Coming Soon</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours<span><i class="fa fa-angle-down"></i></span></a>
@@ -233,11 +233,11 @@
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Special <span>Pages</span></li>
-                                            <li><a onclick="logout()">Login</a></li>
+                                            <li><a href="logout.php">Login</a></li>
                                             <li><a href="registration.php">Registration</a></li>
                                             <li><a href="forgot-password.php">Forgot Password</a></li>
                                             <li><a href="error-page.php">404 Page</a></li>
-                                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                                            <li><a href="#">Coming Soon</a></li>
                                         </ul>
                                     </div>
 
@@ -286,7 +286,7 @@
                     <!-- end sub-menu -->
                     <a href="#hotels-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-building link-icon"></i></span>Account<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
-                        <a onclick="logout()" class="list-group-item">Login Homepage</a>
+                        <a href="logout.php" class="list-group-item">Login Homepage</a>
                         <a href="registration.php" class="list-group-item">Registration Homepage</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password Homepage</a>
                     </div>
@@ -297,7 +297,7 @@
                         <a href="blog-listing-right-sidebar.php" class="list-group-item">Blog Homepage</a>
                         <a href="about-us.php" class="list-group-item">About Us</a>
                         <a href="contact-us.php" class="list-group-item">Contact Us</a>
-                        <a href="coming-soon.php" class="list-group-item">Comingsoon</a>
+                        <a href="#" class="list-group-item">Comingsoon</a>
                     </div>
                     <!-- end sub-menu -->
 
@@ -334,11 +334,11 @@
                         <a href="error-page.php" class="list-group-item">Cards</a>
 
                         <div class="list-group-heading list-group-item">Special <span>Pages</span></div>
-                        <a onclick="logout()" class="list-group-item">Login</a>
+                        <a href="logout.php" class="list-group-item">Login</a>
                         <a href="registration.php" class="list-group-item">Registration</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password</a>
                         <a href="error-page.php" class="list-group-item">404 Page</a>
-                        <a href="coming-soon.php" class="list-group-item">Coming Soon</a>
+                        <a href="#" class="list-group-item">Coming Soon</a>
                         <div class="list-group-heading list-group-item">Extra <span>Pages</span></div>
                         <a href="before-you-fly.php" class="list-group-item">Before Fly</a>
                         <a href="travel-insurance.php" class="list-group-item">Travel Insurance</a>
@@ -375,16 +375,18 @@
     <!-- end page-cover -->
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
-if(isset($_POST['register'])){
+if(isset($_POST['register2'])){
 ini_set("display_errors",0);
 $user=$_POST['user'];
 $email=$_POST['email'];
+$kt=0;
 $link=new mysqli("localhost","root","","startravel");
 $query="select * from account";
 $result=mysqli_query($link,$query);
 if(mysqli_num_rows($result)){
 while($row=mysqli_fetch_assoc($result)){
     if (($user==$row['account_name'])&&($email==$row['account_email'])){
+        $kt=1;
         $pass=$row['account_pass'];
         require_once 'PHPMailer/Exception.php';
         require_once 'PHPMailer/PHPMailer.php';
@@ -406,8 +408,8 @@ while($row=mysqli_fetch_assoc($result)){
             $mail->addAddress($email);
         
             $mail->isHTML(true);
-            $mail->Subject = "STARTTRAVELS'S CODES";
-            $mail->Body = "PLEASE CHECK CODES: $code</h3>";
+            $mail->Subject = "FOR-GOT PASSWORD";
+            $mail->Body = "USERNAME: $user   PASSWORD: $pass</h3>";
         
             $mail->send();
             $alert = '<div class="alert-success"> 
@@ -418,10 +420,14 @@ while($row=mysqli_fetch_assoc($result)){
                         <span>'.$e->getMessage().'</span>
                       </div>';
           }        
-    }else{
-        echo "<script>alert('THE USERNAME OR EMAIL DOES NOT EXIST !!!')</script>";
     }
-}}}
+}
+if($kt==0){
+    echo "<script>alert('THE USERNAME OR EMAIL DOES NOT EXIST !!!')</script>";
+}else{
+    echo "<script>alert('PLEASE CHECK PASSWORD IN YOUR EMAIL !!!')</script>";
+}
+}}
 ?>
     <!--===== INNERPAGE-WRAPPER ====-->
     <section class="innerpage-wrapper">
@@ -444,7 +450,7 @@ while($row=mysqli_fetch_assoc($result)){
                                         <input type="text" class="form-control" placeholder="Your Email" id="email" name="email" required/>
                                         <span><i class="fa fa-envelope"></i></span>
                                     </div>
-                                    <input type="submit" class="btn btn-orange btn-block" id="register" placeholder="Register" name="register">
+                                    <input type="submit" class="btn btn-orange btn-block" id="register" placeholder="Register" name="register2">
                                 </form>
                               
                                 <div class="other-links">
@@ -570,12 +576,12 @@ while($row=mysqli_fetch_assoc($result)){
                     <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 footer-widget ftr-links">
                         <h3 class="footer-heading">COMPANY</h3>
                         <ul class="list-unstyled">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="flight-homepage.php">Flight</a></li>
-                            <li><a href="hotel-homepage.php">Hotel</a></li>
-                            <li><a href="tour-homepage.php">Tours</a></li>
+                        <li><a href="index.php">Home</a></li>
+                            <li><a href="cruise-homepage.php">Flight</a></li>
+                            <li><a href="cruise-homepage.php">Hotel</a></li>
+                            <li><a href="cruise-homepage.php">Tours</a></li>
                             <li><a href="cruise-homepage.php">Cruise</a></li>
-                            <li><a href="car-homepage.php">Cars</a></li>
+                            <li><a href="cruise-homepage.php">Cars</a></li>
                         </ul>
                     </div>
                     <!-- end columns -->
@@ -585,7 +591,7 @@ while($row=mysqli_fetch_assoc($result)){
                         <ul class="list-unstyled">
                             <li><a href="blog-listing-right-sidebar.php">Blogs</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a onclick="logout()">Login</a></li>
+                            <li><a href="logout.php">Login</a></li>
                             <li><a href="registration.php">Register</a></li>
                             <li><a href="index.php">Site Map</a></li>
                         </ul>

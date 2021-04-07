@@ -265,12 +265,12 @@
                     <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 footer-widget ftr-links">
                         <h3 class="footer-heading">COMPANY</h3>
                         <ul class="list-unstyled">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="flight-homepage.php">Flight</a></li>
-                            <li><a href="hotel-homepage.php">Hotel</a></li>
-                            <li><a href="tour-homepage.php">Tours</a></li>
+                        <li><a href="index.php">Home</a></li>
+                            <li><a href="cruise-homepage.php">Flight</a></li>
+                            <li><a href="cruise-homepage.php">Hotel</a></li>
+                            <li><a href="cruise-homepage.php">Tours</a></li>
                             <li><a href="cruise-homepage.php">Cruise</a></li>
-                            <li><a href="car-homepage.php">Cars</a></li>
+                            <li><a href="cruise-homepage.php">Cars</a></li>
                         </ul>
                     </div>
                     <!-- end columns -->
@@ -280,7 +280,7 @@
                         <ul class="list-unstyled">
                             <li><a href="blog-listing-right-sidebar.php">Blogs</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a onclick="logout()">Login</a></li>
+                            <li><a href="logout.php">Login</a></li>
                             <li><a href="registration.php">Register</a></li>
                             <li><a href="index.php">Site Map</a></li>
                         </ul>

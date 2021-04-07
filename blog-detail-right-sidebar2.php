@@ -53,8 +53,8 @@
     <!-- end overlay -->
 
 
-    <!--============= TOP-BAR ===========-->
-    <div id="top-bar" class="tb-text-white">
+  <!--============= TOP-BAR ===========-->
+  <div id="top-bar" class="tb-text-white">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -73,8 +73,9 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
-                            <li><a href="registration.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
+                            </li>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -82,10 +83,10 @@
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                        <option value="">$</option>
-                                                        <option value="">đ</option>
-                                                        <option value="">£</option>
-                                                    </select>
+                                                    <option value="">$</option>
+                                                    <option value="">đ</option>
+                                                    <option value="">£</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
@@ -94,32 +95,63 @@
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                        <option value="">EN</option>
-                                                        <option value="">VI</option>
-                                                        <option value="">FR</option>
-                                                    </select>
+                                                    <option value="">EN</option>
+                                                    <option value="">VI</option>
+                                                    <option value="">FR</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
                                         <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
-                                                ham()
-                                            </script></a>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
+
                                 </form>
                             </li>
+
                         </ul>
                     </div>
-                    <!-- end links -->
                 </div>
-                <!-- end columns -->
+                <!-- end links -->
             </div>
-            <!-- end row -->
+            <!-- end columns -->
         </div>
-        <!-- end container -->
+
+        <!-- end row -->
     </div>
+    <!-- end container -->
+
     <!-- end top-bar -->
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
 
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
@@ -149,7 +181,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="login.php">Login Homepage</a></li>
+                            <li><a href="logout.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -159,7 +191,7 @@
                             <li><a href="blog-listing-right-sidebar.php">Blog Homepage</a></li>
                             <li><a href="about-us.php">About Us</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                            <li><a href="#">Coming Soon</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours<span><i class="fa fa-angle-down"></i></span></a>
@@ -206,11 +238,11 @@
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Special <span>Pages</span></li>
-                                            <li><a onclick="logout()">Login</a></li>
+                                            <li><a href="logout.php">Login</a></li>
                                             <li><a href="registration.php">Registration</a></li>
                                             <li><a href="forgot-password.php">Forgot Password</a></li>
                                             <li><a href="error-page.php">404 Page</a></li>
-                                            <li><a href="coming-soon.php">Coming Soon</a></li>
+                                            <li><a href="#">Coming Soon</a></li>
                                         </ul>
                                     </div>
 
@@ -259,7 +291,7 @@
                     <!-- end sub-menu -->
                     <a href="#hotels-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-building link-icon"></i></span>Account<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
-                        <a onclick="logout()" class="list-group-item">Login Homepage</a>
+                        <a href="logout.php" class="list-group-item">Login Homepage</a>
                         <a href="registration.php" class="list-group-item">Registration Homepage</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password Homepage</a>
                     </div>
@@ -270,7 +302,7 @@
                         <a href="blog-listing-right-sidebar.php" class="list-group-item">Blog Homepage</a>
                         <a href="about-us.php" class="list-group-item">About Us</a>
                         <a href="contact-us.php" class="list-group-item">Contact Us</a>
-                        <a href="coming-soon.php" class="list-group-item">Comingsoon</a>
+                        <a href="#" class="list-group-item">Comingsoon</a>
                     </div>
                     <!-- end sub-menu -->
 
@@ -307,11 +339,11 @@
                         <a href="error-page.php" class="list-group-item">Cards</a>
 
                         <div class="list-group-heading list-group-item">Special <span>Pages</span></div>
-                        <a onclick="logout()" class="list-group-item">Login</a>
+                        <a href="logout.php" class="list-group-item">Login</a>
                         <a href="registration.php" class="list-group-item">Registration</a>
                         <a href="forgot-password.php" class="list-group-item">Forgot Password</a>
                         <a href="error-page.php" class="list-group-item">404 Page</a>
-                        <a href="coming-soon.php" class="list-group-item">Coming Soon</a>
+                        <a href="#" class="list-group-item">Coming Soon</a>
                         <div class="list-group-heading list-group-item">Extra <span>Pages</span></div>
                         <a href="before-you-fly.php" class="list-group-item">Before Fly</a>
                         <a href="travel-insurance.php" class="list-group-item">Travel Insurance</a>
@@ -806,12 +838,12 @@
                     <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 footer-widget ftr-links">
                         <h3 class="footer-heading">COMPANY</h3>
                         <ul class="list-unstyled">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="flight-homepage.php">Flight</a></li>
-                            <li><a href="hotel-homepage.php">Hotel</a></li>
-                            <li><a href="tour-homepage.php">Tours</a></li>
+                        <li><a href="index.php">Home</a></li>
+                            <li><a href="cruise-homepage.php">Flight</a></li>
+                            <li><a href="cruise-homepage.php">Hotel</a></li>
+                            <li><a href="cruise-homepage.php">Tours</a></li>
                             <li><a href="cruise-homepage.php">Cruise</a></li>
-                            <li><a href="car-homepage.php">Cars</a></li>
+                            <li><a href="cruise-homepage.php">Cars</a></li>
                         </ul>
                     </div>
                     <!-- end columns -->
@@ -821,7 +853,7 @@
                         <ul class="list-unstyled">
                             <li><a href="blog-listing-right-sidebar.php">Blogs</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a onclick="logout()">Login</a></li>
+                            <li><a href="logout.php">Login</a></li>
                             <li><a href="registration.php">Register</a></li>
                             <li><a href="index.php">Site Map</a></li>
                         </ul>
