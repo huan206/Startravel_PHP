@@ -102,11 +102,9 @@
                                             <!-- end form-group -->
                                         </li>
                                         <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
-                                                <script>
-                                                    ham()
-                                                </script>
-                                            </a>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
+                                                ham()
+                                            </script></a>
                                         </li>
                                     </ul>
                                 </form>

@@ -74,8 +74,8 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div id="links">
                         <ul class="list-unstyled list-inline">
-                            <li><a href="login.html"><span><i class="fa fa-lock"></i></span>Login</a></li>
-                            <li><a href="registration.html"><span><i class="fa fa-plus"></i></span>Sign Up</a></li>
+                            <li><a href="login.php"><span><i class="fa fa-lock"></i></span>Login</a></li>
+                            <li><a href="registration.php"><span><i class="fa fa-plus"></i></span>Sign Up</a></li>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -101,6 +101,13 @@
                                                     </select>
                                             </div>
                                             <!-- end form-group -->
+                                        </li>
+                                        <li>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <script>
+                                                    ham()
+                                                </script>
+                                            </a>
                                         </li>
                                     </ul>
                                 </form>
@@ -136,68 +143,68 @@
                 <ul class="nav navbar-nav navbar-right navbar-search-link">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Home<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html">Main Homepage</a></li>
-                            <li><a href="flight-homepage.html">Flight Homepage</a></li>
-                            <li><a href="hotel-homepage.html">Hotel Homepage</a></li>
-                            <li><a href="tour-homepage.html">Tour Homepage</a></li>
-                            <li><a href="cruise-homepage.html">Cruise Homepage</a></li>
-                            <li><a href="car-homepage.html">Car Homepage</a></li>
-                            <li><a href="landing-page.html">Landing Page</a></li>
+                            <li><a href="index.php">Main Homepage</a></li>
+                            <li><a href="flight-homepage.php">Flight Homepage</a></li>
+                            <li><a href="hotel-homepage.php">Hotel Homepage</a></li>
+                            <li><a href="tour-homepage.php">Tour Homepage</a></li>
+                            <li><a href="cruise-homepage.php">Cruise Homepage</a></li>
+                            <li><a href="car-homepage.php">Car Homepage</a></li>
+                            <li><a href="landing-page.php">Landing Page</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Flights<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="flight-homepage.html">Flight Homepage</a></li>
-                            <li><a href="flight-listing-left-sidebar.html">List View Left Sidebar</a></li>
-                            <li><a href="flight-listing-right-sidebar.html">List View Right Sidebar</a></li>
-                            <li><a href="flight-grid-left-sidebar.html">Grid View Left Sidebar</a></li>
-                            <li><a href="flight-grid-right-sidebar.html">Grid View Right Sidebar</a></li>
-                            <li><a href="flight-detail-left-sidebar.html">Detail Left Sidebar</a></li>
-                            <li><a href="flight-detail-right-sidebar.html">Detail Right Sidebar</a></li>
+                            <li><a href="flight-homepage.php">Flight Homepage</a></li>
+                            <li><a href="flight-listing-left-sidebar.php">List View Left Sidebar</a></li>
+                            <li><a href="flight-listing-right-sidebar.php">List View Right Sidebar</a></li>
+                            <li><a href="flight-grid-left-sidebar.php">Grid View Left Sidebar</a></li>
+                            <li><a href="flight-grid-right-sidebar.php">Grid View Right Sidebar</a></li>
+                            <li><a href="flight-detail-left-sidebar.php">Detail Left Sidebar</a></li>
+                            <li><a href="flight-detail-right-sidebar.php">Detail Right Sidebar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Hotels<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="hotel-homepage.html">Hotel Homepage</a></li>
-                            <li><a href="hotel-listing-left-sidebar.html">List View Left Sidebar</a></li>
+                            <li><a href="hotel-homepage.php">Hotel Homepage</a></li>
+                            <li><a href="hotel-listing-left-sidebar.php">List View Left Sidebar</a></li>
                             <li class="active"><a href="#">List View Right Sidebar</a></li>
-                            <li><a href="hotel-grid-left-sidebar.html">Grid View Left Sidebar</a></li>
-                            <li><a href="hotel-grid-right-sidebar.html">Grid View Right Sidebar</a></li>
-                            <li><a href="hotel-detail-left-sidebar.html">Detail Left Sidebar</a></li>
-                            <li><a href="hotel-detail-right-sidebar.html">Detail Right Sidebar</a></li>
+                            <li><a href="hotel-grid-left-sidebar.php">Grid View Left Sidebar</a></li>
+                            <li><a href="hotel-grid-right-sidebar.php">Grid View Right Sidebar</a></li>
+                            <li><a href="hotel-detail-left-sidebar.php">Detail Left Sidebar</a></li>
+                            <li><a href="hotel-detail-right-sidebar.php">Detail Right Sidebar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="tour-homepage.html">Tour Homepage</a></li>
-                            <li><a href="tour-listing-left-sidebar.html">List View Left Sidebar</a></li>
-                            <li><a href="tour-listing-right-sidebar.html">List View Right Sidebar</a></li>
-                            <li><a href="tour-grid-left-sidebar.html">Grid View Left Sidebar</a></li>
-                            <li><a href="tour-grid-right-sidebar.html">Grid View Right Sidebar</a></li>
-                            <li><a href="tour-detail-left-sidebar.html">Detail Left Sidebar</a></li>
-                            <li><a href="tour-detail-right-sidebar.html">Detail Right Sidebar</a></li>
+                            <li><a href="tour-homepage.php">Tour Homepage</a></li>
+                            <li><a href="tour-listing-left-sidebar.php">List View Left Sidebar</a></li>
+                            <li><a href="tour-listing-right-sidebar.php">List View Right Sidebar</a></li>
+                            <li><a href="tour-grid-left-sidebar.php">Grid View Left Sidebar</a></li>
+                            <li><a href="tour-grid-right-sidebar.php">Grid View Right Sidebar</a></li>
+                            <li><a href="tour-detail-left-sidebar.php">Detail Left Sidebar</a></li>
+                            <li><a href="tour-detail-right-sidebar.php">Detail Right Sidebar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cruise<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="cruise-homepage.html">Cruise Homepage</a></li>
-                            <li><a href="cruise-listing-left-sidebar.html">List View Left Sidebar</a></li>
-                            <li><a href="cruise-listing-right-sidebar.html">List View Right Sidebar</a></li>
-                            <li><a href="cruise-grid-left-sidebar.html">Grid View Left Sidebar</a></li>
-                            <li><a href="cruise-grid-right-sidebar.html">Grid View Right Sidebar</a></li>
-                            <li><a href="cruise-detail-left-sidebar.html">Detail Left Sidebar</a></li>
-                            <li><a href="cruise-detail-right-sidebar.html">Detail Right Sidebar</a></li>
+                            <li><a href="cruise-homepage.php">Cruise Homepage</a></li>
+                            <li><a href="cruise-listing-left-sidebar.php">List View Left Sidebar</a></li>
+                            <li><a href="cruise-listing-right-sidebar.php">List View Right Sidebar</a></li>
+                            <li><a href="cruise-grid-left-sidebar.php">Grid View Left Sidebar</a></li>
+                            <li><a href="cruise-grid-right-sidebar.php">Grid View Right Sidebar</a></li>
+                            <li><a href="cruise-detail-left-sidebar.php">Detail Left Sidebar</a></li>
+                            <li><a href="cruise-detail-right-sidebar.php">Detail Right Sidebar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cars<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="car-homepage.html">Car Homepage</a></li>
-                            <li><a href="car-listing-left-sidebar.html">List View Left Sidebar</a></li>
-                            <li><a href="car-listing-right-sidebar.html">List View Right Sidebar</a></li>
-                            <li><a href="car-grid-left-sidebar.html">Grid View Left Sidebar</a></li>
-                            <li><a href="car-grid-right-sidebar.html">Grid View Right Sidebar</a></li>
-                            <li><a href="car-detail-left-sidebar.html">Detail Left Sidebar</a></li>
-                            <li><a href="car-detail-right-sidebar.html">Detail Right Sidebar</a></li>
+                            <li><a href="car-homepage.php">Car Homepage</a></li>
+                            <li><a href="car-listing-left-sidebar.php">List View Left Sidebar</a></li>
+                            <li><a href="car-listing-right-sidebar.php">List View Right Sidebar</a></li>
+                            <li><a href="car-grid-left-sidebar.php">Grid View Left Sidebar</a></li>
+                            <li><a href="car-grid-right-sidebar.php">Grid View Right Sidebar</a></li>
+                            <li><a href="car-detail-left-sidebar.php">Detail Left Sidebar</a></li>
+                            <li><a href="car-detail-right-sidebar.php">Detail Right Sidebar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<span><i class="fa fa-angle-down"></i></span></a>
@@ -207,44 +214,44 @@
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Standard <span>Pages</span></li>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="contact-us.html">Contact Us</a></li>
-                                            <li><a href="blog-listing-left-sidebar.html">Blog Listing Left Sidebar</a></li>
-                                            <li><a href="blog-listing-right-sidebar.html">Blog Listing Right Sidebar</a></li>
-                                            <li><a href="blog-detail-left-sidebar.html">Blog Detail Left Sidebar</a></li>
-                                            <li><a href="blog-detail-right-sidebar.html">Blog Detail Right Sidebar</a></li>
+                                            <li><a href="about-us.php">About Us</a></li>
+                                            <li><a href="contact-us.php">Contact Us</a></li>
+                                            <li><a href="blog-listing-left-sidebar.php">Blog Listing Left Sidebar</a></li>
+                                            <li><a href="blog-listing-right-sidebar.php">Blog Listing Right Sidebar</a></li>
+                                            <li><a href="blog-detail-left-sidebar.php">Blog Detail Left Sidebar</a></li>
+                                            <li><a href="blog-detail-right-sidebar.php">Blog Detail Right Sidebar</a></li>
                                         </ul>
                                     </div>
 
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">User <span>Dashboard</span></li>
-                                            <li><a href="dashboard.html">Dashboard</a></li>
-                                            <li><a href="user-profile.html">User Profile</a></li>
-                                            <li><a href="booking.html">Booking</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="cards.html">Cards</a></li>
+                                            <li><a href="dashboard.php">Dashboard</a></li>
+                                            <li><a href="user-profile.php">User Profile</a></li>
+                                            <li><a href="booking.php">Booking</a></li>
+                                            <li><a href="wishlist.php">Wishlist</a></li>
+                                            <li><a href="cards.php">Cards</a></li>
                                         </ul>
                                     </div>
 
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Special <span>Pages</span></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="registration.html">Registration</a></li>
-                                            <li><a href="forgot-password.html">Forgot Password</a></li>
-                                            <li><a href="error-page.html">404 Page</a></li>
-                                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                                            <li><a href="login.php">Login</a></li>
+                                            <li><a href="registration.php">Registration</a></li>
+                                            <li><a href="forgot-password.php">Forgot Password</a></li>
+                                            <li><a href="error-page.php">404 Page</a></li>
+                                            <li><a href="coming-soon.php">Coming Soon</a></li>
                                         </ul>
                                     </div>
 
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
                                             <li class="dropdown-header">Extra <span>Pages</span></li>
-                                            <li><a href="before-you-fly.html">Before Fly</a></li>
-                                            <li><a href="travel-insurance.html">Travel Insurance</a></li>
-                                            <li><a href="holidays.html">Holidays</a></li>
-                                            <li><a href="thank-you.html">Thank You</a></li>
+                                            <li><a href="before-you-fly.php">Before Fly</a></li>
+                                            <li><a href="travel-insurance.php">Travel Insurance</a></li>
+                                            <li><a href="holidays.php">Holidays</a></li>
+                                            <li><a href="thank-you.php">Thank You</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -274,37 +281,37 @@
 
                     <a href="#home-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-home link-icon"></i></span>Home<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="home-links">
-                        <a href="index.html" class="list-group-item">Main Homepage</a>
-                        <a href="flight-homepage.html" class="list-group-item">Flight Homepage</a>
-                        <a href="hotel-homepage.html" class="list-group-item">Hotel Homepage</a>
-                        <a href="tour-homepage.html" class="list-group-item">Tour Homepage</a>
-                        <a href="cruise-homepage.html" class="list-group-item">Cruise Homepage</a>
-                        <a href="car-homepage.html" class="list-group-item">Car Homepage</a>
-                        <a href="landing-page.html" class="list-group-item">Landing Page</a>
+                        <a href="index.php" class="list-group-item">Main Homepage</a>
+                        <a href="flight-homepage.php" class="list-group-item">Flight Homepage</a>
+                        <a href="hotel-homepage.php" class="list-group-item">Hotel Homepage</a>
+                        <a href="tour-homepage.php" class="list-group-item">Tour Homepage</a>
+                        <a href="cruise-homepage.php" class="list-group-item">Cruise Homepage</a>
+                        <a href="car-homepage.php" class="list-group-item">Car Homepage</a>
+                        <a href="landing-page.php" class="list-group-item">Landing Page</a>
                     </div>
                     <!-- end sub-menu -->
 
                     <a href="#flights-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-plane link-icon"></i></span>Flights<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
-                        <a href="flight-homepage.html" class="list-group-item">Flight Homepage</a>
-                        <a href="flight-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
-                        <a href="flight-listing-right-sidebar.html" class="list-group-item">List View Right Sidebar</a>
-                        <a href="flight-grid-left-sidebar.html" class="list-group-item">Grid View Left Sidebar</a>
-                        <a href="flight-grid-right-sidebar.html" class="list-group-item">Grid View Right Sidebar</a>
-                        <a href="flight-detail-left-sidebar.html" class="list-group-item">Detail Left Sidebar</a>
-                        <a href="flight-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
+                        <a href="flight-homepage.php" class="list-group-item">Flight Homepage</a>
+                        <a href="flight-listing-left-sidebar.php" class="list-group-item">List View Left Sidebar</a>
+                        <a href="flight-listing-right-sidebar.php" class="list-group-item">List View Right Sidebar</a>
+                        <a href="flight-grid-left-sidebar.php" class="list-group-item">Grid View Left Sidebar</a>
+                        <a href="flight-grid-right-sidebar.php" class="list-group-item">Grid View Right Sidebar</a>
+                        <a href="flight-detail-left-sidebar.php" class="list-group-item">Detail Left Sidebar</a>
+                        <a href="flight-detail-right-sidebar.php" class="list-group-item">Detail Right Sidebar</a>
                     </div>
                     <!-- end sub-menu -->
 
                     <a href="#hotels-links" class="list-group-item active" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-building link-icon"></i></span>Hotels<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="hotels-links">
-                        <a href="hotel-homepage.html" class="list-group-item">Hotel Homepage</a>
-                        <a href="hotel-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
+                        <a href="hotel-homepage.php" class="list-group-item">Hotel Homepage</a>
+                        <a href="hotel-listing-left-sidebar.php" class="list-group-item">List View Left Sidebar</a>
                         <a href="#" class="list-group-item active">List View Right Sidebar</a>
-                        <a href="hotel-grid-left-sidebar.html" class="list-group-item">Grid View Left Sidebar</a>
-                        <a href="hotel-grid-right-sidebar.html" class="list-group-item">Grid View Right Sidebar</a>
-                        <a href="hotel-detail-left-sidebar.html" class="list-group-item">Detail Left Sidebar</a>
-                        <a href="hotel-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
+                        <a href="hotel-grid-left-sidebar.php" class="list-group-item">Grid View Left Sidebar</a>
+                        <a href="hotel-grid-right-sidebar.php" class="list-group-item">Grid View Right Sidebar</a>
+                        <a href="hotel-detail-left-sidebar.php" class="list-group-item">Detail Left Sidebar</a>
+                        <a href="hotel-detail-right-sidebar.php" class="list-group-item">Detail Right Sidebar</a>
                     </div>
                     <!-- end sub-menu -->
 
@@ -312,66 +319,66 @@
 
 
                     <div class="collapse sub-menu" id="tours-links">
-                        <a href="tour-homepage.html" class="list-group-item">Tour Homepage</a>
-                        <a href="tour-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
-                        <a href="tour-listing-right-sidebar.html" class="list-group-item">List View Right Sidebar</a>
-                        <a href="tour-grid-left-sidebar.html" class="list-group-item">Grid View Left Sidebar</a>
-                        <a href="tour-grid-right-sidebar.html" class="list-group-item">Grid View Right Sidebar</a>
-                        <a href="tour-detail-left-sidebar.html" class="list-group-item">Detail Left Sidebar</a>
-                        <a href="tour-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
+                        <a href="tour-homepage.php" class="list-group-item">Tour Homepage</a>
+                        <a href="tour-listing-left-sidebar.php" class="list-group-item">List View Left Sidebar</a>
+                        <a href="tour-listing-right-sidebar.php" class="list-group-item">List View Right Sidebar</a>
+                        <a href="tour-grid-left-sidebar.php" class="list-group-item">Grid View Left Sidebar</a>
+                        <a href="tour-grid-right-sidebar.php" class="list-group-item">Grid View Right Sidebar</a>
+                        <a href="tour-detail-left-sidebar.php" class="list-group-item">Detail Left Sidebar</a>
+                        <a href="tour-detail-right-sidebar.php" class="list-group-item">Detail Right Sidebar</a>
                     </div>
                     <!-- end sub-menu -->
 
                     <a href="#cruise-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-ship link-icon"></i></span>Cruise<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="cruise-links">
-                        <a href="cruise-homepage.html" class="list-group-item">Cruise Homepage</a>
-                        <a href="cruise-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
-                        <a href="cruise-listing-right-sidebar.html" class="list-group-item">List View Right Sidebar</a>
-                        <a href="cruise-grid-left-sidebar.html" class="list-group-item">Grid View Left Sidebar</a>
-                        <a href="cruise-grid-right-sidebar.html" class="list-group-item">Grid View Right Sidebar</a>
-                        <a href="cruise-detail-left-sidebar.html" class="list-group-item">Detail Left Sidebar</a>
-                        <a href="cruise-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
+                        <a href="cruise-homepage.php" class="list-group-item">Cruise Homepage</a>
+                        <a href="cruise-listing-left-sidebar.php" class="list-group-item">List View Left Sidebar</a>
+                        <a href="cruise-listing-right-sidebar.php" class="list-group-item">List View Right Sidebar</a>
+                        <a href="cruise-grid-left-sidebar.php" class="list-group-item">Grid View Left Sidebar</a>
+                        <a href="cruise-grid-right-sidebar.php" class="list-group-item">Grid View Right Sidebar</a>
+                        <a href="cruise-detail-left-sidebar.php" class="list-group-item">Detail Left Sidebar</a>
+                        <a href="cruise-detail-right-sidebar.php" class="list-group-item">Detail Right Sidebar</a>
                     </div>
                     <!-- end sub-menu -->
 
                     <a href="#cars-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-car link-icon"></i></span>Cars<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="cars-links">
-                        <a href="car-homepage.html" class="list-group-item">Car Homepage</a>
-                        <a href="car-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
-                        <a href="car-listing-right-sidebar.html" class="list-group-item">List View Right Sidebar</a>
-                        <a href="car-grid-left-sidebar.html" class="list-group-item">Grid View Left Sidebar</a>
-                        <a href="car-grid-right-sidebar.html" class="list-group-item">Grid View Right Sidebar</a>
-                        <a href="car-detail-left-sidebar.html" class="list-group-item">Detail Left Sidebar</a>
-                        <a href="car-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
+                        <a href="car-homepage.php" class="list-group-item">Car Homepage</a>
+                        <a href="car-listing-left-sidebar.php" class="list-group-item">List View Left Sidebar</a>
+                        <a href="car-listing-right-sidebar.php" class="list-group-item">List View Right Sidebar</a>
+                        <a href="car-grid-left-sidebar.php" class="list-group-item">Grid View Left Sidebar</a>
+                        <a href="car-grid-right-sidebar.php" class="list-group-item">Grid View Right Sidebar</a>
+                        <a href="car-detail-left-sidebar.php" class="list-group-item">Detail Left Sidebar</a>
+                        <a href="car-detail-right-sidebar.php" class="list-group-item">Detail Right Sidebar</a>
                     </div>
                     <!-- end sub-menu -->
 
                     <a href="#pages-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-clone link-icon"></i></span>Pages<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="pages-links">
                         <div class="list-group-heading list-group-item">Standard <span>Pages</span></div>
-                        <a href="about-us.html" class="list-group-item">About Us</a>
-                        <a href="contact-us.html" class="list-group-item">Contact Us</a>
-                        <a href="blog-listing-left-sidebar.html" class="list-group-item">Blog Listing Left Sidebar</a>
-                        <a href="blog-listing-right-sidebar.html" class="list-group-item">Blog Listing Right Sidebar</a>
-                        <a href="blog-detail-left-sidebar.html" class="list-group-item">Blog Detail Left Sidebar</a>
-                        <a href="blog-detail-right-sidebar.html" class="list-group-item">Blog Detail Right Sidebar</a>
+                        <a href="about-us.php" class="list-group-item">About Us</a>
+                        <a href="contact-us.php" class="list-group-item">Contact Us</a>
+                        <a href="blog-listing-left-sidebar.php" class="list-group-item">Blog Listing Left Sidebar</a>
+                        <a href="blog-listing-right-sidebar.php" class="list-group-item">Blog Listing Right Sidebar</a>
+                        <a href="blog-detail-left-sidebar.php" class="list-group-item">Blog Detail Left Sidebar</a>
+                        <a href="blog-detail-right-sidebar.php" class="list-group-item">Blog Detail Right Sidebar</a>
                         <div class="list-group-heading list-group-item">User <span>Dashboard</span></div>
-                        <a href="dashboard.html" class="list-group-item">Dashboard</a>
-                        <a href="user-profile.html" class="list-group-item">User Profile</a>
-                        <a href="booking.html" class="list-group-item">Booking</a>
-                        <a href="wishlist.html" class="list-group-item">Wishlist</a>
-                        <a href="cards.html" class="list-group-item">Cards</a>
+                        <a href="dashboard.php" class="list-group-item">Dashboard</a>
+                        <a href="user-profile.php" class="list-group-item">User Profile</a>
+                        <a href="booking.php" class="list-group-item">Booking</a>
+                        <a href="wishlist.php" class="list-group-item">Wishlist</a>
+                        <a href="cards.php" class="list-group-item">Cards</a>
                         <div class="list-group-heading list-group-item">Special <span>Pages</span></div>
-                        <a href="login.html" class="list-group-item">Login</a>
-                        <a href="registration.html" class="list-group-item">Registration</a>
-                        <a href="forgot-password.html" class="list-group-item">Forgot Password</a>
-                        <a href="error-page.html" class="list-group-item">404 Page</a>
-                        <a href="coming-soon.html" class="list-group-item">Coming Soon</a>
+                        <a href="login.php" class="list-group-item">Login</a>
+                        <a href="registration.php" class="list-group-item">Registration</a>
+                        <a href="forgot-password.php" class="list-group-item">Forgot Password</a>
+                        <a href="error-page.php" class="list-group-item">404 Page</a>
+                        <a href="coming-soon.php" class="list-group-item">Coming Soon</a>
                         <div class="list-group-heading list-group-item">Extra <span>Pages</span></div>
-                        <a href="before-you-fly.html" class="list-group-item">Before Fly</a>
-                        <a href="travel-insurance.html" class="list-group-item">Travel Insurance</a>
-                        <a href="holidays.html" class="list-group-item">Holidays</a>
-                        <a href="thank-you.html" class="list-group-item">Thank You</a>
+                        <a href="before-you-fly.php" class="list-group-item">Before Fly</a>
+                        <a href="travel-insurance.php" class="list-group-item">Travel Insurance</a>
+                        <a href="holidays.php" class="list-group-item">Holidays</a>
+                        <a href="thank-you.php" class="list-group-item">Thank You</a>
                     </div>
                     <!-- end sub-menu -->
                 </div>
@@ -415,7 +422,7 @@
                         <div class="list-block main-block h-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
+                                    <a href="hotel-detail-right-sidebar.php">
                                         <img src="images/hotel-1.jpg" class="img-responsive" alt="hotel-img" />
                                     </a>
                                     <div class="main-mask">
@@ -435,10 +442,10 @@
                                 <!-- end h-list-img -->
 
                                 <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a></h3>
+                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.php">Herta Berlin Hotel</a></h3>
                                     <p class="block-minor">From: Scotland</p>
                                     <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">View More</a>
+                                    <a href="hotel-detail-right-sidebar.php" class="btn btn-orange btn-lg">View More</a>
                                 </div>
                                 <!-- end h-list-info -->
                             </div>
@@ -449,7 +456,7 @@
                         <div class="list-block main-block h-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
+                                    <a href="hotel-detail-right-sidebar.php">
                                         <img src="images/hotel-2.jpg" class="img-responsive" alt="hotel-img" />
                                     </a>
                                     <div class="main-mask">
@@ -469,10 +476,10 @@
                                 <!-- end h-list-img -->
 
                                 <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a></h3>
+                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.php">Herta Berlin Hotel</a></h3>
                                     <p class="block-minor">From: Scotland</p>
                                     <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">View More</a>
+                                    <a href="hotel-detail-right-sidebar.php" class="btn btn-orange btn-lg">View More</a>
                                 </div>
                                 <!-- end h-list-info -->
                             </div>
@@ -483,7 +490,7 @@
                         <div class="list-block main-block h-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
+                                    <a href="hotel-detail-right-sidebar.php">
                                         <img src="images/hotel-3.jpg" class="img-responsive" alt="hotel-img" />
                                     </a>
                                     <div class="main-mask">
@@ -503,10 +510,10 @@
                                 <!-- end h-list-img -->
 
                                 <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a></h3>
+                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.php">Herta Berlin Hotel</a></h3>
                                     <p class="block-minor">From: Scotland</p>
                                     <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">View More</a>
+                                    <a href="hotel-detail-right-sidebar.php" class="btn btn-orange btn-lg">View More</a>
                                 </div>
                                 <!-- end h-list-info -->
                             </div>
@@ -517,7 +524,7 @@
                         <div class="list-block main-block h-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
+                                    <a href="hotel-detail-right-sidebar.php">
                                         <img src="images/hotel-4.jpg" class="img-responsive" alt="hotel-img" />
                                     </a>
                                     <div class="main-mask">
@@ -537,10 +544,10 @@
                                 <!-- end h-list-img -->
 
                                 <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a></h3>
+                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.php">Herta Berlin Hotel</a></h3>
                                     <p class="block-minor">From: Scotland</p>
                                     <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">View More</a>
+                                    <a href="hotel-detail-right-sidebar.php" class="btn btn-orange btn-lg">View More</a>
                                 </div>
                                 <!-- end h-list-info -->
                             </div>
@@ -551,7 +558,7 @@
                         <div class="list-block main-block h-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
+                                    <a href="hotel-detail-right-sidebar.php">
                                         <img src="images/hotel-5.jpg" class="img-responsive" alt="hotel-img" />
                                     </a>
                                     <div class="main-mask">
@@ -571,10 +578,10 @@
                                 <!-- end h-list-img -->
 
                                 <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a></h3>
+                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.php">Herta Berlin Hotel</a></h3>
                                     <p class="block-minor">From: Scotland</p>
                                     <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">View More</a>
+                                    <a href="hotel-detail-right-sidebar.php" class="btn btn-orange btn-lg">View More</a>
                                 </div>
                                 <!-- end h-list-info -->
                             </div>
@@ -585,7 +592,7 @@
                         <div class="list-block main-block h-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
+                                    <a href="hotel-detail-right-sidebar.php">
                                         <img src="images/hotel-6.jpg" class="img-responsive" alt="hotel-img" />
                                     </a>
                                     <div class="main-mask">
@@ -605,10 +612,10 @@
                                 <!-- end h-list-img -->
 
                                 <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a></h3>
+                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.php">Herta Berlin Hotel</a></h3>
                                     <p class="block-minor">From: Scotland</p>
                                     <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">View More</a>
+                                    <a href="hotel-detail-right-sidebar.php" class="btn btn-orange btn-lg">View More</a>
                                 </div>
                                 <!-- end h-list-info -->
                             </div>

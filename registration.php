@@ -90,9 +90,10 @@ document.SignIn.user.focus();
 <body>
 <?php
              include ('sign_up.php');
+             if(isset($_POST['submit2'])){
          //    if(isset($_POST['submit'])){
                 $account=new account();
-            $account->create();
+            $account->create();}
 //}
             ?>
     <!--====== LOADER =====-->

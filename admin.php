@@ -212,7 +212,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <input type="text" id="search" class="form-control" placeholder="Search..." required />
-                            <span class="input-group-btn"><button type="button" class="btn"><span><i class="fa fa-search"></i></span></button>
+                            <span class="input-group-btn"><button type="submit" class="btn"><span><i class="fa fa-search"></i></span></button>
                             </span>
                         </div>
                         <!-- end input-group -->

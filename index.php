@@ -898,7 +898,7 @@ function inten() {
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" onclick="cart()">Book tour</button>
+                                        <a href="booking_hot.php?id='.$id_hot.'"><button type="button" class="btn btn-primary" onclick="">Book tour</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -1138,8 +1138,8 @@ function inten() {
     <!-- end tour-offers -->
 
 
-    <!--=============== CRUISE OFFERS ===============-->
-    <section id="cruise-offers" class="section-padding">
+     <!--=============== CRUISE OFFERS ===============-->
+     <section id="cruise-offers" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -1282,8 +1282,8 @@ function inten() {
     <!-- end video-banner -->
 
 
-    <!--================= FLIGHT OFFERS =============-->
-    <section id="flight-offers" class="section-padding">
+     <!--================= FLIGHT OFFERS =============-->
+     <section id="flight-offers" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -1406,6 +1406,8 @@ function inten() {
         <!-- end container -->
     </section>
     <!-- end flight-offers -->
+
+
 
     <!--==================== HIGHLIGHTS ====================-->
     <section id="highlights" class="section-padding back-size">
@@ -1723,7 +1725,7 @@ function inten() {
                                                         <p>$content_blog</p>
                                                     </div>
                                                 </div>
-                                                <span class='arrow'><a href='blog-detail-right-sidebar.php'><i class='fa fa-angle-right'></i></a></span>
+                                                <span class='arrow'><a href='blog-listing-right-sidebar.php'><i class='fa fa-angle-right'></i></a></span>
                                             </div>
                                         
                                     </div>

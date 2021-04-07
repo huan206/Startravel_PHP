@@ -419,35 +419,95 @@
     <!-- end page-cover -->
     <h1 class="text-center"><b>MY CART</b></h1>
     <div class="container">
+    <div class="container">
         <table id="cart" class="table table-hover table-condensed">
             <thead>
+               
                 <tr>
-                    <th style="width:15%"><b></b></th>
-                    <th style="width:15%"><b>NAME</b></th>
-                    <th style="width:10%"><b>PRICE</b></th>
-                    <th style="width:20%"><b>FROM- TO</b></th>
-                    <th style="width:8%"><b>AMOUNT</b></th>
-                    <th style="width:22%" class="text-center"><b>TOTAL</b></th>
-                    <th style="width:10%"><b>TOOL</b></th>
-                </tr>
-                <tr>
-                    <td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
+                    <td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i>   CONTINUE BUYING</a>
                     </td>
                     <th style="width:15%"><b></b></th>
                     <th style="width:15%"><b></b></th>
                     <th style="width:15%"><b></b></th>
-                    <th style="width:15%"><b></b></th>
-                    <td class="hidden-xs text-center"><strong id="tong"></strong>
+                    <th style="width:200%"><b></b></th>
+                    <td class="hidden-xs text-center"></strong>
                     </td>
-                    <td><a href="http://hocwebgiare.com/" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+                    <td><a href="" class="btn btn-success btn-block">PAY ALL   <i class="fa fa-angle-right"></i></a>
                     </td>
                 </tr>
-                <script src="js/login.js"></script>
             </thead>
         </table>
 
     </div>
-    <br>
+    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>IMAGE</th>
+                                    <th>NAME</th>                                 
+                                    <th>FROM_TO</th>
+                                    <th>PRICE</th>
+                                    <th>PAY</th>
+                                    <th>TOOL</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <?php
+                                $link=new mysqli("localhost","root","","startravel");
+                                $query="select * from activity";
+                                $result=mysqli_query($link,$query);
+                                $query2="select * from account";
+                                $result2=mysqli_query($link,$query2);
+                                while($row=mysqli_fetch_assoc($result)){
+                                $name=$row['activity_name'];
+                                while($row2=mysqli_fetch_assoc($result2)){
+                                $name2=$row2['account_name'];
+                                if($name==$name2){
+                                    $id=$row2['account_id'];
+                                }
+                                }
+                                }
+                                $total=0;
+                                $queryquery="select * from cart where id_account='$id'";
+                                $resultresult=mysqli_query($link,$queryquery);
+                                while($rowrow=mysqli_fetch_assoc($resultresult)){
+                                    $idd=$rowrow['id_cart'];
+                                   $image=$rowrow['image_tour'];
+                                   $name=$rowrow['name_tour'];
+                                   $price=$rowrow['price_tour'];
+                                   $from_to=$rowrow['from_to'];
+                                   $total=$total+$price;
+                                        echo $table = "
+                                        <tr>
+                                            <td><img src='images/$image' height='200' width='250'></td>
+                                            <td>$name</td>
+                                            <td>$from_to</td>
+                                            <td>$price $</td>  
+                                            <td><a href=''><button type='button' class='btn btn-success bt'>PAY</button></a></td>           
+                                            <td><a href='delete_cart.php?idd=$idd'><button type='button' class='btn btn-success bt'>DELETE</button></a></td>
+                                        </tr>
+                                        ";
+                                    }
+                                    echo $table2="
+                                    <tr>
+                                            <td>TOTAL</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>             
+                                            <td>$total $</td>
+                                        </tr>
+                                    "; 
+                                    ?>
+                                    <tr>
+
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     <!--======================= FOOTER =======================-->
     <section id="footer" class="ftr-heading-o ftr-heading-mgn-1">

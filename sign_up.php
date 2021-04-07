@@ -35,7 +35,7 @@ public function create(){
     if($kt==1){
      $query="insert into account(account_name,account_pass,account_email,account_status) value ('$name','$pass','$email','Block')";
      if ($sql=$this->link->query($query)){
-        echo "<script>alert('Sign up successly !!!')</script>";
+        echo "<script>alert('Please wait for the admin to confirm !!!!!!')</script>";
         header("location: index.php");
      }
 }else{
