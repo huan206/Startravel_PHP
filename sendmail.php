@@ -16,12 +16,12 @@ $alert = '';
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'tojiro206@gmail.com'; 
-    $mail->Password = 'huan2001';
+    $mail->Username = 'hangqt3621@gmail.com'; 
+    $mail->Password = 'Hang@362174';
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
 
-    $mail->setFrom('tojiro206@gmail.com', 'huan');
+    $mail->setFrom('hangqt3621@gmail.com', 'Admin');
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -36,6 +36,6 @@ $alert = '';
     $alert = '<div class="alert-error">
                 <span>'.$e->getMessage().'</span>
               </div>';
-  }                                                                                                 
+  }                                                   
 }
 ?>

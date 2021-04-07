@@ -244,12 +244,9 @@
                     <div id="links">
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
-                            <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign
-                                    up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a>
-                            </li>
+                            <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
                             <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
-                            </li>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -277,7 +274,18 @@
                                             <!-- end form-group -->
                                         </li>
                                         <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span></a>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
 
@@ -295,7 +303,24 @@
         <!-- end row -->
     </div>
     <!-- end container -->
-
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
     <!-- end top-bar -->
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">

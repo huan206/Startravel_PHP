@@ -204,7 +204,7 @@ function inten() {
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="logout()">Login Homepage</a></li>
+                            <li><a href="login.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>

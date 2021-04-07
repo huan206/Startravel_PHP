@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Registration</title>
+    <title>Travel Insurance</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+
     <!-- Bootstrap Stylesheet -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -20,83 +20,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" id="cpswitch" href="css/orange.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <style>
-        #number {
-            display: none;
-        }
-        
-        #submit {
-            display: none;
-        }
-        #submit2 {
-            display: none;
-        }
-    </style>
-      <script type="text/javascript">
-      function show2(){
-        document.getElementById("submit").style.display = "none";
-        document.getElementById("submit2").style.display = "block";
-      }
-          function show() {
-            var user = document.getElementById('user').value;
-    var email = document.getElementById('email').value;
-    var pass = document.getElementById('pass').value;
-    var repass = document.getElementById('repass').value;
-    if (user.length < 3) {
-        alert("Username must contain at least 3 characters!");
-        document.SignIn.user.focus();
-    } else if (pass.length == 0) {
-        alert("Password cannot be empty!");
-        document.SignIn.pass.focus();
-    } else if (pass != repass) {
-        alert(" Password must match!");
-        document.SignIn.pass.focus();
-    } else if (email.length == 0) {
-        alert("Wrong mail format!");
-        document.SignIn.email.focus();
-    } else {
-        document.getElementById("number").style.display = "block";
-    document.getElementById("register").style.display = "none";
-    document.getElementById("submit").style.display = "block";
-        }
-    }
-    var code;
-    $(document).ready(function(){
-    $('#register').click(function(){
-        var txt= $('#email').val();
-        $.post('sendmail.php',{data: txt},function(data){
-         code=data;
-        })
-    })
-    $('#submit2').click(function(){
-            alert("Please wait for the admin to confirm !!!");
-})
-    $('#submit').click(function(){
-        var code2= $('#number').val();
-        if(code==code2){
-            alert("Enter the code successfully. Please submit information!!!");
-            show2();
-}
-        else{
-alert("The verification code is wrong. Please re-enter !!!");
-document.SignIn.user.focus();
-        }
-    })
-})
-    </script>
 </head>
 
 
 <body>
-<?php
-             include ('sign_up.php');
-             if(isset($_POST['submit2'])){
-         //    if(isset($_POST['submit'])){
-                $account=new account();
-            $account->create();}
-//}
-            ?>
+
     <!--====== LOADER =====-->
+    <div class="loader"></div>
+
+
     <!--======== SEARCH-OVERLAY =========-->
     <div class="overlay">
         <a href="javascript:void(0)" id="close-button" class="closebtn">&times;</a>
@@ -150,25 +82,22 @@ document.SignIn.user.focus();
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                      <option value="">$</option>
-                                                      <option value="">đ</option>
-                                                      <option value="">£</option>
-                                                  </select>
+                                                       <option value="">$</option>
+                                                       <option value="">đ</option>
+                                                       <option value="">£</option>
+                                                   </select>
                                             </div>
                                             <!-- end form-group -->
-                                        </li>
-                                        <li>
-
                                         </li>
 
                                         <li>
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                      <option value="">EN</option>
-                                                      <option value="">VI</option>
-                                                      <option value="">FR</option>
-                                                  </select>
+                                                       <option value="">EN</option>
+                                                       <option value="">VI</option>
+                                                       <option value="">FR</option>
+                                                   </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
@@ -222,10 +151,10 @@ document.SignIn.user.focus();
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" id="menu-button">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                  </button>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>                        
+                   </button>
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
@@ -291,7 +220,7 @@ document.SignIn.user.focus();
 
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
-                                            <li class="error-page.php">User <span>Dashboard</span></li>
+                                            <li class="dropdown-header">User <span>Dashboard</span></li>
                                             <li><a href="error-page.php">Dashboard</a></li>
                                             <li><a href="error-page.php">User Profile</a></li>
                                             <li><a href="error-page.php">Booking</a></li>
@@ -426,15 +355,17 @@ document.SignIn.user.focus();
     <!-- end sidenav-content -->
 
 
-    <!--================ PAGE-COVER =================-->
-    <section class="page-cover" id="cover-registration">
+
+
+    <!--================= PAGE-COVER ================-->
+    <section class="page-cover" id="cover-travel-insurance">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="page-title">Registration Page</h1>
+                    <h1 class="page-title">Travel Insurance</h1>
                     <ul class="breadcrumb">
                         <li><a href="index.php">Home</a></li>
-                        <li class="active">Registration Page</li>
+                        <li class="active">Travel Insurance</li>
                     </ul>
                 </div>
                 <!-- end columns -->
@@ -444,62 +375,152 @@ document.SignIn.user.focus();
         <!-- end container -->
     </section>
     <!-- end page-cover -->
-    <!--===== INNERPAGE-WRAPPER ====-->
+
+
+    <!--==== INNERPAGE-WRAPPER =====-->
     <section class="innerpage-wrapper">
-        <div id="registration" class="innerpage-section-padding">
+        <div id="travel-insurance" class="innerpage-section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
 
-                        <div class="flex-content">
-                            <div class="custom-form custom-form-fields">
-                                <h3>Registration</h3>
-                                <p>Welcome to Starttravel. Your informations will be secured carefully. Please fill informations fully. Contact us if you get any problems.</p>
-                                <form action="" method="post">
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Username" id="user" name="account_name" value =""required/>
-                                        <span><i class="fa fa-user"></i></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" id="email" name="account_email" required/>
-                                        <span><i class="fa fa-envelope"></i></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" id="pass" name="account_pass" required/>
-                                        <span><i class="fa fa-lock"></i></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="repass" placeholder="Confirm Password" name="account_confirm" required/>
-                                        <span><i class="fa fa-lock"></i></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="number" placeholder="Codes" />
-                                    </div>
-                                    <input type="button" class="btn btn-orange btn-block" id="register" name="register" value="Register"  onclick="<?php
-               echo 'show();';
-           ?>">
-                                    <input type="button" class="btn btn-orange btn-block" id="submit" name="submit" value="Check Code" >
-                                    <input type="submit" class="btn btn-orange btn-block" id="submit2" name="submit2" value="Submit">
-                                </form>
-
-                                <div class="other-links">
-                                    <p class="link-line">Already Have An Account ? <a href="login.php">Login Here</a></p>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side tvl-insurance-info">
+                        <div class="space-right">
+                            <div class="insurance-desc mg-bot-60">
+                                <div class="innerpage-heading">
+                                    <h1>Why Travel Insurance</h1>
+                                    <p>International Travel Insurance - An indispensable companion in traveling, visiting, studying abroad,… Travel Insurance Bao Viet offers packages that guarantee Visa eligibility and are always chosen by everyone. Risks
+                                        are undesirable, to minimize risks due to trip delays, trip cancellations, loss of things, accidents during travel, study abroad, relative visits,…. For more enjoyment and peace of mind during your trip, please
+                                        choose Bao Travel Insurance</p>
+                                    <img src="images/bảo-hiểm-du-lịch-nội-địa.jpg" class="img-responsive" alt="travel-insurance" />
                                 </div>
-                                <!-- end other-links -->
-                            </div>
-                            <!-- end custom-form -->
+                                <!-- end innerpage-heading -->
 
-                            <div class="flex-content-img custom-form-img">
-                                <img src="images/Ngam_nhung_hinh_anh_tuyet_dep_ve_Viet_Nam_tren_bao_Anh_15.jpg" class="img-responsive" alt="registration-img" />
+                                <ul class="list-unstyled">
+                                    <li>Veniam delectus ei vis st atqui timeam mnesarchum at.</li>
+                                    <li>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri.</li>
+                                    <li>Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</li>
+                                    <li>Ad duo fugit aeque fabulas, in lucilius prodesset pri.</li>
+                                    <li>Veniam delectus ei vis st atqui timeam mnesarchum at.</li>
+                                </ul>
                             </div>
-                            <!-- end custom-form-img -->
+                            <!-- end insurance-desc -->
+
+                            <div class="insurance-features">
+                                <div class="innerpage-heading">
+                                    <h1>Insurance Features</h1>
+                                </div>
+                                <!-- end innerpage-heading -->
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="in-feature-block text-center">
+                                            <span><i class="fa fa-user"></i></span>
+                                            <div class="in-frature-text">
+                                                <h4>Feature Title 1</h4>
+                                                <p>Emergency medical guarantee and relief service in VN, other languages ​​on a global scale with just one call.</p>
+                                            </div>
+                                            <!-- end in-feature-text -->
+                                        </div>
+                                        <!-- end in-feature-block -->
+                                    </div>
+                                    <!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="in-feature-block text-center">
+                                            <span><i class="fa fa-shield"></i></span>
+                                            <div class="in-frature-text">
+                                                <h4>Feature Title 2</h4>
+                                                <p>All international travel insurance packages are eligible for a Visa.</p>
+                                            </div>
+                                            <!-- end in-feature-text -->
+                                        </div>
+                                        <!-- end in-feature-block -->
+                                    </div>
+                                    <!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="in-feature-block text-center">
+                                            <span><i class="fa fa-cogs"></i></span>
+                                            <div class="in-frature-text">
+                                                <h4>Feature Title 3</h4>
+                                                <p>The preferential tariff applies if the whole family participates in an international travel insurance policy.</p>
+                                            </div>
+                                            <!-- end in-feature-text -->
+                                        </div>
+                                        <!-- end in-feature-block -->
+                                    </div>
+                                    <!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="in-feature-block text-center">
+                                            <span><i class="fa fa-diamond"></i></span>
+                                            <div class="in-frature-text">
+                                                <h4>Feature Title 4</h4>
+                                                <p>Delivery of insurance to take place according to customer requirements even after hours (Note for insurance during office hours).</p>
+                                            </div>
+                                            <!-- end in-feature-text -->
+                                        </div>
+                                        <!-- end in-feature-block -->
+                                    </div>
+                                    <!-- end columns -->
+                                </div>
+                            </div>
+                            <!-- end insurance-features -->
+
                         </div>
-                        <!-- end form-content -->
+                        <!-- end space-right -->
+                    </div>
+                    <!-- end columns -->
 
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 side-bar blog-sidebar right-side-bar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block categories">
+                                    <h2 class="side-bar-heading">Useful Links</h2>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Online Insurance</a></li>
+                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Full Guarnateed</a></li>
+                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Medical Expense</a></li>
+                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Accidents & Failures</a></li>
+                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Sports & Acitivites</a></li>
+                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Airline Faliure Cover</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block contact">
+                                    <h2 class="side-bar-heading">Contact Us</h2>
+                                    <div class="c-list">
+                                        <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
+                                        <div class="text">
+                                            <p>hamongkhang@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <!-- end c-list -->
+
+                                    <div class="c-list">
+                                        <div class="icon"><span><i class="fa fa-phone"></i></span></div>
+                                        <div class="text">
+                                            <p>039 649 8891</p>
+                                        </div>
+                                    </div>
+                                    <!-- end c-list -->
+
+                                    <div class="c-list">
+                                        <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
+                                        <div class="text">
+                                            <p>Street No: To Hien Thanh, Son Tra, Da Nang, Viet Nam </p>
+                                        </div>
+                                    </div>
+                                    <!-- end c-list -->
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
+                        </div>
+                        <!-- end row -->
                     </div>
                     <!-- end columns -->
                 </div>
@@ -507,9 +528,11 @@ document.SignIn.user.focus();
             </div>
             <!-- end container -->
         </div>
-        <!-- end registration -->
+        <!-- end travel-insurance -->
     </section>
     <!-- end innerpage-wrapper -->
+
+
     <!--======================= BEST FEATURES =====================-->
     <section id="best-features" class="banner-padding black-features">
         <div class="container">

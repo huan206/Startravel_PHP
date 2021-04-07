@@ -80,8 +80,8 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
-                            <li><a href="registration.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -89,10 +89,10 @@
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                       <option value="">$</option>
-                                                       <option value="">đ</option>
-                                                       <option value="">£</option>
-                                                   </select>
+                                                    <option value="">$</option>
+                                                    <option value="">đ</option>
+                                                    <option value="">£</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
@@ -101,17 +101,26 @@
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                       <option value="">EN</option>
-                                                       <option value="">VI</option>
-                                                       <option value="">FR</option>
-                                                   </select>
+                                                    <option value="">EN</option>
+                                                    <option value="">VI</option>
+                                                    <option value="">FR</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
                                         <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
-                                                ham()
-                                            </script></a>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
                                 </form>
@@ -127,15 +136,32 @@
         <!-- end container -->
     </div>
     <!-- end top-bar -->
-
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" id="menu-button">
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>                        
-                   </button>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
@@ -156,7 +182,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="logout()">Login Homepage</a></li>
+                            <li><a href="login.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -618,7 +644,7 @@
                     <form>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" class="form-control input-lg" placeholder="Enter your email address" required/>
+                                <input type="email" class="form-control input-lg" placeholder="Enter your email address" required />
                                 <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
                             </div>
                         </div>

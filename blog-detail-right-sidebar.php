@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Contact Us</title>
+    <title>Blog Details Right Sidebar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap Stylesheet -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -73,8 +73,8 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
-                            <li><a href="registration.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -82,29 +82,38 @@
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                       <option value="">$</option>
-                                                       <option value="">đ</option>
-                                                       <option value="">£</option>
-                                                   </select>
+                                                         <option value="">$</option>
+                                                         <option value="">đ</option>
+                                                         <option value="">£</option>
+                                                     </select>
                                             </div>
                                             <!-- end form-group -->
-                                        </li>
-                                        <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
-                                                ham()
-                                            </script></a>
                                         </li>
 
                                         <li>
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                       <option value="">EN</option>
-                                                       <option value="">VI</option>
-                                                       <option value="">FR</option>
-                                                   </select>
+                                                         <option value="">EN</option>
+                                                         <option value="">VI</option>
+                                                         <option value="">FR</option>
+                                                     </select>
                                             </div>
                                             <!-- end form-group -->
+                                        </li>
+                                        <li>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
                                 </form>
@@ -120,15 +129,32 @@
         <!-- end container -->
     </div>
     <!-- end top-bar -->
-
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" id="menu-button">
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>                        
-                   </button>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>                        
+                     </button>
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
@@ -149,7 +175,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="logout()">Login Homepage</a></li>
+                            <li><a href="login.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -328,15 +354,17 @@
     </div>
     <!-- end sidenav-content -->
 
-    <!--================ PAGE-COVER ===============-->
-    <section class="page-cover" id="cover-contact-us">
+
+
+    <!--================= PAGE-COVER ================-->
+    <section class="page-cover" id="cover-blog-details">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="page-title">Contact Us</h1>
+                    <h1 class="page-title">Blog Details Right Sidebar</h1>
                     <ul class="breadcrumb">
                         <li><a href="index.php">Home</a></li>
-                        <li class="active">Contact Us Page</li>
+                        <li class="active">Blog Details Right Sidebar</li>
                     </ul>
                 </div>
                 <!-- end columns -->
@@ -348,51 +376,353 @@
     <!-- end page-cover -->
 
 
-    <!--===== INNERPAGE-WRAPPER ====-->
+    <!--==== INNERPAGE-WRAPPER =====-->
     <section class="innerpage-wrapper">
-        <div id="contact-us" class="innerpage-section-padding">
+        <div id="blog-details" class="innerpage-section-padding">
             <div class="container">
                 <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                        <div class="space-right">
 
-                    <div class="col-sm-12 col-md-5 no-pd-r">
-                        <div class="custom-form contact-form">
-                            <h3>Contact Us</h3>
-                            <p>Welcome to Starttravel. Your informations will be secured carefully. Please fill informations fully. Contact us if you get any problems.</p>
-                            <form>
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name" required/>
-                                    <span><i class="fa fa-user"></i></span>
+                            <div class="blog-post">
+                                <div class="main-img blog-post-img">
+                                    <img src="images/141711.jpg" class="img-responsive" alt="blog-post-image" />
+                                    <div class="main-mask blog-post-info">
+                                        <ul class="list-inline list-unstyled blog-post-info">
+                                            <li><span><i class="fa fa-calendar"></i></span>July 30, 2020</li>
+                                            <li><span><i class="fa fa-user"></i></span>By: <a href="#">Khang Ha</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
+                                <!-- end blog-post-img -->
 
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email" required/>
-                                    <span><i class="fa fa-envelope"></i></span>
+                                <div class="blog-post-detail">
+                                    <h2 class="blog-post-title">The cherry blossoms in Dalat bloom.</h2>
+                                    <p>Unlike the cherry blossoms (sakura) of Japan, Da Lat cherry apricot (Prunus Cerasoides) has a familiar resemblance to the plum peach but the flower belongs to a single five petals like apricot, so it is called with
+                                        the name " Peach Mai "is Cherry Mai. Da Lat cherry blossoms are a unique feature of this mountain town, living only at an altitude of over 1000 m above sea level, so it is impossible to "swap the concept" of Japanese
+                                        cherry blossoms, northern cherry blossoms. apricot flowers in Vung Tau. Clarifying the concept of this flower will help you feel better about the beauty of Da Lat cherry blossoms!</p>
+                                    <p>Traveling to Dalat in January, you will see new cherry blossoms blooming in some places such as the road to Hoan My hospital, Sunshine coffee, Tran Hung Dao roundabout, Truong Cong Dinh slope, the road to Tuyen Lam
+                                        lake. Cherry plum blossoms will bloom from mid-January to mid-February, so note the beautiful ways to photograph these flowers are Tran Hung Dao, Trieu Viet Vuong, the way to Trai Mat, Truong Cong Dinh, shore Xuan
+                                        Huong Lake, specialized school Thang Long or Phan Chu Trinh Junior High School (for school, you should come on a holiday and have to ask permission to protect you first). But in general, in the blooming season,
+                                        almost every street in Dalat will not lack this flower's silhouette.</p>
+                                    <p>The most beautiful at this moment is the cherry apricot tree next to Sunshine Coffee (No. 9 Tran Hung Dao) - where you can sit and watch the whole city in the windy space. After that, the most beautiful Cherry Mai streets
+                                        in Da Lat that I listed above will be destinations that cannot be missed this spring. These flowers are best when blooming together on a road, capturing the brilliant spring sky and a great background for any photo
+                                        set. Streets like Tran Hung Dao, Trieu Viet Vuong or Trai Mat are chosen by many couples to take wedding photos in spring!</p>
                                 </div>
+                                <!-- end blog-post-detail -->
+                            </div>
+                            <!-- end blog-post -->
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject" required/>
-                                    <span><i class="fa fa-info-circle"></i></span>
+                            <div id="comments">
+
+                                <div class="comment-block">
+                                    <div class="user-img">
+                                        <img src="images/IMG_6909.jpg" class="img-responsive" alt="user-img" />
+                                    </div>
+                                    <!-- end user-img -->
+
+                                    <div class="user-text">
+                                        <ul class="list-inline list-unstyled">
+                                            <li class="user-name">Khang Ha</li>
+                                            <li class="date">27 May, 2020</li>
+                                        </ul>
+                                        <p>When you want to take a photo with, you should stand in the middle of the blooming flower tree so that you can stand out from the brilliant pink. If you want a set of beautiful "virtual life" photos with spring
+                                            flowers, you will "set up a contract" with your friends to come to Dalat right away!</p>
+                                        <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                    </div>
+                                    <!-- end user-text -->
+
+                                    <div class="comment-block reply-block">
+                                        <div class="user-img">
+                                            <img src="images/IMG_6916.jpg" class="img-responsive" alt="user-img" />
+                                        </div>
+                                        <!-- end user-img -->
+
+                                        <div class="user-text">
+                                            <ul class="list-inline list-unstyled">
+                                                <li class="user-name">Jhon Smith</li>
+                                                <li class="date">27 May, 2017</li>
+                                            </ul>
+                                            <p>Save immediately the most beautiful paths of Da Lat cherry blossoms in 2021: Doc Da Quy, Cau Dat Tea Hill, Tran Hung Dao Street, Tran Quy Cap Street, Tuyen Lam Lake, Ho Xuan Huong, K'Long K'Lanh , Dalat University,
+                                                Lac Duong Town ...</p>
+                                            <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                        </div>
+                                        <!-- end user-text -->
+                                    </div>
+                                    <!-- end reply-block -->
                                 </div>
+                                <!-- end comment-block -->
 
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-                                    <span><i class="fa fa-pencil"></i></span>
+                                <div class="comment-block">
+                                    <div class="user-img">
+                                        <img src="images/IMG_6916.jpg" class="img-responsive" alt="user-img" />
+                                    </div>
+                                    <!-- end user-img -->
+
+                                    <div class="user-text">
+                                        <ul class="list-inline list-unstyled">
+                                            <li class="user-name">Jhon Smith</li>
+                                            <li class="date">27 May, 2017</li>
+                                        </ul>
+                                        <p>You may have heard a lot about sunflowers, triangles, mustard greens, lavender, ... in the flower city of Dalat, but I am sure that cherry blossoms are the only feature of this flower land. .</p>
+                                        <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                    </div>
+                                    <!-- end user-text -->
                                 </div>
+                                <!-- end comment-block -->
 
-                                <button class="btn btn-orange btn-block">Send</button>
-                            </form>
+                                <div class="comment-block">
+                                    <div class="user-img">
+                                        <img src="images/IMG_6949.jpg" class="img-responsive" alt="user-img" />
+                                    </div>
+                                    <!-- end user-img -->
+
+                                    <div class="user-text">
+                                        <ul class="list-inline list-unstyled">
+                                            <li class="user-name">Jhon Smith</li>
+                                            <li class="date">27 May, 2017</li>
+                                        </ul>
+                                        <p>Do not hesitate to travel to Dalat this January to experience the spring-filled atmosphere, to have more new feelings about this place! Quickly carry your backpack and go!</p>
+                                        <a href="#"><span><i class="fa fa-reply"></i></span> Reply</a>
+                                    </div>
+                                    <!-- end user-text -->
+                                </div>
+                                <!-- end comment-block -->
+
+                            </div>
+                            <!-- end comments -->
+
+                            <div id="comment-form">
+                                <div class="innerpage-heading">
+                                    <h1>Add Comment</h1>
+                                </div>
+                                <!-- end innerpage-heading -->
+
+                                <form>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input input-lg" placeholder="Your Name" required/>
+                                            </div>
+                                        </div>
+                                        <!-- end columns -->
+
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control input input-lg" placeholder="Your Email" required/>
+                                            </div>
+                                        </div>
+                                        <!-- end columns -->
+                                    </div>
+                                    <!-- end row -->
+
+                                    <div class="form-group">
+                                        <textarea class="form-control input-lg" rows="5" placeholder="Your Message"></textarea>
+                                    </div>
+
+                                    <button class="btn btn-orange">Submit</button>
+                                </form>
+                            </div>
+                            <!-- end comment-form -->
+
                         </div>
-                        <!-- end contact-form -->
+                        <!-- end space-right -->
                     </div>
                     <!-- end columns -->
 
-                    <div class="col-sm-12 col-md-7 no-pd-l">
-                        <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5422.217680878009!2d108.24220260953769!3d16.06098018315957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177f2ced6d8b%3A0xe282c779264f7088!2zVHLGsOG7nW5nIENhbyDEkOG6s25nIE5naOG7gSDEkMOgIE7hurVuZw!5e0!3m2!1svi!2skr!4v1611308637342!5m2!1svi!2skr"
-                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 side-bar blog-sidebar right-side-bar">
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block main-block ad-block">
+                                    <div class="main-img ad-img">
+                                        <a href="#">
+                                            <img src="images/ve-dep-viet-nam-vnexpress-2-1584434502.jpg" class="img-responsive" alt="car-ad" />
+                                            <div class="ad-mask">
+                                                <div class="ad-text">
+                                                    <span>Luxury</span>
+                                                    <h2>Car</h2>
+                                                    <span>Offer</span>
+                                                </div>
+                                                <!-- end ad-text -->
+                                            </div>
+                                            <!-- end columns -->
+                                        </a>
+                                    </div>
+                                    <!-- end ad-img -->
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
+
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block instagram">
+                                    <h2 class="side-bar-heading">Instagram</h2>
+                                    <ul class="list-unstyled list-inline">
+                                        <li>
+                                            <a href="#"><img src="images/hoa1.jpg" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa2.jpg" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa3.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa4.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa5.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa6.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa7.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa8.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="images/hoa9.jfif" class="img-responsive" alt="insta-img" /></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
                         </div>
-                        <!-- end map -->
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block contact">
+                                    <h2 class="side-bar-heading">Contact Us</h2>
+                                    <div class="c-list">
+                                        <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
+                                        <div class="text">
+                                            <p>hamongkhang@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <!-- end c-list -->
+
+                                    <div class="c-list">
+                                        <div class="icon"><span><i class="fa fa-phone"></i></span></div>
+                                        <div class="text">
+                                            <p>039 649 8891</p>
+                                        </div>
+                                    </div>
+                                    <!-- end c-list -->
+
+                                    <div class="c-list">
+                                        <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
+                                        <div class="text">
+                                            <p>Street No: To Hien Thanh, Son Tra, Da Nang, Viet Nam </p>
+                                        </div>
+                                    </div>
+                                    <!-- end c-list -->
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
+
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block recent-post">
+                                    <h2 class="side-bar-heading">Recent Post</h2>
+
+                                    <div class="recent-block">
+                                        <div class="recent-img">
+                                            <a href="blog-detail-right-sidebar.php"><img src="images/727e5ea10a3f1852dcbdb06b3733cb7f.jpg" class="img-reponsive" alt="recent-blog-image" /></a>
+                                        </div>
+                                        <!-- end recent-img -->
+
+                                        <div class="recent-text">
+                                            <a href="blog-detail-right-sidebar.php">
+                                                <h5>Host a Family Party</h5>
+                                            </a>
+                                            <span class="date">27 May, 2020</span>
+                                        </div>
+                                        <!-- end recent-text -->
+                                    </div>
+                                    <!-- end recent-block -->
+
+                                    <div class="recent-block">
+                                        <div class="recent-img">
+                                            <a href="blog-detail-right-sidebar.php"><img src="images/tải xuống (1).jfif" class="img-reponsive" alt="recent-blog-image" /></a>
+                                        </div>
+                                        <!-- end recent-img -->
+
+                                        <div class="recent-text">
+                                            <a href="blog-detail-right-sidebar.php">
+                                                <h5>Host a Family Party</h5>
+                                            </a>
+                                            <span class="date">27 May, 2020</span>
+                                        </div>
+                                        <!-- end recent-text -->
+                                    </div>
+                                    <!-- end recent-block -->
+
+                                    <div class="recent-block">
+                                        <div class="recent-img">
+                                            <a href="blog-detail-right-sidebar.php"><img src="images/tải xuống (1).jfif" class="img-reponsive" alt="recent-blog-image" /></a>
+                                        </div>
+                                        <!-- end recent-img -->
+
+                                        <div class="recent-text">
+                                            <a href="blog-detail-right-sidebar.php">
+                                                <h5>Host a Family Party</h5>
+                                            </a>
+                                            <span class="date">27 May, 2020</span>
+                                        </div>
+                                        <!-- end recent-text -->
+                                    </div>
+                                    <!-- end recent-block -->
+
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block follow-us">
+                                    <h2 class="side-bar-heading">Follow Us</h2>
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="https://www.facebook.com"><span><i class="fa fa-facebook"></i></span></a></li>
+                                        <li><a href="https://www.twitter.com"><span><i class="fa fa-twitter"></i></span></a></li>
+                                        <li><a href="https://istagram.com"><span><i class="fa fa-linkedin"></i></span></a></li>
+                                        <li><a href="https://www.google.com"><span><i class="fa fa-google-plus"></i></span></a></li>
+                                        <li><a href="https://pinterest.com"><span><i class="fa fa-pinterest-p"></i></span></a></li>
+                                    </ul>
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
+
+                            <div class="col-xs-12 col-sm-6 col-md-12">
+                                <div class="side-bar-block tags">
+                                    <h2 class="side-bar-heading">Tags</h2>
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="#" class="btn btn-g-border">SPA</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Restaurant</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Searvices</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Wifi</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Tv</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Rooms</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Pools</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Work</a></li>
+                                        <li><a href="#" class="btn btn-g-border">Sports</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end side-bar-block -->
+                            </div>
+                            <!-- end columns -->
+
+                        </div>
+                        <!-- end row -->
                     </div>
                     <!-- end columns -->
 
@@ -401,7 +731,7 @@
             </div>
             <!-- end container -->
         </div>
-        <!-- end contact-us -->
+        <!-- end blog-postings -->
     </section>
     <!-- end innerpage-wrapper -->
 
@@ -572,6 +902,9 @@
 
     </section>
     <!-- end footer -->
+    </section>
+    <!-- end footer -->
+
 
     <!-- Page Scripts Starts -->
     <script src="js/jquery.min.js"></script>

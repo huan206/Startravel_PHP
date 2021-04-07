@@ -41,43 +41,52 @@
         td {
             vertical-align: middle;
         }
-        
+
         @media screen and (max-width: 600px) {
             table#cart tbody td .form-control {
                 width: 20%;
                 display: inline !important;
             }
+
             .actions .btn {
                 width: 36%;
                 margin: 1.5em 0;
             }
+
             .actions .btn-info {
                 float: left;
             }
+
             .actions .btn-danger {
                 float: right;
             }
+
             table#cart thead {
                 display: none;
             }
+
             table#cart tbody td {
                 display: block;
                 padding: .6rem;
                 min-width: 320px;
             }
+
             table#cart tbody tr td:first-child {
                 background: #333;
                 color: #fff;
             }
+
             table#cart tbody td:before {
                 content: attr(data-th);
                 font-weight: bold;
                 display: inline-block;
                 width: 8rem;
             }
+
             table#cart tfoot td {
                 display: block;
             }
+
             table#cart tfoot td .btn {
                 display: block;
             }
@@ -135,7 +144,7 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
                             <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             </li>
                             <li>
@@ -145,10 +154,10 @@
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                        <option value="">$</option>
-                                                        <option value="">đ</option>
-                                                        <option value="">£</option>
-                                                    </select>
+                                                    <option value="">$</option>
+                                                    <option value="">đ</option>
+                                                    <option value="">£</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
@@ -157,17 +166,26 @@
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                        <option value="">EN</option>
-                                                        <option value="">VI</option>
-                                                        <option value="">FR</option>
-                                                    </select>
+                                                    <option value="">EN</option>
+                                                    <option value="">VI</option>
+                                                    <option value="">FR</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
                                         <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
-                                                ham()
-                                            </script></a>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
 
@@ -187,15 +205,32 @@
     <!-- end container -->
 
     <!-- end top-bar -->
-
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" id="menu-button">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>                        
-                    </button>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
@@ -217,7 +252,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="logout()">Login Homepage</a></li>
+                            <li><a href="login.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -419,66 +454,66 @@
     <!-- end page-cover -->
     <h1 class="text-center"><b>MY CART</b></h1>
     <div class="container">
-    <div class="container">
-        <table id="cart" class="table table-hover table-condensed">
-            <thead>
-               
-                <tr>
-                    <td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i>   CONTINUE BUYING</a>
-                    </td>
-                    <th style="width:15%"><b></b></th>
-                    <th style="width:15%"><b></b></th>
-                    <th style="width:15%"><b></b></th>
-                    <th style="width:200%"><b></b></th>
-                    <td class="hidden-xs text-center"></strong>
-                    </td>
-                    <td><a href="" class="btn btn-success btn-block">PAY ALL   <i class="fa fa-angle-right"></i></a>
-                    </td>
-                </tr>
-            </thead>
-        </table>
+        <div class="container">
+            <table id="cart" class="table table-hover table-condensed">
+                <thead>
 
-    </div>
-    <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>IMAGE</th>
-                                    <th>NAME</th>                                 
-                                    <th>FROM_TO</th>
-                                    <th>PRICE</th>
-                                    <th>PAY</th>
-                                    <th>TOOL</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-center">
-                                <?php
-                                $link=new mysqli("localhost","root","","startravel");
-                                $query="select * from activity";
-                                $result=mysqli_query($link,$query);
-                                $query2="select * from account";
-                                $result2=mysqli_query($link,$query2);
-                                while($row=mysqli_fetch_assoc($result)){
-                                $name=$row['activity_name'];
-                                while($row2=mysqli_fetch_assoc($result2)){
-                                $name2=$row2['account_name'];
-                                if($name==$name2){
-                                    $id=$row2['account_id'];
+                    <tr>
+                        <td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> CONTINUE BUYING</a>
+                        </td>
+                        <th style="width:15%"><b></b></th>
+                        <th style="width:15%"><b></b></th>
+                        <th style="width:15%"><b></b></th>
+                        <th style="width:200%"><b></b></th>
+                        <td class="hidden-xs text-center"></strong>
+                        </td>
+                        <td><a href="" class="btn btn-success btn-block">PAY ALL <i class="fa fa-angle-right"></i></a>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>IMAGE</th>
+                            <th>NAME</th>
+                            <th>FROM_TO</th>
+                            <th>PRICE</th>
+                            <th>PAY</th>
+                            <th>TOOL</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <?php
+                        $link = new mysqli("localhost", "root", "", "startravel");
+                        $query = "select * from activity";
+                        $result = mysqli_query($link, $query);
+                        $query2 = "select * from account";
+                        $result2 = mysqli_query($link, $query2);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $name = $row['activity_name'];
+                            while ($row2 = mysqli_fetch_assoc($result2)) {
+                                $name2 = $row2['account_name'];
+                                if ($name == $name2) {
+                                    $id = $row2['account_id'];
                                 }
-                                }
-                                }
-                                $total=0;
-                                $queryquery="select * from cart where id_account='$id'";
-                                $resultresult=mysqli_query($link,$queryquery);
-                                while($rowrow=mysqli_fetch_assoc($resultresult)){
-                                    $idd=$rowrow['id_cart'];
-                                   $image=$rowrow['image_tour'];
-                                   $name=$rowrow['name_tour'];
-                                   $price=$rowrow['price_tour'];
-                                   $from_to=$rowrow['from_to'];
-                                   $total=$total+$price;
-                                        echo $table = "
+                            }
+                        }
+                        $total = 0;
+                        $queryquery = "select * from cart where id_account='$id'";
+                        $resultresult = mysqli_query($link, $queryquery);
+                        while ($rowrow = mysqli_fetch_assoc($resultresult)) {
+                            $idd = $rowrow['id_cart'];
+                            $image = $rowrow['image_tour'];
+                            $name = $rowrow['name_tour'];
+                            $price = $rowrow['price_tour'];
+                            $from_to = $rowrow['from_to'];
+                            $total = $total + $price;
+                            echo $table = "
                                         <tr>
                                             <td><img src='images/$image' height='200' width='250'></td>
                                             <td>$name</td>
@@ -488,8 +523,8 @@
                                             <td><a href='delete_cart.php?idd=$idd'><button type='button' class='btn btn-success bt'>DELETE</button></a></td>
                                         </tr>
                                         ";
-                                    }
-                                    echo $table2="
+                        }
+                        echo $table2 = "
                                     <tr>
                                             <td>TOTAL</td>
                                             <td></td>
@@ -498,16 +533,16 @@
                                             <td></td>             
                                             <td>$total $</td>
                                         </tr>
-                                    "; 
-                                    ?>
-                                    <tr>
+                                    ";
+                        ?>
+                        <tr>
 
-                                    </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </div>
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     <!--======================= FOOTER =======================-->
     <section id="footer" class="ftr-heading-o ftr-heading-mgn-1">

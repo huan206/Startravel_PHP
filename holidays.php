@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Travel Insurance</title>
+    <title>Holidays</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap Stylesheet -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" id="cpswitch" href="css/orange.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Owl Carousel Stylesheet -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
 </head>
 
 
@@ -73,8 +77,8 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
-                            <li><a href="registration.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -82,10 +86,10 @@
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                       <option value="">$</option>
-                                                       <option value="">đ</option>
-                                                       <option value="">£</option>
-                                                   </select>
+                                                     <option value="">$</option>
+                                                     <option value="">đ</option>
+                                                     <option value="">£</option>
+                                                 </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
@@ -94,17 +98,26 @@
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                       <option value="">EN</option>
-                                                       <option value="">VI</option>
-                                                       <option value="">FR</option>
-                                                   </select>
+                                                     <option value="">EN</option>
+                                                     <option value="">VI</option>
+                                                     <option value="">FR</option>
+                                                 </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
                                         <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
-                                                ham()
-                                            </script></a>
+                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
                                 </form>
@@ -120,15 +133,32 @@
         <!-- end container -->
     </div>
     <!-- end top-bar -->
-
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" id="menu-button">
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>                        
-                   </button>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>                        
+                 </button>
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
@@ -149,7 +179,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="logout()">Login Homepage</a></li>
+                            <li><a href="login.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
@@ -194,7 +224,7 @@
 
                                     <div class="col-md-3">
                                         <ul class="list-unstyled">
-                                            <li class="dropdown-header">User <span>Dashboard</span></li>
+                                            <li class="error-page.php">User <span>Dashboard</span></li>
                                             <li><a href="error-page.php">Dashboard</a></li>
                                             <li><a href="error-page.php">User Profile</a></li>
                                             <li><a href="error-page.php">Booking</a></li>
@@ -328,18 +358,15 @@
     </div>
     <!-- end sidenav-content -->
 
-
-
-
-    <!--================= PAGE-COVER ================-->
-    <section class="page-cover" id="cover-travel-insurance">
+    <!--================= PAGE-COVER =================-->
+    <section class="page-cover" id="cover-holiday">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="page-title">Travel Insurance</h1>
+                    <h1 class="page-title">Beautiful Holiday Trips</h1>
                     <ul class="breadcrumb">
                         <li><a href="index.php">Home</a></li>
-                        <li class="active">Travel Insurance</li>
+                        <li class="active">Beautiful Holiday Trips</li>
                     </ul>
                 </div>
                 <!-- end columns -->
@@ -351,150 +378,188 @@
     <!-- end page-cover -->
 
 
-    <!--==== INNERPAGE-WRAPPER =====-->
+    <!--===== INNERPAGE-WRAPPER ====-->
     <section class="innerpage-wrapper">
-        <div id="travel-insurance" class="innerpage-section-padding">
+        <div id="holiday-trips" class="innerpage-section-padding">
             <div class="container">
                 <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side tvl-insurance-info">
-                        <div class="space-right">
-                            <div class="insurance-desc mg-bot-60">
-                                <div class="innerpage-heading">
-                                    <h1>Why Travel Insurance</h1>
-                                    <p>International Travel Insurance - An indispensable companion in traveling, visiting, studying abroad,… Travel Insurance Bao Viet offers packages that guarantee Visa eligibility and are always chosen by everyone. Risks
-                                        are undesirable, to minimize risks due to trip delays, trip cancellations, loss of things, accidents during travel, study abroad, relative visits,…. For more enjoyment and peace of mind during your trip, please
-                                        choose Bao Travel Insurance</p>
-                                    <img src="images/bảo-hiểm-du-lịch-nội-địa.jpg" class="img-responsive" alt="travel-insurance" />
-                                </div>
-                                <!-- end innerpage-heading -->
-
-                                <ul class="list-unstyled">
-                                    <li>Veniam delectus ei vis st atqui timeam mnesarchum at.</li>
-                                    <li>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri.</li>
-                                    <li>Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</li>
-                                    <li>Ad duo fugit aeque fabulas, in lucilius prodesset pri.</li>
-                                    <li>Veniam delectus ei vis st atqui timeam mnesarchum at.</li>
-                                </ul>
+                        <div class="trip-block mg-bot-60">
+                            <div class="page-heading trip-heading">
+                                <h2><span><i class="fa fa-map-marker"></i></span>Viet Nam Trip</h2>
+                                <p>330 Holiday Places</p>
                             </div>
-                            <!-- end insurance-desc -->
+                            <!-- end page-heading -->
 
-                            <div class="insurance-features">
-                                <div class="innerpage-heading">
-                                    <h1>Insurance Features</h1>
+                            <div class="owl-carousel owl-theme owl-custom-arrow owl-holidays">
+
+                                <div class="item">
+                                    <div class="main-block hotel-block">
+                                        <div class="main-img">
+                                            <a href="#">
+                                                <img src="images/sapa.jpg" class="img-responsive" alt="hotel-img" />
+                                            </a>
+                                            <div class="main-mask">
+                                                <ul class="list-unstyled list-inline offer-price-1">
+                                                    <li class="price">$568.00<span class="divider">|</span><span class="pkg">Avg/Week</span></li>
+                                                    <li class="rating">
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star lightgrey"></i></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- end main-mask -->
+                                        </div>
+                                        <!-- end offer-img -->
+
+                                        <div class="main-info hotel-info">
+                                            <div class="arrow">
+                                                <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
+                                            </div>
+                                            <!-- end arrow -->
+
+                                            <div class="main-title hotel-title">
+                                                <a href="#">Sapa Tour</a>
+                                                <p>From: Lao Cai, Viet Nam</p>
+                                            </div>
+                                            <!-- end hotel-title -->
+                                        </div>
+                                        <!-- end hotel-info -->
+                                    </div>
+                                    <!-- end hotel-block -->
                                 </div>
-                                <!-- end innerpage-heading -->
+                                <!-- end item -->
 
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6 col-md-6">
-                                        <div class="in-feature-block text-center">
-                                            <span><i class="fa fa-user"></i></span>
-                                            <div class="in-frature-text">
-                                                <h4>Feature Title 1</h4>
-                                                <p>Emergency medical guarantee and relief service in VN, other languages ​​on a global scale with just one call.</p>
+                                <div class="item">
+                                    <div class="main-block hotel-block">
+                                        <div class="main-img">
+                                            <a href="#">
+                                                <img src="images/du-lich-phu-quoc-17.jpg" class="img-responsive" alt="hotel-img" />
+                                            </a>
+                                            <div class="main-mask">
+                                                <ul class="list-unstyled list-inline offer-price-1">
+                                                    <li class="price">$568.00<span class="divider">|</span><span class="pkg">Avg/Week</span></li>
+                                                    <li class="rating">
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star lightgrey"></i></span>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <!-- end in-feature-text -->
+                                            <!-- end main-mask -->
                                         </div>
-                                        <!-- end in-feature-block -->
-                                    </div>
-                                    <!-- end columns -->
+                                        <!-- end offer-img -->
 
-                                    <div class="col-xs-12 col-sm-6 col-md-6">
-                                        <div class="in-feature-block text-center">
-                                            <span><i class="fa fa-shield"></i></span>
-                                            <div class="in-frature-text">
-                                                <h4>Feature Title 2</h4>
-                                                <p>All international travel insurance packages are eligible for a Visa.</p>
+                                        <div class="main-info hotel-info">
+                                            <div class="arrow">
+                                                <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
                                             </div>
-                                            <!-- end in-feature-text -->
-                                        </div>
-                                        <!-- end in-feature-block -->
-                                    </div>
-                                    <!-- end columns -->
+                                            <!-- end arrow -->
 
-                                    <div class="col-xs-12 col-sm-6 col-md-6">
-                                        <div class="in-feature-block text-center">
-                                            <span><i class="fa fa-cogs"></i></span>
-                                            <div class="in-frature-text">
-                                                <h4>Feature Title 3</h4>
-                                                <p>The preferential tariff applies if the whole family participates in an international travel insurance policy.</p>
+                                            <div class="main-title hotel-title">
+                                                <a href="#">Phu Quoc island Tour</a>
+                                                <p>From: Kien Giang, Viet Nam</p>
                                             </div>
-                                            <!-- end in-feature-text -->
+                                            <!-- end hotel-title -->
                                         </div>
-                                        <!-- end in-feature-block -->
+                                        <!-- end hotel-info -->
                                     </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-xs-12 col-sm-6 col-md-6">
-                                        <div class="in-feature-block text-center">
-                                            <span><i class="fa fa-diamond"></i></span>
-                                            <div class="in-frature-text">
-                                                <h4>Feature Title 4</h4>
-                                                <p>Delivery of insurance to take place according to customer requirements even after hours (Note for insurance during office hours).</p>
-                                            </div>
-                                            <!-- end in-feature-text -->
-                                        </div>
-                                        <!-- end in-feature-block -->
-                                    </div>
-                                    <!-- end columns -->
+                                    <!-- end hotel-block -->
                                 </div>
+                                <!-- end item -->
+
+                                <div class="item">
+                                    <div class="main-block hotel-block">
+                                        <div class="main-img">
+                                            <a href="#">
+                                                <img src="images/DSCF7483-8260-1593164119.jpg" class="img-responsive" alt="hotel-img" />
+                                            </a>
+                                            <div class="main-mask">
+                                                <ul class="list-unstyled list-inline offer-price-1">
+                                                    <li class="price">$568.00<span class="divider">|</span><span class="pkg">Avg/Day</span></li>
+                                                    <li class="rating">
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star lightgrey"></i></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- end main-mask -->
+                                        </div>
+                                        <!-- end offer-img -->
+
+                                        <div class="main-info hotel-info">
+                                            <div class="arrow">
+                                                <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
+                                            </div>
+                                            <!-- end arrow -->
+
+                                            <div class="main-title hotel-title">
+                                                <a href="#">Qui Nhon Tour</a>
+                                                <p>From: Binh Dinh, viet Nam</p>
+                                            </div>
+                                            <!-- end hotel-title -->
+                                        </div>
+                                        <!-- end hotel-info -->
+                                    </div>
+                                    <!-- end hotel-block -->
+                                </div>
+                                <!-- end item -->
+
+                                <div class="item">
+                                    <div class="main-block hotel-block">
+                                        <div class="main-img">
+                                            <a href="#">
+                                                <img src="images/Vuon Thuong Uyen Bay Da Lat.jpg" class="img-responsive" alt="hotel-img" />
+                                            </a>
+                                            <div class="main-mask">
+                                                <ul class="list-unstyled list-inline offer-price-1">
+                                                    <li class="price">$568.00<span class="divider">|</span><span class="pkg">Avg/Night</span></li>
+                                                    <li class="rating">
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star lightgrey"></i></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- end main-mask -->
+                                        </div>
+                                        <!-- end offer-img -->
+
+                                        <div class="main-info hotel-info">
+                                            <div class="arrow">
+                                                <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
+                                            </div>
+                                            <!-- end arrow -->
+
+                                            <div class="main-title hotel-title">
+                                                <a href="#">Da Lat Tour</a>
+                                                <p>From: Da Lat, Viet Nam</p>
+                                            </div>
+                                            <!-- end hotel-title -->
+                                        </div>
+                                        <!-- end hotel-info -->
+                                    </div>
+                                    <!-- end hotel-block -->
+                                </div>
+                                <!-- end item -->
+
+
                             </div>
-                            <!-- end insurance-features -->
-
+                            <!-- end owl-holidays -->
                         </div>
-                        <!-- end space-right -->
-                    </div>
-                    <!-- end columns -->
+                        <!-- end trip-block -->
 
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 side-bar blog-sidebar right-side-bar">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <div class="side-bar-block categories">
-                                    <h2 class="side-bar-heading">Useful Links</h2>
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Online Insurance</a></li>
-                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Full Guarnateed</a></li>
-                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Medical Expense</a></li>
-                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Accidents & Failures</a></li>
-                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Sports & Acitivites</a></li>
-                                        <li><a href="#"><span><i class="fa fa-angle-right"></i></span>Airline Faliure Cover</a></li>
-                                    </ul>
-                                </div>
-                                <!-- end side-bar-block -->
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <div class="side-bar-block contact">
-                                    <h2 class="side-bar-heading">Contact Us</h2>
-                                    <div class="c-list">
-                                        <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
-                                        <div class="text">
-                                            <p>hamongkhang@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <!-- end c-list -->
-
-                                    <div class="c-list">
-                                        <div class="icon"><span><i class="fa fa-phone"></i></span></div>
-                                        <div class="text">
-                                            <p>039 649 8891</p>
-                                        </div>
-                                    </div>
-                                    <!-- end c-list -->
-
-                                    <div class="c-list">
-                                        <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
-                                        <div class="text">
-                                            <p>Street No: To Hien Thanh, Son Tra, Da Nang, Viet Nam </p>
-                                        </div>
-                                    </div>
-                                    <!-- end c-list -->
-                                </div>
-                                <!-- end side-bar-block -->
-                            </div>
-                            <!-- end columns -->
-                        </div>
-                        <!-- end row -->
                     </div>
                     <!-- end columns -->
                 </div>
@@ -502,7 +567,126 @@
             </div>
             <!-- end container -->
         </div>
-        <!-- end travel-insurance -->
+        <!-- end holidays -->
+
+        <div id="popular-destinations" class="banner-padding">
+            <div class="container">
+                <div class="big-heading">
+                    <h2>Popular <br/>Destinations
+                        <div class="light"></div>
+                    </h2>
+                </div>
+                <!-- end big-heading -->
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="destination-lists">
+                            <div class="col-sm-6 col-md-3">
+                                <ul class="list-unstyled">
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end columns -->
+
+                            <div class="col-sm-6 col-md-3">
+                                <ul class="list-unstyled">
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end columns -->
+
+                            <div class="col-sm-6 col-md-3">
+                                <ul class="list-unstyled">
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end columns -->
+
+                            <div class="col-sm-6 col-md-3">
+                                <ul class="list-unstyled">
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                    <li><a href="https://huesmiletravel.com.vn/blog/top-15-dia-diem-du-lich-viet-nam-dep">Destination Title</a>
+                                        <p>101 Places</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end columns -->
+                        </div>
+                        <!-- end destination-lists -->
+                    </div>
+                    <!-- end columns -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end holiday-trips -->
+
     </section>
     <!-- end innerpage-wrapper -->
 
@@ -671,6 +855,8 @@
         </div>
         <!-- end footer-bottom -->
 
+    </section>
+    <!-- end footer -->
     </section>
     <!-- end footer -->
 

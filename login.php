@@ -100,8 +100,8 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a id="thanh3" onclick="logout()"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
-                            <li><a href="registration.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -128,11 +128,7 @@
                                             </div>
                                             <!-- end form-group -->
                                         </li>
-                                        <li>
-                                            <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span><script>
-                                                ham()
-                                            </script></a>
-                                        </li>
+                                        
                                     </ul>
                                 </form>
                             </li>
@@ -147,7 +143,7 @@
         <!-- end container -->
     </div>
     <!-- end top-bar -->
-
+    
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
             <div class="navbar-header">
@@ -176,7 +172,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="logout()">Login Homepage</a></li>
+                            <li><a href="login.php">Login Homepage</a></li>
                             <li><a href="registration.php">Registration Homepage</a></li>
                             <li><a href="forgot-password.php">Forgot Password Homepage</a></li>
                         </ul>
