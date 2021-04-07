@@ -38,7 +38,7 @@
         .add {
             display: flex;
         }
-        
+
         #home-links {
             margin: 0 0 0 300px;
             position: absolute;
@@ -96,7 +96,7 @@
                         <ul class="list-unstyled list-inline">
                             <li><a href="login.php" id="thanh1"><span><i class="fa fa-lock"></i></span>Login</a></li>
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
-                            <li><a href="logout.php" id="thanh3" ><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
+                            <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
                             <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
                             </li>
                             <li>
@@ -106,10 +106,10 @@
                                             <div class="form-group currency">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                        <option value="">$</option>
-                                                        <option value="">đ</option>
-                                                        <option value="">£</option>
-                                                    </select>
+                                                    <option value="">$</option>
+                                                    <option value="">đ</option>
+                                                    <option value="">£</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
@@ -118,26 +118,26 @@
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
                                                 <select class="form-control">
-                                                        <option value="">EN</option>
-                                                        <option value="">VI</option>
-                                                        <option value="">FR</option>
-                                                    </select>
+                                                    <option value="">EN</option>
+                                                    <option value="">VI</option>
+                                                    <option value="">FR</option>
+                                                </select>
                                             </div>
                                             <!-- end form-group -->
                                         </li>
                                         <li>
                                             <a id="ten"><span><i class="fa fa-circle blackiconcolor"></i></span>
-                                           <?php
-                                            include ('login_set.php');
-                                            $ten=new user();
-                                            $rows=$ten->fetch();
-                                            if(!empty($rows)){
-                                                 foreach($rows as $row){
-                                                        $name=$row['activity_name'];
-                                                 }
-                                                 echo $name;
-                                            }
-                                            ?></a>
+                                                <?php
+                                                include('login_set.php');
+                                                $ten = new user();
+                                                $rows = $ten->fetch();
+                                                if (!empty($rows)) {
+                                                    foreach ($rows as $row) {
+                                                        $name = $row['activity_name'];
+                                                    }
+                                                    echo $name;
+                                                }
+                                                ?></a>
                                         </li>
                                     </ul>
 
@@ -157,32 +157,32 @@
     <!-- end container -->
 
     <!-- end top-bar -->
-  <script  type="text/javascript">
-function inten() {
-        document.getElementById("ten").style.display = "block";
-        document.getElementById("thanh3").style.display = "block";
-        document.getElementById("thanh4").style.display = "block";
-        document.getElementById("thanh1").style.display = "none";
-        document.getElementById("thanh2").style.display = "none";
-} 
-<?php
- $rows=$ten->fetch();
- if(!empty($rows)){
-      foreach($rows as $row){
-             $name=$row['activity_name'];
-      }
-      echo "inten();";
- }
-?>
-</script>
+    <script type="text/javascript">
+        function inten() {
+            document.getElementById("ten").style.display = "block";
+            document.getElementById("thanh3").style.display = "block";
+            document.getElementById("thanh4").style.display = "block";
+            document.getElementById("thanh1").style.display = "none";
+            document.getElementById("thanh2").style.display = "none";
+        }
+        <?php
+        $rows = $ten->fetch();
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $name = $row['activity_name'];
+            }
+            echo "inten();";
+        }
+        ?>
+    </script>
     <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" id="menu-button">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>                        
-                    </button>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <div class="header-search hidden-lg">
                     <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
                 </div>
@@ -511,11 +511,11 @@ function inten() {
                                         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                                             <div class="form-group right-icon">
                                                 <select class="form-control">
-                                                        <option selected>Adults</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                    </select>
+                                                    <option selected>Adults</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
                                                 <i class="fa fa-angle-down"></i>
                                             </div>
                                         </div>
@@ -566,11 +566,11 @@ function inten() {
                                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                                     <div class="form-group right-icon">
                                                         <select class="form-control">
-                                                                <option selected>Rooms</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                            </select>
+                                                            <option selected>Rooms</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                        </select>
                                                         <i class="fa fa-angle-down"></i>
                                                     </div>
                                                 </div>
@@ -579,11 +579,11 @@ function inten() {
                                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                                     <div class="form-group right-icon">
                                                         <select class="form-control">
-                                                                <option selected>Adults</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                            </select>
+                                                            <option selected>Adults</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                        </select>
                                                         <i class="fa fa-angle-down"></i>
                                                     </div>
                                                 </div>
@@ -592,11 +592,11 @@ function inten() {
                                                 <div class="col-xs-6 col-sm-6 col-md-4">
                                                     <div class="form-group right-icon">
                                                         <select class="form-control">
-                                                                <option selected>Kids</option>
-                                                                <option>0</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                            </select>
+                                                            <option selected>Kids</option>
+                                                            <option>0</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                        </select>
                                                         <i class="fa fa-angle-down"></i>
                                                     </div>
                                                 </div>
@@ -633,20 +633,20 @@ function inten() {
                                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                             <div class="form-group right-icon">
                                                 <select class="form-control">
-                                                        <option selected>Month</option>
-                                                        <option>January</option>
-                                                        <option>February</option>
-                                                        <option>March</option>
-                                                        <option>April</option>
-                                                        <option>May</option>
-                                                        <option>June</option>
-                                                        <option>July</option>
-                                                        <option>August</option>
-                                                        <option>September</option>
-                                                        <option>October</option>
-                                                        <option>November</option>
-                                                        <option>December</option>
-                                                    </select>
+                                                    <option selected>Month</option>
+                                                    <option>January</option>
+                                                    <option>February</option>
+                                                    <option>March</option>
+                                                    <option>April</option>
+                                                    <option>May</option>
+                                                    <option>June</option>
+                                                    <option>July</option>
+                                                    <option>August</option>
+                                                    <option>September</option>
+                                                    <option>October</option>
+                                                    <option>November</option>
+                                                    <option>December</option>
+                                                </select>
                                                 <i class="fa fa-angle-down"></i>
                                             </div>
                                         </div>
@@ -658,11 +658,11 @@ function inten() {
                                                 <div class="col-xs-12 col-sm-6">
                                                     <div class="form-group right-icon">
                                                         <select class="form-control">
-                                                                <option selected>Adults</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                            </select>
+                                                            <option selected>Adults</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                        </select>
                                                         <i class="fa fa-angle-down"></i>
                                                     </div>
                                                 </div>
@@ -671,11 +671,11 @@ function inten() {
                                                 <div class="col-xs-12 col-sm-6">
                                                     <div class="form-group right-icon">
                                                         <select class="form-control">
-                                                                <option selected>Kids</option>
-                                                                <option>0</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                            </select>
+                                                            <option selected>Kids</option>
+                                                            <option>0</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                        </select>
                                                         <i class="fa fa-angle-down"></i>
                                                     </div>
                                                 </div>
@@ -756,7 +756,7 @@ function inten() {
                                                     <option>1</option>
                                                     <option>2</option>
                                                     <option>3</option>
-                                                    </select>
+                                                </select>
                                                 <i class="fa fa-angle-down"></i>
                                             </div>
                                         </div>
@@ -862,21 +862,21 @@ function inten() {
     <!--=============== HOTEL OFFERS ===============-->
     <section id="hotel-offers" class="section-padding">
         <div class="container">
-        <?php
-             include ("admin_set.php");
-             $tourHot=new tourHot();
-             $sql = "select * from tour_hot";
-                $rows=$tourHot->fetch($sql);
-                    if(!empty($rows)){
-                        foreach($rows as $row){
-                        $id_hot=$row['id_hot'];
-                        $name_hot=$row['name_hot'];
-                        $img_hot=$row['img_hot'];
-                        $price_hot=$row['price_hot'];
-                        $detail_hot=$row['detail_hot'];
-                        $from_to_hot=$row['from_to_hot'];
-                        echo
-                        '<div class="modal fade" id="myModalHot'.$id_hot.'" role="dialog">
+            <?php
+            include("admin_set.php");
+            $tourHot = new tourHot();
+            $sql = "select * from tour_hot";
+            $rows = $tourHot->fetch($sql);
+            if (!empty($rows)) {
+                foreach ($rows as $row) {
+                    $id_hot = $row['id_hot'];
+                    $name_hot = $row['name_hot'];
+                    $img_hot = $row['img_hot'];
+                    $price_hot = $row['price_hot'];
+                    $detail_hot = $row['detail_hot'];
+                    $from_to_hot = $row['from_to_hot'];
+                    echo
+                    '<div class="modal fade" id="myModalHot' . $id_hot . '" role="dialog">
                             <div class="modal-dialog modal-dialog-centered">
                                 <!-- Modal content-->
                                 <div class="modal-content">
@@ -884,28 +884,28 @@ function inten() {
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <div class="row g-0">
                                             <div class="col-md-8">
-                                                <img src="images/'.$img_hot.'" alt="" style = "width: 350px; height: 260px;">
+                                                <img src="images/' . $img_hot . '" alt="" style = "width: 350px; height: 260px;">
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="card-body">
-                                                <h5 class="card-title">'.$name_hot.'</h5>
-                                                <p class="card-text">'.$detail_hot.'</p>
-                                                <p class="card-text">From: '.$from_to_hot.'</p>
-                                                <p class="card-text"><medium class="text-muted"><b>$'. $price_hot.'</b></medium></p>
+                                                <h5 class="card-title">' . $name_hot . '</h5>
+                                                <p class="card-text">' . $detail_hot . '</p>
+                                                <p class="card-text">From: ' . $from_to_hot . '</p>
+                                                <p class="card-text"><medium class="text-muted"><b>$' . $price_hot . '</b></medium></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <a href="booking_hot.php?id='.$id_hot.'"><button type="button" class="btn btn-primary" onclick="">Book tour</button></a>
+                                        <a href="booking_hot.php?id=' . $id_hot . '"><button type="button" class="btn btn-primary" onclick="">Book tour</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>';
-                        }
-                    }
-                    ?>
+                }
+            }
+            ?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-heading">
@@ -915,16 +915,16 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-hotel-offers">
-                    <?php
-                        if(!empty($rows)){
-                            foreach($rows as $row){
-                            $id_hot=$row['id_hot'];
-                            $name_hot=$row['name_hot'];
-                            $img_hot=$row['img_hot'];
-                            $price_hot=$row['price_hot'];
-                            $detail_hot=$row['detail_hot'];
-                            $from_to_hot=$row['from_to_hot'];
-                            echo "<div class='item'>
+                        <?php
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_hot = $row['id_hot'];
+                                $name_hot = $row['name_hot'];
+                                $img_hot = $row['img_hot'];
+                                $price_hot = $row['price_hot'];
+                                $detail_hot = $row['detail_hot'];
+                                $from_to_hot = $row['from_to_hot'];
+                                echo "<div class='item'>
                             <div class='main-block hotel-block'>
                                     <div class='main-img'>
                                         <a href='#'><img src='images/$img_hot' class='img-responsive' alt='hotel-img'/></a>
@@ -952,7 +952,7 @@ function inten() {
                                     </div>
                                     </div>
                                 </div>
-                                " ;
+                                ";
                             }
                         }
                         ?>
@@ -1027,20 +1027,20 @@ function inten() {
     <!--=============== TOUR OFFERS ===============-->
     <section id="tour-offers" class="section-padding">
         <div class="container">
-        <?php
-            $tourOffer=new tourOffer();
+            <?php
+            $tourOffer = new tourOffer();
             $sql = "select * from tour_offer";
-            $rows=$tourOffer->fetch($sql);
-                if(!empty($rows)){
-                    foreach($rows as $row){
-                    $id_offer=$row['id_offer'];
-                    $name_offer=$row['name_offer'];
-                    $img_offer=$row['img_offer'];
-                    $price_offer=$row['price_offer'];
-                    $detail_offer=$row['detail_offer'];
-                    $from_to_offer=$row['from_to_offer'];
+            $rows = $tourOffer->fetch($sql);
+            if (!empty($rows)) {
+                foreach ($rows as $row) {
+                    $id_offer = $row['id_offer'];
+                    $name_offer = $row['name_offer'];
+                    $img_offer = $row['img_offer'];
+                    $price_offer = $row['price_offer'];
+                    $detail_offer = $row['detail_offer'];
+                    $from_to_offer = $row['from_to_offer'];
                     echo
-                    '<div class="modal fade" id="myModalOffer'.$id_offer.'" role="dialog">
+                    '<div class="modal fade" id="myModalOffer' . $id_offer . '" role="dialog">
                         <div class="modal-dialog modal-dialog-centered">
                             <!-- Modal content-->
                             <div class="modal-content">
@@ -1048,14 +1048,14 @@ function inten() {
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <div class="row g-0">
                                         <div class="col-md-8">
-                                            <img src="images/'.$img_offer.'" alt="" style = "width: 350px; height: 260px;">
+                                            <img src="images/' . $img_offer . '" alt="" style = "width: 350px; height: 260px;">
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card-body">
-                                            <h5 class="card-title">'.$name_offer.'</h5>
-                                            <p class="card-text">'.$detail_offer.'</p>
-                                            <p class="card-text">From: '.$from_to_offer.'</p>
-                                            <p class="card-text"><medium class="text-muted"><b>$'. $price_offer.'</b></medium></p>
+                                            <h5 class="card-title">' . $name_offer . '</h5>
+                                            <p class="card-text">' . $detail_offer . '</p>
+                                            <p class="card-text">From: ' . $from_to_offer . '</p>
+                                            <p class="card-text"><medium class="text-muted"><b>$' . $price_offer . '</b></medium></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1067,9 +1067,9 @@ function inten() {
                             </div>
                         </div>
                     </div>';
-                    }
                 }
-        ?>
+            }
+            ?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-heading">
@@ -1079,17 +1079,17 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-tour-offers">
-                    <?php
-                            $rows=$tourOffer->fetch($sql);
-                                if(!empty($rows)){
-                                    foreach($rows as $row){
-                                    $id_offer=$row['id_offer'];
-                                    $name_offer=$row['name_offer'];
-                                    $img_offer=$row['img_offer'];
-                                    $price_offer=$row['price_offer'];
-                                    $detail_offer=$row['detail_offer'];
-                                    $from_to_offer=$row['from_to_offer'];
-                                    echo "<div class='item'>
+                        <?php
+                        $rows = $tourOffer->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_offer = $row['id_offer'];
+                                $name_offer = $row['name_offer'];
+                                $img_offer = $row['img_offer'];
+                                $price_offer = $row['price_offer'];
+                                $detail_offer = $row['detail_offer'];
+                                $from_to_offer = $row['from_to_offer'];
+                                echo "<div class='item'>
                                     <div class='main-block hotel-block'>
                                             <div class='main-img'>
                                                 <a href='#'><img src='images/$img_offer' class='img-responsive' alt='hotel-img'/></a>
@@ -1117,9 +1117,9 @@ function inten() {
                                             </div>
                                             </div>
                                         </div>
-                                        " ;
-                                    }
-                                }
+                                        ";
+                            }
+                        }
                         ?>
                     </div>
                     <!-- end owl-tour-offers -->
@@ -1138,8 +1138,8 @@ function inten() {
     <!-- end tour-offers -->
 
 
-     <!--=============== CRUISE OFFERS ===============-->
-     <section id="cruise-offers" class="section-padding">
+    <!--=============== CRUISE OFFERS ===============-->
+    <section id="cruise-offers" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -1150,20 +1150,20 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="row">
-                    <?php
-                            // include ("admin_set.php");
-                            $tourCruise=new tourCruise();
-                            $sql = "select * from tour_cruise";
-                            $rows=$tourCruise->fetch($sql);
-                                if(!empty($rows)){
-                                    foreach($rows as $row){
-                                    $id_cruise=$row['id_cruise'];
-                                    $name_cruise=$row['name_cruise'];
-                                    $img_cruise=$row['img_cruise'];
-                                    $price_cruise=$row['price_cruise'];
-                                    $detail_cruise=$row['detail_cruise'];
-                                    $from_to_cruise=$row['from_to_cruise'];
-                                    echo "<div class='col-sm-6 col-md-6'>
+                        <?php
+                        // include ("admin_set.php");
+                        $tourCruise = new tourCruise();
+                        $sql = "select * from tour_cruise";
+                        $rows = $tourCruise->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_cruise = $row['id_cruise'];
+                                $name_cruise = $row['name_cruise'];
+                                $img_cruise = $row['img_cruise'];
+                                $price_cruise = $row['price_cruise'];
+                                $detail_cruise = $row['detail_cruise'];
+                                $from_to_cruise = $row['from_to_cruise'];
+                                echo "<div class='col-sm-6 col-md-6'>
                                     <div class='main-block cruise-block'>
                                         <div class='row'>
                                             <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
@@ -1202,23 +1202,23 @@ function inten() {
                                     
                                 </div>
                                 
-                                        " ;
-                                    }
-                                }
+                                        ";
+                            }
+                        }
                         ?>
                     </div>
                     <!-- end row -->
                     <?php
-                            if(!empty($rows)){
-                                foreach($rows as $row){
-                                $id_cruise=$row['id_cruise'];
-                                $name_cruise=$row['name_cruise'];
-                                $img_cruise=$row['img_cruise'];
-                                $price_cruise=$row['price_cruise'];
-                                $detail_cruise=$row['detail_cruise'];
-                                $from_to_cruise=$row['from_to_cruise'];
-                                echo
-                                '<div class="modal fade" id="myModalCruise'.$id_cruise.'" role="dialog">
+                    if (!empty($rows)) {
+                        foreach ($rows as $row) {
+                            $id_cruise = $row['id_cruise'];
+                            $name_cruise = $row['name_cruise'];
+                            $img_cruise = $row['img_cruise'];
+                            $price_cruise = $row['price_cruise'];
+                            $detail_cruise = $row['detail_cruise'];
+                            $from_to_cruise = $row['from_to_cruise'];
+                            echo
+                            '<div class="modal fade" id="myModalCruise' . $id_cruise . '" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -1226,14 +1226,14 @@ function inten() {
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 <div class="row g-0">
                                                     <div class="col-md-8">
-                                                        <img src="images/'.$img_cruise.'" alt="" style = "width: 350px; height: 260px;">
+                                                        <img src="images/' . $img_cruise . '" alt="" style = "width: 350px; height: 260px;">
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card-body">
-                                                        <h5 class="card-title">'.$name_cruise.'</h5>
-                                                        <p class="card-text">'.$detail_cruise.'</p>
-                                                        <p class="card-text">From: '.$from_to_cruise.'</p>
-                                                        <p class="card-text"><medium class="text-muted"><b>$'. $price_cruise.'</b></medium></p>
+                                                        <h5 class="card-title">' . $name_cruise . '</h5>
+                                                        <p class="card-text">' . $detail_cruise . '</p>
+                                                        <p class="card-text">From: ' . $from_to_cruise . '</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$' . $price_cruise . '</b></medium></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1245,8 +1245,8 @@ function inten() {
                                         </div>
                                     </div>
                                 </div>';
-                                }
-                            }
+                        }
+                    }
                     ?>
 
                     <div class="view-all text-center">
@@ -1282,8 +1282,8 @@ function inten() {
     <!-- end video-banner -->
 
 
-     <!--================= FLIGHT OFFERS =============-->
-     <section id="flight-offers" class="section-padding">
+    <!--================= FLIGHT OFFERS =============-->
+    <section id="flight-offers" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -1294,20 +1294,20 @@ function inten() {
                     <!-- end page-heading -->
 
                     <div class="row">
-                    <?php
-                            // include ("admin_set.php");
-                            $tourSport=new tourSport();
-                            $sql = "select * from tour_sport";
-                            $rows=$tourSport->fetch($sql);
-                                if(!empty($rows)){
-                                    foreach($rows as $row){
-                                    $id_sport=$row['id_sport'];
-                                    $name_sport=$row['name_sport'];
-                                    $img_sport=$row['img_sport'];
-                                    $price_sport=$row['price_sport'];
-                                    $detail_sport=$row['detail_sport'];
-                                    $from_to_sport=$row['from_to_sport'];
-                                    echo "<div class='col-sm-6 col-md-4'>
+                        <?php
+                        // include ("admin_set.php");
+                        $tourSport = new tourSport();
+                        $sql = "select * from tour_sport";
+                        $rows = $tourSport->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_sport = $row['id_sport'];
+                                $name_sport = $row['name_sport'];
+                                $img_sport = $row['img_sport'];
+                                $price_sport = $row['price_sport'];
+                                $detail_sport = $row['detail_sport'];
+                                $from_to_sport = $row['from_to_sport'];
+                                echo "<div class='col-sm-6 col-md-4'>
                                     <div class='main-block flight-block'>
                                         <a>
                                             <div class='flight-img'>
@@ -1345,24 +1345,24 @@ function inten() {
                                     </div>
                                    
                                 </div>
-                                        " ;
-                                    }
-                                }
+                                        ";
+                            }
+                        }
                         ?>
 
                     </div>
                     <!-- end row -->
                     <?php
-                            if(!empty($rows)){
-                                foreach($rows as $row){
-                                $id_sport=$row['id_sport'];
-                                $name_sport=$row['name_sport'];
-                                $img_sport=$row['img_sport'];
-                                $price_sport=$row['price_sport'];
-                                $detail_sport=$row['detail_sport'];
-                                $from_to_sport=$row['from_to_sport'];
-                                echo
-                                '<div class="modal fade" id="myModalSport'.$id_sport.'" role="dialog">
+                    if (!empty($rows)) {
+                        foreach ($rows as $row) {
+                            $id_sport = $row['id_sport'];
+                            $name_sport = $row['name_sport'];
+                            $img_sport = $row['img_sport'];
+                            $price_sport = $row['price_sport'];
+                            $detail_sport = $row['detail_sport'];
+                            $from_to_sport = $row['from_to_sport'];
+                            echo
+                            '<div class="modal fade" id="myModalSport' . $id_sport . '" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -1370,14 +1370,14 @@ function inten() {
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 <div class="row g-0">
                                                     <div class="col-md-8">
-                                                        <img src="images/'.$img_sport.'" alt="" style = "width: 350px; height: 260px;">
+                                                        <img src="images/' . $img_sport . '" alt="" style = "width: 350px; height: 260px;">
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card-body">
-                                                        <h5 class="card-title">'.$name_sport.'</h5>
-                                                        <p class="card-text">'.$detail_sport.'</p>
-                                                        <p class="card-text">From: '.$from_to_sport.'</p>
-                                                        <p class="card-text"><medium class="text-muted"><b>$'. $price_sport.'</b></medium></p>
+                                                        <h5 class="card-title">' . $name_sport . '</h5>
+                                                        <p class="card-text">' . $detail_sport . '</p>
+                                                        <p class="card-text">From: ' . $from_to_sport . '</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$' . $price_sport . '</b></medium></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1389,8 +1389,8 @@ function inten() {
                                         </div>
                                     </div>
                                 </div>';
-                                }
-                            }
+                        }
+                    }
                     ?>
 
 
@@ -1493,19 +1493,19 @@ function inten() {
                     </div>
                     <!-- end page-heading -->
                     <?php
-                        $tourCapital=new tourCapital();
-                        $sql = "select * from tour_capital";
-                        $rows=$tourCapital->fetch($sql);
-                            if(!empty($rows)){
-                                foreach($rows as $row){
-                                $id_capital=$row['id_capital'];
-                                $name_capital=$row['name_capital'];
-                                $img_capital=$row['img_capital'];
-                                $price_capital=$row['price_capital'];
-                                $detail_capital=$row['detail_capital'];
-                                $from_to_capital=$row['from_to_capital'];
-                                echo
-                                '<div class="modal fade" id="myModalCapital'.$id_capital.'" role="dialog">
+                    $tourCapital = new tourCapital();
+                    $sql = "select * from tour_capital";
+                    $rows = $tourCapital->fetch($sql);
+                    if (!empty($rows)) {
+                        foreach ($rows as $row) {
+                            $id_capital = $row['id_capital'];
+                            $name_capital = $row['name_capital'];
+                            $img_capital = $row['img_capital'];
+                            $price_capital = $row['price_capital'];
+                            $detail_capital = $row['detail_capital'];
+                            $from_to_capital = $row['from_to_capital'];
+                            echo
+                            '<div class="modal fade" id="myModalCapital' . $id_capital . '" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -1513,14 +1513,14 @@ function inten() {
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 <div class="row g-0">
                                                     <div class="col-md-8">
-                                                        <img src="images/'.$img_capital.'" alt="" style = "width: 350px; height: 260px;">
+                                                        <img src="images/' . $img_capital . '" alt="" style = "width: 350px; height: 260px;">
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card-body">
-                                                        <h5 class="card-title">'.$name_capital.'</h5>
-                                                        <p class="card-text">'.$detail_capital.'</p>
-                                                        <p class="card-text">From: '.$from_to_capital.'</p>
-                                                        <p class="card-text"><medium class="text-muted"><b>$'. $price_capital.'</b></medium></p>
+                                                        <h5 class="card-title">' . $name_capital . '</h5>
+                                                        <p class="card-text">' . $detail_capital . '</p>
+                                                        <p class="card-text">From: ' . $from_to_capital . '</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$' . $price_capital . '</b></medium></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1532,19 +1532,19 @@ function inten() {
                                         </div>
                                     </div>
                                 </div>';
-                                }
-                            }
+                        }
+                    }
                     ?>
                     <div class="row">
-                    <?php
-                            if(!empty($rows)){
-                                foreach($rows as $row){
-                                $id_capital=$row['id_capital'];
-                                $name_capital=$row['name_capital'];
-                                $img_capital=$row['img_capital'];
-                                $price_capital=$row['price_capital'];
-                                $detail_capital=$row['detail_capital'];
-                                $from_to_capital=$row['from_to_capital'];
+                        <?php
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_capital = $row['id_capital'];
+                                $name_capital = $row['name_capital'];
+                                $img_capital = $row['img_capital'];
+                                $price_capital = $row['price_capital'];
+                                $detail_capital = $row['detail_capital'];
+                                $from_to_capital = $row['from_to_capital'];
                                 echo "<div class='col-sm-6 col-md-4'>
                                         <div class='main-block vehicle-block'>
 
@@ -1575,9 +1575,9 @@ function inten() {
                                             </div>
                                         </div>
                                     </div>
-                                    " ;
-                                }
+                                    ";
                             }
+                        }
                         ?>
                     </div>
                     <!-- end row -->
@@ -1692,18 +1692,18 @@ function inten() {
                     </div>
 
                     <div class="row">
-                    <?php
-                        $tourCapital=new blog();
+                        <?php
+                        $tourCapital = new blog();
                         $sql = "select * from blog";
-                        $rows=$tourCapital->fetch($sql);
-                            if(!empty($rows)){
-                                foreach($rows as $row){
-                                $id_blog=$row['id_blog'];
-                                $img_blog=$row['img_blog'];
-                                $author_blog=$row['author_blog'];
-                                $time_blog=$row['time_blog'];
-                                $title_blog=$row['title_blog'];
-                                $content_blog=$row['content_blog'];
+                        $rows = $tourCapital->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_blog = $row['id_blog'];
+                                $img_blog = $row['img_blog'];
+                                $author_blog = $row['author_blog'];
+                                $time_blog = $row['time_blog'];
+                                $title_blog = $row['title_blog'];
+                                $content_blog = $row['content_blog'];
                                 echo "<div class='col-sm-6 col-md-4'>
                                         <div class='main-block latest-block'>
 
@@ -1732,10 +1732,10 @@ function inten() {
                                     
                                 </div>
                                             
-                                    " ;
-                                }
+                                    ";
                             }
-                    ?>
+                        }
+                        ?>
                     </div>
                     <!-- end row -->
 
@@ -1763,7 +1763,7 @@ function inten() {
                     <form action="email.php" method="post">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" name ="email" class="form-control input-lg" placeholder="Enter your email address" required/>
+                                <input type="email" name="email" class="form-control input-lg" placeholder="Enter your email address" required />
                                 <span class="input-group-btn"><button type="submit" class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
                             </div>
                         </div>
