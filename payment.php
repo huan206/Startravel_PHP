@@ -527,11 +527,7 @@
                                         <label></label>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
-<<<<<<< HEAD
-                                        <a href='https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder' class="btn btn-orange btn-block" name="pay">Pay</a>
-=======
                                         <a href='https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder'> class="btn btn-orange btn-block" name="pay">Pay</a>
->>>>>>> 4ca4b7b31a34175074848874705a5ccef6927a2d
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
                                         <label></label>
