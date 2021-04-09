@@ -30,6 +30,28 @@
 
     <!--Date-Picker Stylesheet-->
     <link rel="stylesheet" href="css/datepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+            // Send Search Text to the server
+            $("#search").keyup(function() {
+                let searchText = $(this).val();
+                if (searchText != "") {
+                    $.ajax({
+                        url: "search_all.php",
+                        method: "post",
+                        data: {
+                            query: searchText,
+                        },
+                        success: function(response) {
+                            $("#show-list").html(response);
+                        },
+                    });
+                }
+
+            });
+        });
+    </script>
 </head>
 
 
@@ -47,7 +69,7 @@
                 <form>
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search..." required />
+                            <input type="text" id="search" class="form-control" placeholder="Search..." required />
                             <span class="input-group-btn"><button type="submit" class="btn"><span><i class="fa fa-search"></i></span></button>
                             </span>
                         </div>
@@ -514,8 +536,8 @@
     </section>
     <!-- end flexslider-container -->
 
-    <!--=============== CRUISE OFFERS ===============-->
-    <section id="cruise-offers" class="section-padding">
+    <!--=============== CRUISE capitalS ===============-->
+    <section id="cruise-capitals" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -525,203 +547,403 @@
                     </div>
                     <!-- end page-heading -->
 
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/anh-1-160161747022091907963.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
+                    <div class="row" id="show-list">
+                    <!-- Cruise -->
+                        <?php
+                         include ("admin_set.php");
+                        $tourCruise = new tourCruise();
+                        $sql = "select * from tour_cruise";
+                        $rows = $tourCruise->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_cruise = $row['id_cruise'];
+                                $name_cruise = $row['name_cruise'];
+                                $img_cruise = $row['img_cruise'];
+                                $price_cruise = $row['price_cruise'];
+                                $detail_cruise = $row['detail_cruise'];
+                                $from_to_cruise = $row['from_to_cruise'];
+                                echo "<div class='col-sm-6 col-md-6'>
+                                    <div class='main-block cruise-block'>
+                                        <div class='row'>
+                                            <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
+                                                <div class='main-img cruise-img'>
+                                                    <a>
+                                                    <div data-toggle='modal' data-target='#myModalCruise$id_cruise'><img src='images/$img_cruise'class='img-responsive' alt='cruise-img'/></div>
+                                                        <div class='cruise-mask'>
+                                                            <p>7 Nights, 6 Days</p>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Qui Nhon Boat Tour</a>
-                                                <p>From: Binh Dinh, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
                                             </div>
-                                            <!-- end cruise-title -->
-                                        </div>
-                                        <!-- end cruise-info -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/vịnh lan hạ.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
+    
+                                            <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
+                                                <div class='main-info cruise-info'>
+                                                    <div class='main-title cruise-title'>
+                                                        <a href='#'> $name_cruise</a>
+                                                        <p>From: $from_to_cruise</p>
+                                                        <div class='rating'>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star lightgrey'></i></span>
+                                                        </div>
+                                                        <span class='cruise-price'>$price_cruise</span>
+                                                    </div>
+                                                    
                                                 </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Ha Long Bay Tour</a>
-                                                <p>From:Quang Ninh, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
+                                               
                                             </div>
-                                            <!-- end cruise-title -->
+        
                                         </div>
-                                        <!-- end cruise-info -->
+                                       
                                     </div>
-                                    <!-- end columns -->
-
+                                    
                                 </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/tour-nam-du-4-ngay-3-dem-2-800x500.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
+                                
+                                        ";
+                            }
+                        }
+                        ?>
+                        <!-- Modal cruise-->
+                        <?php
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_cruise = $row['id_cruise'];
+                                $name_cruise = $row['name_cruise'];
+                                $img_cruise = $row['img_cruise'];
+                                $price_cruise = $row['price_cruise'];
+                                $detail_cruise = $row['detail_cruise'];
+                                $from_to_cruise = $row['from_to_cruise'];
+                                echo'
+                                <div class="modal fade" id="myModalCruise' . $id_cruise . '" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <div class="row g-0">
+                                                    <div class="col-md-8">
+                                                        <img src="images/' . $img_cruise . '" alt="" style = "width: 350px; height: 260px;">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title">' . $name_cruise . '</h5>
+                                                        <p class="card-text">' . $detail_cruise . '</p>
+                                                        <p class="card-text">From: ' . $from_to_cruise . '</p>
+                                                        <p class="card-text"><medium class="text-muted"><b>$' . $price_cruise . '</b></medium></p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Nam Trung Tour</a>
-                                                <p>From: Cat Ba, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
                                             </div>
-                                            <!-- end cruise-title -->
-                                        </div>
-                                        <!-- end cruise-info -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="main-block cruise-block">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
-                                        <div class="main-img cruise-img">
-                                            <a href="#">
-                                                <img src="images/du-thuyền.jpg" class="img-responsive" alt="cruise-img" />
-                                                <div class="cruise-mask">
-                                                    <p>7 Nights, 6 Days</p>
-                                                </div>
-                                                <!-- end cruise-mask -->
-                                            </a>
-                                        </div>
-                                        <!-- end cruise-img -->
-                                    </div>
-                                    <!-- end columns -->
-
-                                    <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
-                                        <div class=" main-info cruise-info">
-                                            <div class="main-title cruise-title">
-                                                <a href="#">Da Nang Boat Tour</a>
-                                                <p>From: Da Nang, Viet Nam</p>
-                                                <div class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star grey"></i></span>
-                                                </div>
-                                                <!-- end rating -->
-
-                                                <span class="cruise-price">$950.00</span>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <a href="booking_cruise.php?id=' . $id_cruise . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
                                             </div>
-                                            <!-- end cruise-title -->
                                         </div>
-                                        <!-- end cruise-info -->
                                     </div>
-                                    <!-- end columns -->
+                                </div>';
+                            }
+                        }
+                        ?>
 
+                        <?php
+                            $tourHot = new tourHot();
+                            $sql = "select * from tour_hot";
+                            $rows = $tourHot->fetch($sql);
+                            if (!empty($rows)) {
+                                foreach ($rows as $row) {
+                                    $id_hot = $row['id_hot'];
+                                    $name_hot = $row['name_hot'];
+                                    $img_hot = $row['img_hot'];
+                                    $price_hot = $row['price_hot'];
+                                    $detail_hot = $row['detail_hot'];
+                                    $from_to_hot = $row['from_to_hot'];
+                                    echo "<div class='col-sm-6 col-md-6'>
+                                        <div class='main-block cruise-block'>
+                                            <div class='row'>
+                                                <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
+                                                    <div class='main-img cruise-img'>
+                                                        <a>
+                                                        <div data-toggle='modal' data-target='#myModalHot$id_hot'><img src='images/$img_hot'class='img-responsive' alt='cruise-img'/></div>
+                                                            <div class='cruise-mask'>
+                                                                <p>7 Nights, 6 Days</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+        
+                                                <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
+                                                    <div class='main-info cruise-info'>
+                                                        <div class='main-title cruise-title'>
+                                                            <a href='#'> $name_hot</a>
+                                                            <p>From: $from_to_hot</p>
+                                                            <div class='rating'>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star orange'></i></span>
+                                                                <span><i class='fa fa-star lightgrey'></i></span>
+                                                            </div>
+                                                            <span class='cruise-price'>$price_hot</span>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                
+                                                </div>
+            
+                                            </div>
+                                        
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                            ";
+                                }
+                            }
+                            ?>
+                        <?php
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_hot = $row['id_hot'];
+                                $name_hot = $row['name_hot'];
+                                $img_hot = $row['img_hot'];
+                                $price_hot = $row['price_hot'];
+                                $detail_hot = $row['detail_hot'];
+                                $from_to_hot = $row['from_to_hot'];
+                                echo
+                                '<div class="modal fade" id="myModalHot' . $id_hot . '" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <div class="row g-0">
+                                                        <div class="col-md-8">
+                                                            <img src="images/' . $img_hot . '" alt="" style = "width: 350px; height: 260px;">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="card-body">
+                                                            <h5 class="card-title">' . $name_hot . '</h5>
+                                                            <p class="card-text">' . $detail_hot . '</p>
+                                                            <p class="card-text">From: ' . $from_to_hot . '</p>
+                                                            <p class="card-text"><medium class="text-muted"><b>$' . $price_hot . '</b></medium></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <a href="booking_hot.php?id=' . $id_hot. '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>';
+                            }
+                        }
+                        ?>
+                        <?php
+                        $tourCapital = new tourCapital();
+                        $sql = "select * from tour_capital";
+                        $rows = $tourCapital->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_capital = $row['id_capital'];
+                                $name_capital = $row['name_capital'];
+                                $img_capital = $row['img_capital'];
+                                $price_capital = $row['price_capital'];
+                                $detail_capital = $row['detail_capital'];
+                                $from_to_capital = $row['from_to_capital'];
+                                echo "<div class='col-sm-6 col-md-6'>
+                                    <div class='main-block cruise-block'>
+                                        <div class='row'>
+                                            <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
+                                                <div class='main-img cruise-img'>
+                                                    <a>
+                                                    <div data-toggle='modal' data-target='#myModalCapital$id_capital'><img src='images/$img_capital'class='img-responsive' alt='cruise-img'/></div>
+                                                        <div class='cruise-mask'>
+                                                            <p>7 Nights, 6 Days</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+    
+                                            <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
+                                                <div class='main-info cruise-info'>
+                                                    <div class='main-title cruise-title'>
+                                                        <a href='#'> $name_capital</a>
+                                                        <p>From: $from_to_capital</p>
+                                                        <div class='rating'>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star lightgrey'></i></span>
+                                                        </div>
+                                                        <span class='cruise-price'>$price_capital</span>
+                                                    </div>
+                                                    
+                                                </div>
+                                               
+                                            </div>
+        
+                                        </div>
+                                       
+                                    </div>
+                                    
                                 </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end cruise-block -->
-                        </div>
-                        <!-- end columns -->
-                    </div>
-                    <!-- end row -->
-
+                                
+                                        ";
+                            }
+                            }
+                            ?>
+                            <!-- end row -->
+                            <?php
+                            if (!empty($rows)) {
+                                foreach ($rows as $row) {
+                                    $id_capital = $row['id_capital'];
+                                    $name_capital = $row['name_capital'];
+                                    $img_capital = $row['img_capital'];
+                                    $price_capital = $row['price_capital'];
+                                    $detail_capital = $row['detail_capital'];
+                                    $from_to_capital = $row['from_to_capital'];
+                                    echo
+                                    '<div class="modal fade" id="myModalCapital' . $id_capital . '" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <div class="row g-0">
+                                                            <div class="col-md-8">
+                                                                <img src="images/' . $img_capital . '" alt="" style = "width: 350px; height: 260px;">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="card-body">
+                                                                <h5 class="card-title">' . $name_capital . '</h5>
+                                                                <p class="card-text">' . $detail_capital . '</p>
+                                                                <p class="card-text">From: ' . $from_to_capital . '</p>
+                                                                <p class="card-text"><medium class="text-muted"><b>$' . $price_capital . '</b></medium></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a href="booking_capital.php?id=' . $id_capital . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                }
+                            }
+                            ?>
+                            <?php
+                        $tourSport = new tourSport();
+                        $sql = "select * from tour_sport";
+                        $rows = $tourSport->fetch($sql);
+                        if (!empty($rows)) {
+                            foreach ($rows as $row) {
+                                $id_sport = $row['id_sport'];
+                                $name_sport = $row['name_sport'];
+                                $img_sport = $row['img_sport'];
+                                $price_sport = $row['price_sport'];
+                                $detail_sport = $row['detail_sport'];
+                                $from_to_sport = $row['from_to_sport'];
+                                echo "<div class='col-sm-6 col-md-6'>
+                                    <div class='main-block cruise-block'>
+                                        <div class='row'>
+                                            <div class='col-sm-12 col-md-6 col-md-push-6 no-pd-l'>
+                                                <div class='main-img cruise-img'>
+                                                    <a>
+                                                    <div data-toggle='modal' data-target='#myModalSport$id_sport'><img src='images/$img_sport'class='img-responsive' alt='cruise-img'/></div>
+                                                        <div class='cruise-mask'>
+                                                            <p>7 Nights, 6 Days</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+    
+                                            <div class='col-sm-12 col-md-6 col-md-pull-6 no-pd-r'>
+                                                <div class='main-info cruise-info'>
+                                                    <div class='main-title cruise-title'>
+                                                        <a href='#'> $name_sport</a>
+                                                        <p>From: $from_to_sport</p>
+                                                        <div class='rating'>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star orange'></i></span>
+                                                            <span><i class='fa fa-star lightgrey'></i></span>
+                                                        </div>
+                                                        <span class='cruise-price'>$price_sport</span>
+                                                    </div>
+                                                    
+                                                </div>
+                                               
+                                            </div>
+        
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                
+                                        ";
+                            }
+                            }
+                            ?>
+                            <!-- end row -->
+                            <?php
+                            if (!empty($rows)) {
+                                foreach ($rows as $row) {
+                                    $id_sport = $row['id_sport'];
+                                    $name_sport = $row['name_sport'];
+                                    $img_sport = $row['img_sport'];
+                                    $price_sport = $row['price_sport'];
+                                    $detail_sport = $row['detail_sport'];
+                                    $from_to_sport = $row['from_to_sport'];
+                                    echo
+                                    '<div class="modal fade" id="myModalSport' . $id_sport . '" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <div class="row g-0">
+                                                            <div class="col-md-8">
+                                                                <img src="images/' . $img_sport . '" alt="" style = "width: 350px; height: 260px;">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="card-body">
+                                                                <h5 class="card-title">' . $name_sport . '</h5>
+                                                                <p class="card-text">' . $detail_sport . '</p>
+                                                                <p class="card-text">From: ' . $from_to_sport . '</p>
+                                                                <p class="card-text"><medium class="text-muted"><b>$' . $price_sport . '</b></medium></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a href="booking_sport.php?id=' . $id_sport . '"><button type="button" class="btn btn-primary" onclick="">Add to cart</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                }
+                            }
+                            ?>
+                        
+                    <!-- end view-all -->
                 </div>
-                <!-- end view-all -->
+                <!-- end columns -->
             </div>
-            <!-- end columns -->
-        </div>
-        <!-- end row -->
+            <!-- end row -->
         </div>
         <!-- end container -->
     </section>
-    <!-- end cruise-offers -->
+    <!-- end cruise-capitals -->
 
     <!--============== HIGHLIGHTS =============-->
     <section id="highlights" class="highlights-2">
@@ -796,20 +1018,20 @@
     <!-- end highlights -->
 
 
-    <!--======= OFFER BANNER ======-->
-    <section id="cruise-offer-banner">
+    <!--======= capital BANNER ======-->
+    <section id="cruise-capital-banner">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 cruise-offer-img text-center">
-                    <img src="images/ĐN - Copy.jpg" class="img-responsive" alt="offer-img" />
+                <div class="col-sm-6 cruise-capital-img text-center">
+                    <img src="images/ĐN - Copy.jpg" class="img-responsive" alt="capital-img" />
                 </div>
                 <!-- end columns -->
 
-                <div class="col-sm-6 cruise-offer-text">
-                    <h2>Best Offer</h2>
+                <div class="col-sm-6 cruise-capital-text">
+                    <h2>Best capital</h2>
                     <h3 class="cruise-tour">Da Nang Boat Tour</h3>
-                    <p class="cruise-offer-dur">7 Nights, 6 Days</p>
-                    <p class="cruise-offer-price">From $1,441</p>
+                    <p class="cruise-capital-dur">7 Nights, 6 Days</p>
+                    <p class="cruise-capital-price">From $1,441</p>
                     <a href="cruise-detail-right-sidebar.php" class="btn btn-black">Booking</a>
                 </div>
                 <!-- end columns -->
@@ -818,7 +1040,7 @@
         </div>
         <!-- end container -->
     </section>
-    <!-- end offer-banner -->
+    <!-- end capital-banner -->
 
 
     <!--==================== TESTIMONIALS ====================-->

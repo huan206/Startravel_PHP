@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 07, 2021 at 03:04 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th4 09, 2021 lúc 12:29 AM
+-- Phiên bản máy phục vụ: 10.4.17-MariaDB
+-- Phiên bản PHP: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `startravel`
+-- Cơ sở dữ liệu: `startravel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Cấu trúc bảng cho bảng `account`
 --
 
 CREATE TABLE `account` (
@@ -36,7 +36,7 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `account`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
 INSERT INTO `account` (`account_id`, `account_name`, `account_pass`, `account_email`, `account_status`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `account` (`account_id`, `account_name`, `account_pass`, `account_em
 -- --------------------------------------------------------
 
 --
--- Table structure for table `activity`
+-- Cấu trúc bảng cho bảng `activity`
 --
 
 CREATE TABLE `activity` (
@@ -57,16 +57,16 @@ CREATE TABLE `activity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `activity`
+-- Đang đổ dữ liệu cho bảng `activity`
 --
 
 INSERT INTO `activity` (`activity_id`, `activity_name`, `activity_password`) VALUES
-(91, 'Ho Thi Hang', 'hangcute');
+(102, 'Nguyen Hoang Huan', 'huancute');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Cấu trúc bảng cho bảng `admin`
 --
 
 CREATE TABLE `admin` (
@@ -74,7 +74,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `admin`
+-- Đang đổ dữ liệu cho bảng `admin`
 --
 
 INSERT INTO `admin` (`admin_user`) VALUES
@@ -83,7 +83,7 @@ INSERT INTO `admin` (`admin_user`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
+-- Cấu trúc bảng cho bảng `blog`
 --
 
 CREATE TABLE `blog` (
@@ -96,7 +96,7 @@ CREATE TABLE `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `blog`
+-- Đang đổ dữ liệu cho bảng `blog`
 --
 
 INSERT INTO `blog` (`id_blog`, `img_blog`, `author_blog`, `time_blog`, `title_blog`, `content_blog`) VALUES
@@ -107,7 +107,7 @@ INSERT INTO `blog` (`id_blog`, `img_blog`, `author_blog`, `time_blog`, `title_bl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 CREATE TABLE `cart` (
@@ -117,26 +117,70 @@ CREATE TABLE `cart` (
   `image_tour` text COLLATE utf8_unicode_ci NOT NULL,
   `name_tour` text COLLATE utf8_unicode_ci NOT NULL,
   `price_tour` decimal(10,0) NOT NULL,
-  `from_to` text COLLATE utf8_unicode_ci NOT NULL
+  `from_to` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cart`
+-- Đang đổ dữ liệu cho bảng `cart`
 --
 
-INSERT INTO `cart` (`id_cart`, `id_account`, `id_tour`, `image_tour`, `name_tour`, `price_tour`, `from_to`) VALUES
-(12, 29, 1, 'cam-nang-du-lich-ha-noi-mytour-1.jpg', 'Thuan Ninh', '12', 'Quang Tri'),
-(20, 30, 16, 'sapa.jpg', 'Summer tour 2021', '99999', 'Tay Son-Binh Dinh'),
-(21, 30, 3, 'hoiann.jpg', 'Hoi An  tour 2021', '99999', 'Da Nang- Viet Nam'),
-(22, 30, 2, 'anh-1-160161747022091907963.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam'),
-(23, 30, 4, 'tour-nam-du-4-ngay-3-dem-2-800x500.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam'),
-(24, 29, 4, 'tour-nam-du-4-ngay-3-dem-2-800x500.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam'),
-(25, 31, 2, 'chua-mot-cot.jpg', 'Mot Cot Pagoda', '99999', 'Ha Noi- Viet Nam');
+INSERT INTO `cart` (`id_cart`, `id_account`, `id_tour`, `image_tour`, `name_tour`, `price_tour`, `from_to`, `status`) VALUES
+(33, 31, 17, 'du-lich-phu-quoc-17.jpg', 'Fall tour 2021', '99999', 'Tay Son-Binh Dinh', 'Confirmed'),
+(34, 31, 16, 'sapa.jpg', 'Summer tour 2021', '99999', 'Tay Son-Binh Dinh', 'checking in'),
+(36, 30, 3, 'vịnh lan hạ.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam', 'Confirmed'),
+(37, 30, 3, 'vịnh lan hạ.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam', 'checking in'),
+(38, 30, 1, 'kinh-nghiem-du-lich-ha-noi-tu-a-den-z-10.jpg', 'Quoc Tu Giam', '99999', 'BinhDinh- Viet Nam', 'checking in'),
+(39, 30, 5, 'du-thuyền.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam', 'checking in'),
+(40, 30, 2, 'nhay-bungee-o-viet-nam.jpg', 'Phu Quoc, Viet Nam', '99999', 'Phu Quoc- Viet Nam', 'checking in');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_capital`
+-- Cấu trúc bảng cho bảng `cart_admin`
+--
+
+CREATE TABLE `cart_admin` (
+  `id_cart` int(11) NOT NULL,
+  `id_account` int(11) NOT NULL,
+  `id_tour` int(11) NOT NULL,
+  `image_tour` int(11) NOT NULL,
+  `name_tour` int(11) NOT NULL,
+  `price_tour` int(11) NOT NULL,
+  `from_to` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `history`
+--
+
+CREATE TABLE `history` (
+  `id_history` int(11) NOT NULL,
+  `id_account` int(11) NOT NULL,
+  `id_tour` int(11) NOT NULL,
+  `image_tour` text COLLATE utf8_unicode_ci NOT NULL,
+  `name_tour` text COLLATE utf8_unicode_ci NOT NULL,
+  `price_tour` decimal(11,0) NOT NULL,
+  `from_to` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `history`
+--
+
+INSERT INTO `history` (`id_history`, `id_account`, `id_tour`, `image_tour`, `name_tour`, `price_tour`, `from_to`, `status`) VALUES
+(8, 29, 17, 'du-lich-phu-quoc-17.jpg', 'Fall tour 2021', '99999', 'Tay Son-Binh Dinh', 'Paied'),
+(10, 30, 3, 'vịnh lan hạ.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam', 'Paied'),
+(11, 30, 3, 'vịnh lan hạ.jpg', 'Ocean tour 2021', '99999', 'Da Nang- Viet  Nam', 'Paied');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tour_capital`
 --
 
 CREATE TABLE `tour_capital` (
@@ -149,7 +193,7 @@ CREATE TABLE `tour_capital` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tour_capital`
+-- Đang đổ dữ liệu cho bảng `tour_capital`
 --
 
 INSERT INTO `tour_capital` (`id_capital`, `name_capital`, `img_capital`, `price_capital`, `detail_capital`, `from_to_capital`) VALUES
@@ -160,7 +204,7 @@ INSERT INTO `tour_capital` (`id_capital`, `name_capital`, `img_capital`, `price_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_cruise`
+-- Cấu trúc bảng cho bảng `tour_cruise`
 --
 
 CREATE TABLE `tour_cruise` (
@@ -173,7 +217,7 @@ CREATE TABLE `tour_cruise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tour_cruise`
+-- Đang đổ dữ liệu cho bảng `tour_cruise`
 --
 
 INSERT INTO `tour_cruise` (`id_cruise`, `name_cruise`, `img_cruise`, `price_cruise`, `detail_cruise`, `from_to_cruise`) VALUES
@@ -185,7 +229,7 @@ INSERT INTO `tour_cruise` (`id_cruise`, `name_cruise`, `img_cruise`, `price_crui
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_hot`
+-- Cấu trúc bảng cho bảng `tour_hot`
 --
 
 CREATE TABLE `tour_hot` (
@@ -198,7 +242,7 @@ CREATE TABLE `tour_hot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tour_hot`
+-- Đang đổ dữ liệu cho bảng `tour_hot`
 --
 
 INSERT INTO `tour_hot` (`id_hot`, `name_hot`, `img_hot`, `price_hot`, `detail_hot`, `from_to_hot`) VALUES
@@ -210,7 +254,7 @@ INSERT INTO `tour_hot` (`id_hot`, `name_hot`, `img_hot`, `price_hot`, `detail_ho
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_offer`
+-- Cấu trúc bảng cho bảng `tour_offer`
 --
 
 CREATE TABLE `tour_offer` (
@@ -223,7 +267,7 @@ CREATE TABLE `tour_offer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tour_offer`
+-- Đang đổ dữ liệu cho bảng `tour_offer`
 --
 
 INSERT INTO `tour_offer` (`id_offer`, `name_offer`, `img_offer`, `price_offer`, `detail_offer`, `from_to_offer`) VALUES
@@ -235,7 +279,7 @@ INSERT INTO `tour_offer` (`id_offer`, `name_offer`, `img_offer`, `price_offer`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_sport`
+-- Cấu trúc bảng cho bảng `tour_sport`
 --
 
 CREATE TABLE `tour_sport` (
@@ -248,7 +292,7 @@ CREATE TABLE `tour_sport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tour_sport`
+-- Đang đổ dữ liệu cho bảng `tour_sport`
 --
 
 INSERT INTO `tour_sport` (`id_sport`, `name_sport`, `img_sport`, `price_sport`, `detail_sport`, `from_to_sport`) VALUES
@@ -260,117 +304,141 @@ INSERT INTO `tour_sport` (`id_sport`, `name_sport`, `img_sport`, `price_sport`, 
 (6, 'PHU QUOC, VIET NAM', 'trai-nghiem-Zipline.jpg', '99999', 'Summer is the most imaginative time for travel. You have to the select the summer should go du lich at the end of the Interesting', 'Phu Quoc- Viet Nam');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `account`
+-- Chỉ mục cho bảng `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`account_id`);
 
 --
--- Indexes for table `activity`
+-- Chỉ mục cho bảng `activity`
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activity_id`);
 
 --
--- Indexes for table `blog`
+-- Chỉ mục cho bảng `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id_blog`);
 
 --
--- Indexes for table `cart`
+-- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id_cart`);
 
 --
--- Indexes for table `tour_capital`
+-- Chỉ mục cho bảng `cart_admin`
+--
+ALTER TABLE `cart_admin`
+  ADD PRIMARY KEY (`id_cart`);
+
+--
+-- Chỉ mục cho bảng `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id_history`);
+
+--
+-- Chỉ mục cho bảng `tour_capital`
 --
 ALTER TABLE `tour_capital`
   ADD PRIMARY KEY (`id_capital`);
 
 --
--- Indexes for table `tour_cruise`
+-- Chỉ mục cho bảng `tour_cruise`
 --
 ALTER TABLE `tour_cruise`
   ADD PRIMARY KEY (`id_cruise`);
 
 --
--- Indexes for table `tour_hot`
+-- Chỉ mục cho bảng `tour_hot`
 --
 ALTER TABLE `tour_hot`
   ADD PRIMARY KEY (`id_hot`);
 
 --
--- Indexes for table `tour_offer`
+-- Chỉ mục cho bảng `tour_offer`
 --
 ALTER TABLE `tour_offer`
   ADD PRIMARY KEY (`id_offer`);
 
 --
--- Indexes for table `tour_sport`
+-- Chỉ mục cho bảng `tour_sport`
 --
 ALTER TABLE `tour_sport`
   ADD PRIMARY KEY (`id_sport`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `activity`
+-- AUTO_INCREMENT cho bảng `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
--- AUTO_INCREMENT for table `blog`
+-- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
   MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `cart`
+-- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `tour_capital`
+-- AUTO_INCREMENT cho bảng `cart_admin`
+--
+ALTER TABLE `cart_admin`
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `history`
+--
+ALTER TABLE `history`
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `tour_capital`
 --
 ALTER TABLE `tour_capital`
   MODIFY `id_capital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tour_cruise`
+-- AUTO_INCREMENT cho bảng `tour_cruise`
 --
 ALTER TABLE `tour_cruise`
   MODIFY `id_cruise` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tour_hot`
+-- AUTO_INCREMENT cho bảng `tour_hot`
 --
 ALTER TABLE `tour_hot`
   MODIFY `id_hot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `tour_offer`
+-- AUTO_INCREMENT cho bảng `tour_offer`
 --
 ALTER TABLE `tour_offer`
   MODIFY `id_offer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tour_sport`
+-- AUTO_INCREMENT cho bảng `tour_sport`
 --
 ALTER TABLE `tour_sport`
   MODIFY `id_sport` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

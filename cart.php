@@ -467,7 +467,7 @@
                         <th style="width:200%"><b></b></th>
                         <td class="hidden-xs text-center"></strong>
                         </td>
-                        <td><a href="" class="btn btn-success btn-block">PAY ALL <i class="fa fa-angle-right"></i></a>
+                        <td><a href="history.php" class="btn btn-success btn-block">HISTORY <i class="fa fa-angle-right"></i></a>
                         </td>
                     </tr>
                 </thead>

@@ -469,6 +469,8 @@
                                     }
                                     $idd=$_GET['idd'];
                                     $total = 0;
+                                   
+                       
                                     $queryquery = "select * from cart where id_account='$id' and id_cart = '$idd'";
                                     $resultresult = mysqli_query($link, $queryquery);
                                     while ($rowrow = mysqli_fetch_assoc($resultresult)) {
@@ -477,6 +479,26 @@
                                         $name = $rowrow['name_tour'];
                                         $price = $rowrow['price_tour'];
                                         $from_to = $rowrow['from_to'];
+                                        $status=$rowrow['status'];
+                                        if($status=="checking in"){
+                                            echo "<script>alert('Please wait for the admin to check !!!!!!')</script>";
+                                            echo "<script>window.location.replace('cart.php')</script>";
+                                        }
+                                        else{
+                                            $queryquery1 = "select * from cart where id_cart = '$idd'";
+                                            $resultresult1 = mysqli_query($link, $queryquery1);
+                                while ($rowrow1 = mysqli_fetch_assoc($resultresult1)) {
+                                    $idd = $rowrow1['id_cart'];
+                                    $id_account= $rowrow1['id_account'];
+                                    $id_tour= $rowrow1['id_tour'];
+                                    $image_tour= $rowrow1['image_tour'];
+                                    $name_tour= $rowrow1['name_tour'];
+                                    $price_tour= $rowrow1['price_tour'];
+                                    $from_to= $rowrow1['from_to'];
+                                    $status="Paied"; 
+                                    $query3="insert into history(id_account,id_tour,image_tour,name_tour,price_tour,from_to,status) value ($id_account,$id_tour,'$image_tour','$name_tour',$price_tour,'$from_to','$status')";  
+                                    mysqli_query($link,$query3);                         
+                                }
                                         $total = $price;
                                         echo $inf_tuor = "
                                         <div class='col-xs-12 col-sm-12 col-md-5 col-lg-4'>
@@ -498,13 +520,14 @@
                                             </div>
                                         </div>
                                         ";
-                                    }
+                                    }}
+
                                     ?>
                                     <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
                                         <label></label>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
-                                        <a href='./indexvnpay.php?idd=$idd'><button class="btn btn-orange btn-block" name="pay">Pay</button></a>
+                                        <a href='https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder' class="btn btn-orange btn-block" name="pay">Pay</a>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
                                         <label></label>

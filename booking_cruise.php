@@ -27,7 +27,7 @@ while($row3=mysqli_fetch_assoc($result3)){
     $price=$row3['price_cruise'];
     $from_to=$row3['from_to_cruise'];
    }
-$query="insert into cart(image_tour,id_account,id_tour,name_tour,price_tour,from_to) value ('$image',$id,$id_tour,'$name',$price,'$from_to')";
+   $query="insert into cart(image_tour,id_account,id_tour,name_tour,price_tour,from_to,status) value ('$image',$id,$id_tour,'$name',$price,'$from_to','checking in')";
 $result=mysqli_query($link,$query);
 echo "<script>alert('ADD TO CART SUCCESSFULLY !!!')</script>";
 echo "<script>window.location.replace('index.php')</script>";

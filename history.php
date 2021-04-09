@@ -1,12 +1,11 @@
-<!doctype html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Contact Us</title>
+    <title>Index HTML</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -20,8 +19,80 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" id="cpswitch" href="css/orange.css">
     <link rel="stylesheet" href="css/responsive.css">
-</head>
 
+    <!-- Owl Carousel Stylesheet -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+
+    <!-- Flex Slider Stylesheet -->
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" />
+
+    <!--Date-Picker Stylesheet-->
+    <link rel="stylesheet" href="css/datepicker.css">
+
+    <!-- Magnific Gallery -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+
+    <style type="text/css">
+        td {
+            vertical-align: middle;
+        }
+
+        @media screen and (max-width: 600px) {
+            table#cart tbody td .form-control {
+                width: 20%;
+                display: inline !important;
+            }
+
+            .actions .btn {
+                width: 36%;
+                margin: 1.5em 0;
+            }
+
+            .actions .btn-info {
+                float: left;
+            }
+
+            .actions .btn-danger {
+                float: right;
+            }
+
+            table#cart thead {
+                display: none;
+            }
+
+            table#cart tbody td {
+                display: block;
+                padding: .6rem;
+                min-width: 320px;
+            }
+
+            table#cart tbody tr td:first-child {
+                background: #333;
+                color: #fff;
+            }
+
+            table#cart tbody td:before {
+                content: attr(data-th);
+                font-weight: bold;
+                display: inline-block;
+                width: 8rem;
+            }
+
+            table#cart tfoot td {
+                display: block;
+            }
+
+            table#cart tfoot td .btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
@@ -75,6 +146,7 @@
                             <li><a href="registration.php" id="thanh2"><span><i class="fa fa-plus"></i></span>Sign up</a></li>
                             <li><a href="logout.php" id="thanh3"><span><i class="fa fa-sign-out"></i></span>Logout</a></li>
                             <li><a href="cart.php" id="thanh4"><span><i class="fa fa-shopping-cart"></i></span>Cart</a>
+                            </li>
                             <li>
                                 <form>
                                     <ul class="list-inline">
@@ -89,6 +161,7 @@
                                             </div>
                                             <!-- end form-group -->
                                         </li>
+
                                         <li>
                                             <div class="form-group language">
                                                 <span><i class="fa fa-angle-down"></i></span>
@@ -115,18 +188,22 @@
                                                 ?></a>
                                         </li>
                                     </ul>
+
                                 </form>
                             </li>
+
                         </ul>
                     </div>
-                    <!-- end links -->
                 </div>
-                <!-- end columns -->
+                <!-- end links -->
             </div>
-            <!-- end row -->
+            <!-- end columns -->
         </div>
-        <!-- end container -->
+
+        <!-- end row -->
     </div>
+    <!-- end container -->
+
     <!-- end top-bar -->
     <script type="text/javascript">
         function inten() {
@@ -162,6 +239,7 @@
             <!-- end navbar-header -->
 
             <div class="collapse navbar-collapse" id="myNavbar1">
+
                 <ul class="nav navbar-nav navbar-right navbar-search-link">
                     <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME<span><i class="fa fa-angle-down"></i></span></a>
                         <ul class="dropdown-menu">
@@ -255,9 +333,11 @@
                     <li><a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a></li>
                 </ul>
             </div>
+
             <!-- end navbar collapse -->
         </div>
         <!-- end container -->
+
     </nav>
     <!-- end navbar -->
 
@@ -273,7 +353,7 @@
 
                 <div class="list-group panel">
 
-                    <a href="#home-links" class="list-group-item active" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-home link-icon"></i></span>Home<span><i class="fa fa-chevron-down arrow"></i></span></a>
+                    <a href="#flight-links" class="list-group-item active" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-home link-icon"></i></span>Home<span><i class="fa fa-chevron-down arrow"></i></span></a>
                     <div class="collapse sub-menu" id="home-links">
                         <a href="index.php" class="list-group-item active">Main Homepage</a>
                         <a href="cruise-homepage.php" class="list-group-item">Tour Homepage</a>
@@ -349,19 +429,19 @@
             </div>
             <!-- end main-menu -->
         </div>
+
         <!-- end mySidenav -->
     </div>
     <!-- end sidenav-content -->
-
-    <!--================ PAGE-COVER ===============-->
-    <section class="page-cover" id="cover-contact-us">
+    <!--================= PAGE-COVER ================-->
+    <section class="page-cover" id="cover-byf-info">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="page-title">Contact Us</h1>
+                    <h1 class="page-title">Cart</h1>
                     <ul class="breadcrumb">
                         <li><a href="index.php">Home</a></li>
-                        <li class="active">Contact Us Page</li>
+                        <li class="active">My Cart</li>
                     </ul>
                 </div>
                 <!-- end columns -->
@@ -370,142 +450,101 @@
         </div>
         <!-- end container -->
     </section>
+
     <!-- end page-cover -->
-
-
-    <!--===== INNERPAGE-WRAPPER ====-->
-    <section class="innerpage-wrapper">
-        <div id="contact-us" class="innerpage-section-padding">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-sm-12 col-md-5 no-pd-r">
-                        <div class="custom-form contact-form">
-                            <h3>Contact Us</h3>
-                            <p>Welcome to Starttravel. Your informations will be secured carefully. Please fill informations fully. Contact us if you get any problems.</p>
-                            <form action="contact.php" method="post">
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Name" required />
-                                    <span><i class="fa fa-user"></i></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required />
-                                    <span><i class="fa fa-envelope"></i></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject" name="subject" required />
-                                    <span><i class="fa fa-info-circle"></i></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="4" name="message" placeholder="Your Message"></textarea>
-                                    <span><i class="fa fa-pencil"></i></span>
-                                </div>
-
-                                <button type="submit" class="btn btn-orange btn-block">Send</button>
-                            </form>
-                        </div>
-                        <!-- end contact-form -->
-                    </div>
-                    <!-- end columns -->
-
-                    <div class="col-sm-12 col-md-7 no-pd-l">
-                        <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5422.217680878009!2d108.24220260953769!3d16.06098018315957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177f2ced6d8b%3A0xe282c779264f7088!2zVHLGsOG7nW5nIENhbyDEkOG6s25nIE5naOG7gSDEkMOgIE7hurVuZw!5e0!3m2!1svi!2skr!4v1611308637342!5m2!1svi!2skr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                        </div>
-                        <!-- end map -->
-                    </div>
-                    <!-- end columns -->
-
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end contact-us -->
-    </section>
-    <!-- end innerpage-wrapper -->
-
-
-    <!--======================= BEST FEATURES =====================-->
-    <section id="best-features" class="banner-padding black-features">
+    <h1 class="text-center"><b>MY CART</b></h1>
+    <div class="container">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="b-feature-block">
-                        <span><i class="fa fa-dollar"></i></span>
-                        <h3>Best Price Guarantee</h3>
-                        <p>Our website brings you the best experiences and services with the most standard price. Our services are approved a resolution by Vietnam Travel Branch.</p>
-                    </div>
-                    <!-- end b-feature-block -->
-                </div>
-                <!-- end columns -->
+            <table id="cart" class="table table-hover table-condensed">
+                <thead>
 
-                <div class="col-sm-6 col-md-3">
-                    <div class="b-feature-block">
-                        <span><i class="fa fa-lock"></i></span>
-                        <h3>Safe and Secure</h3>
-                        <p>All your personal informations, supported informations will be kept and secured in the best way. Only you and administrators can know. Your informations never have leaked out and lost.</p>
-                    </div>
-                    <!-- end b-feature-block -->
-                </div>
-                <!-- end columns -->
+                    <tr>
+                        <td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> CONTINUE BUYING</a>
+                        </td>
+                        <th style="width:15%"><b></b></th>
+                        <th style="width:15%"><b></b></th>
+                        <th style="width:15%"><b></b></th>
+                        <th style="width:200%"><b></b></th>
+                        <td class="hidden-xs text-center"></strong>
+                        </td>
 
-                <div class="col-sm-6 col-md-3">
-                    <div class="b-feature-block">
-                        <span><i class="fa fa-thumbs-up"></i></span>
-                        <h3>Best Travel Agents</h3>
-                        <p>We have related to the best Travel agency in Vietnam. Supported and admitted by many branches, we have been improving and broading our activities.</p>
-                    </div>
-                    <!-- end b-feature-block -->
-                </div>
-                <!-- end columns -->
+                        </td>
+                    </tr>
+                </thead>
+            </table>
 
-                <div class="col-sm-6 col-md-3">
-                    <div class="b-feature-block">
-                        <span><i class="fa fa-bars"></i></span>
-                        <h3>Travel Guidelines</h3>
-                        <p>All your questions will be replied by administrators and they will help you. We're always side by side and help you about any problems.</p>
-                    </div>
-                    <!-- end b-feature-block -->
-                </div>
-                <!-- end columns -->
-            </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
-    </section>
-    <!-- end best-features -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>IMAGE</th>
+                            <th>NAME</th>
+                            <th>FROM_TO</th>
+                            <th>PRICE</th>
+                            <th>STATUS</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <?php
+                        $link = new mysqli("localhost", "root", "", "startravel");
+                        $query = "select * from activity";
+                        $result = mysqli_query($link, $query);
+                        $query2 = "select * from account";
+                        $result2 = mysqli_query($link, $query2);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $name = $row['activity_name'];
+                            while ($row2 = mysqli_fetch_assoc($result2)) {
+                                $name2 = $row2['account_name'];
+                                if ($name == $name2) {
+                                    $id = $row2['account_id'];
+                                }
+                            }
+                        }
+                        $total = 0;
+                        $queryquery = "select * from history where id_account='$id'";
+                        $resultresult = mysqli_query($link, $queryquery);
+                        while ($rowrow = mysqli_fetch_assoc($resultresult)) {
+                            $idd = $rowrow['id_history'];
+                            $image = $rowrow['image_tour'];
+                            $name = $rowrow['name_tour'];
+                            $price = $rowrow['price_tour'];
+                            $from_to = $rowrow['from_to'];
+                            $status=$rowrow['status'];
+                            $total = $total + $price;
+                            echo $table = "
+                                        <tr>
+                                            <td><img src='images/$image' height='200' width='250'></td>
+                                            <td>$name</td>
+                                            <td>$from_to</td>
+                                            <td>$price $</td>  
+                                            <td>$status</td>  
+                                            <td><a href='delete_history.php?idd=$idd'><button type='button' class='btn btn-success bt'>DELETE</button></a></td>
+                                        </tr>
+                                        ";
+                        }
+                        echo $table2 = "
+                                    <tr>
+                                            <td>TOTAL</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>             
+                                            <td>$total $</td>
+                                        </tr>
+                                    ";
+                        ?>
+                        <tr>
 
-
-    <!--========================= NEWSLETTER-1 ==========================-->
-    <section id="newsletter-1" class="section-padding back-size newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                    <h2>Subscribe Our Newsletter</h2>
-                    <p>Subscibe to receive our interesting updates</p>
-                    <form>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control input-lg" placeholder="Enter your email address" required />
-                                <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- end columns -->
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
-    </section>
-    <!-- end newsletter-1 -->
-
-
+    </div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     <!--======================= FOOTER =======================-->
     <section id="footer" class="ftr-heading-o ftr-heading-mgn-1">
 
@@ -597,7 +636,6 @@
     </section>
     <!-- end footer -->
 
-    <!-- Page Scripts Starts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -609,8 +647,6 @@
     <script src="js/custom-owl.js"></script>
     <script src="js/custom-date-picker.js"></script>
     <script src="js/custom-video.js"></script>
-    <script src="js/login.js"></script>
-    <!-- Page Scripts Ends -->
 </body>
 
 </html>

@@ -72,6 +72,9 @@
         #account {
             display: none;
         }
+        #cart {
+            display: none;
+        }
     </style>
     <script type="text/javascript">
         function showAll() {
@@ -83,6 +86,7 @@
             document.getElementById("capital").style.display = "block";
             document.getElementById("blog").style.display = "block";
             document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showHot() {
@@ -94,6 +98,7 @@
             document.getElementById("sport").style.display = "none";
             document.getElementById("capital").style.display = "none";
             document.getElementById("blog").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showOffer() {
@@ -105,6 +110,7 @@
             document.getElementById("capital").style.display = "none";
             document.getElementById("blog").style.display = "none";
             document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showCruise() {
@@ -116,6 +122,7 @@
             document.getElementById("capital").style.display = "none";
             document.getElementById("blog").style.display = "none";
             document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showSport() {
@@ -127,6 +134,7 @@
             document.getElementById("capital").style.display = "none";
             document.getElementById("blog").style.display = "none";
             document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showCapital() {
@@ -138,6 +146,7 @@
             document.getElementById("capital").style.display = "block";
             document.getElementById("blog").style.display = "none";
             document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showBlog() {
@@ -147,8 +156,9 @@
             document.getElementById("cruise").style.display = "none";
             document.getElementById("sport").style.display = "none";
             document.getElementById("capital").style.display = "none";
-            document.getElementById("blog").style.display = "Block";
+            document.getElementById("blog").style.display = "block";
             document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "none";
         }
 
         function showAccount() {
@@ -160,8 +170,19 @@
             document.getElementById("capital").style.display = "none";
             document.getElementById("blog").style.display = "none";
             document.getElementById("account").style.display = "block";
+            document.getElementById("cart").style.display = "none";
         }
-
+        function show() {
+            document.getElementById("all").style.display = "none";
+            document.getElementById("hot").style.display = "none";
+            document.getElementById("offer").style.display = "none";
+            document.getElementById("cruise").style.display = "none";
+            document.getElementById("sport").style.display = "none";
+            document.getElementById("capital").style.display = "none";
+            document.getElementById("blog").style.display = "none";
+            document.getElementById("account").style.display = "none";
+            document.getElementById("cart").style.display = "block";
+        }
         $(document).ready(function() {
             // Send Search Text to the server
             $("#search").keyup(function() {
@@ -346,6 +367,7 @@
                             <li><a onclick="<?php echo 'showCapital();'; ?>">Capital Tour</a></li>
                             <li><a onclick="<?php echo 'showBlog();'; ?>">Our Latest Blogs</a></li>
                             <li><a onclick="<?php echo 'showAccount();'; ?>">Account</a></li>
+                            <li><a onclick="<?php echo 'show();'; ?>">Cart</a></li>
                             <li><a href="">Exit</a></li>
                         </ul>
                     </li>
@@ -379,6 +401,7 @@
                         <a class="list-group-item" onclick="<?php echo 'showCapital();'; ?>">Capital Tour</a>
                         <a class="list-group-item" onclick="<?php echo 'showBlog();'; ?>">Our Latest Blogs</a>
                         <a class="list-group-item" onclick="<?php echo 'showAccount();'; ?>">Account</a>
+                        <a class="list-group-item" onclick="<?php echo 'show();'; ?>">Cart</a>
                         <a class="list-group-item" href="">Exit</a>
                     </div>
                 </div>
@@ -1276,6 +1299,60 @@
                                         ";
                                     }
                                 }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-4" id="cart">
+                <div class="card-header py-3" data-toggle="modal">
+                    <button id="add_offer" class="btn btn-primary">Cart</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID ACCOUNT</th>
+                                    <th>ID TOUR</th>
+                                    <th>IMAGE</th>
+                                    <th>NAME</th>
+                                    <th>PRICE</th>
+                                    <th>STATUS</th>
+                                    <th>Set</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                            <?php
+                            $email=null;
+                            $link=new mysqli("localhost","root","","startravel");
+                               $queryquery = "select * from cart";
+                               $resultresult = mysqli_query($link, $queryquery);
+                               $queryquery2 = "select * from activity";
+                               $resultresult2 = mysqli_query($link, $queryquery2);
+                               while ($rowrow2 = mysqli_fetch_assoc($resultresult2)) {
+                                $email = $rowrow2['email'];
+                               }
+                               while ($rowrow = mysqli_fetch_assoc($resultresult)) {
+                                   $id_cart = $rowrow['id_cart'];
+                                   $id_account = $rowrow['id_account'];
+                                   $id_tour = $rowrow['id_tour'];
+                                   $image = $rowrow['image_tour'];
+                                   $name = $rowrow['name_tour'];
+                                   $price = $rowrow['price_tour'];
+                                   $status = $rowrow['status'];
+                                   echo $table = "<tr>
+                                            <td>$id_account</td>
+                                            <td>$id_tour</td>
+                                            <td><img src='images/$image' height='200' width='250' ></td>
+                                            <td>$name</td>
+                                            <td>$price</td>
+                                            <td>$status</td>
+                                            <td><a href='add_tour.php?id=$id_cart&id_account=$id_account' id='add' name='add' class='btn btn-success '   onclick='block()'>ADD</a></td>
+                                        </tr>
+                                        ";
+                                    }
                                 ?>
                             </tbody>
                         </table>
